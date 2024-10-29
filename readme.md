@@ -9,11 +9,11 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 
 | Membro                  | Utilizador         | Número de Aluno |
 |-------------------------|--------------------|-----------------|
-| **Francisco Fernandes** | x1cuu              | pv25396         |
-| **Marcelo Dias**        | WeakyStar0         | pv25408         |
-| **Mark Vicente**        | markfixe020        | pv25419         |
-| **Rúben Campos**        | Reueben            | pv25395         |
-| **Tomás Pereira**       | Tiriri420          | pv25410         |
+| **Francisco Fernandes** | [x1cuu](https://github.com/x1cuu)              | pv25396         |
+| **Marcelo Dias**        | [WeakyStar0](https://github.com/WeakyStar0)         | pv25408         |
+| **Mark Vicente**        | [markfixe020](https://github.com/markfixe020)        | pv25419         |
+| **Rúben Campos**        | [Reueben](https://github.com/Reueben)            | pv25395         |
+| **Tomás Pereira**       | [Tiriri420](https://github.com/Tiriri420)          | pv25410         |
 
 ---
 
