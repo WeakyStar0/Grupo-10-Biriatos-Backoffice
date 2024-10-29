@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <Helmet>
-        <title>ola</title>
+        <title>Viriatos Scouting App - Download App</title>
       </Helmet>
       <header className="App-header">
         <p>
