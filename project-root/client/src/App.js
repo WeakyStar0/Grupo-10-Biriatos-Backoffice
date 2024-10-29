@@ -1,18 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/navbar';
+import Footer from './components/footer';
 import { Helmet } from 'react-helmet';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Helmet>
-        <title>Viriatos Scouting App - Download App</title>
+        <title>Viriatos Scouting App</title>
       </Helmet>
-      <header className="App-header">
-        <p>
-          🤓 toue
-        </p>
-      </header>
+      
+      <Navbar />
+
+      <main>
+        <Outlet />
+      </main>
+
+      <Footer />
     </div>
   );
 }
