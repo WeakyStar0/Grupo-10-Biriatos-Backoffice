@@ -36,16 +36,22 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 
 ## Instruções para Execução
 
-```bash
+
 1. Clone este repositório:
+```bash
    git clone https://github.com/seu-usuario/Viriatos-Scouting.git
-
+```
 2. Navegue até a pasta do projeto:
+```bash
    cd Viriatos-Scouting
-
+```
 3. Instale as dependências do cliente e do servidor:
+```bash
    cd client && npm install
    cd ../server && npm install
+```
 
 4. Inicie o servidor e o cliente em terminais separados:
+```bash
    npm start
+```
