@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './Pages/Home';
-import Sobre from './Pages/Sobre';
+import { Home } from './Pages/Home.js';
+import Sobre from './Pages/Sobre.js';
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -26,7 +26,6 @@ const router = createBrowserRouter([
         path: 'about',
         element: <Sobre />,
       },
-      // other routes...
     ],
   },
 ]);

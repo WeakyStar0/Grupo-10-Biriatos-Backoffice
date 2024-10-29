@@ -1,0 +1,30 @@
+.home-container {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(83, 83, 83);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.1em;
+    margin: 5px 0;
+}

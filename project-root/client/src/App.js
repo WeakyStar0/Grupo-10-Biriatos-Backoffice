@@ -1,8 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from 'react-router-dom';
-import Navbar from './components/navbar';
-import Footer from './components/footer';
+import Navbar from '../src/Components/navbar';
+import Footer from '../src/Components/footer';
 import { Helmet } from 'react-helmet';
 
 const App = () => {
@@ -11,12 +12,10 @@ const App = () => {
       <Helmet>
         <title>Viriatos Scouting App</title>
       </Helmet>
-      
+
       <Navbar />
 
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
 
       <Footer />
     </div>
