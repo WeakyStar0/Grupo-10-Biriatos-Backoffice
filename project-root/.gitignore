@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+/node_modules
+/client/node_modules
+/server/node_modules
+
+# Environment variables
+.env
+
+# Build outputs
+/dist
+/build
+
+# Cache and temporary files
+.cache
+.tmp
+.DS_Store
+*.swp
+.vscode
+.idea/
+
+# React-specific files
+client/build
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+client/node_modules
+
+# MacOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
