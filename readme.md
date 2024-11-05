@@ -39,7 +39,7 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 
 1. Clone este repositório:
 ```bash
-   git clone https://github.com/seu-usuario/Viriatos-Scouting.git
+   git clone https://github.com/WeakyStar0/Grupo-10-Biriatos.git
 ```
 2. Navegue até a pasta do projeto:
 ```bash
