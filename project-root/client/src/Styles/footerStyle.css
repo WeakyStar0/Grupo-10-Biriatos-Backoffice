@@ -1,0 +1,12 @@
+.footer {
+    background-color: black !important;
+}
+
+.footer h5 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+}
+
+.footer-text {
+    text-decoration: none;
+}
