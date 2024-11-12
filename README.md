@@ -43,7 +43,7 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 ```
 2. Navegue até a pasta do projeto:
 ```bash
-   cd Viriatos-Scouting
+   cd project-root
 ```
 3. Instale as dependências do cliente e do servidor:
 ```bash
