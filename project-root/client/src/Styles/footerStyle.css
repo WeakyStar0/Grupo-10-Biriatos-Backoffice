@@ -1,5 +1,6 @@
 .footer {
     background-color: black !important;
+    min-height: 150px !important;
 }
 
 .footer h5 {

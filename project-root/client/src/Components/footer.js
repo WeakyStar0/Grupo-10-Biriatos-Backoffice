@@ -1,39 +1,39 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/footerStyle.css';
+import logo from '../img/LOGO Academico_Viseu_FC.svg';
 
 function Footer() {
     return (
         <footer className="footer bg-dark text-white py-4">
             <div className="container">
-                <div className="row">
+                <div className="d-flex justify-content-between align-items-center">
                     {/* Logo */}
-                    <div className="col-md-4 d-flex align-items-center">
-                        {/* Substitua pelo seu SVG logo */}
-                        <img src="/path/to/logo.svg" alt="Logo" style={{ width: '50px' }} />
+                    <div className="d-flex align-items-center">
+                        <img src={logo} alt="Logo" style={{ width: '150px' }} />
                     </div>
 
                     {/* Sobre nós */}
-                    <div className="col-md-4">
-                        <h5>Sobre nós</h5>
-                        <ul className="list-unstyled">
-                            <li><a href="#" className="footer-text text-white">Sobre Viriatos Scouting</a></li>
-                            <li><a href="#" className="footer-text text-white">Termos e Condições</a></li>
+                    <div>
+                        <h5 className='fs-5'>Sobre nós</h5>
+                        <ul className="list-unstyled mb-0">
+                            <li><a href="#" className="footer-text text-white fs-6">Sobre Viriatos Scouting</a></li>
+                            <li><a href="#" className="footer-text text-white fs-6">Termos e Condições</a></li>
                         </ul>
                     </div>
 
                     {/* Contactos */}
-                    <div className="col-md-4">
-                        <h5>Contactos</h5>
-                        <ul className="list-unstyled">
-                            <li>Telefone: <a href="tel:232423268" className="footer-text text-white">232 423 268</a></li>
-                            <li>Email: <a href="mailto:clube@academicodeviseu.pt" className="footer-text text-white">clube@academicodeviseu.pt</a></li>
+                    <div>
+                        <h5 className='fs-5'>Contactos</h5>
+                        <ul className="list-unstyled mb-0">
+                            <li>Telefone: <a href="tel:232423268" className="footer-text text-white fs-6">232 423 268</a></li>
+                            <li>Email: <a href="mailto:clube@academicodeviseu.pt" className="footer-text text-white fs-6">clube@academicodeviseu.pt</a></li>
                         </ul>
                     </div>
 
                     {/* Social */}
-                    <div className="col-md-4">
-                        <h5>Social</h5>
+                    <div>
+                        <h5 className='fs-5'>Social</h5>
                         <div className="d-flex">
                             <a href="#" className="text-white me-3">
                                 <img src="/path/to/facebook.svg" alt="Facebook" style={{ width: '24px' }} />
