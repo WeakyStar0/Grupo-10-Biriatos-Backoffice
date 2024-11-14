@@ -1,13 +1,37 @@
 .footer {
     background-color: black !important;
     min-height: 150px !important;
+    position: relative;
+    overflow: hidden;
 }
 
 .footer h5 {
     font-size: 1.1em;
     margin-bottom: 0.5em;
+    z-index: 3;
+}
+
+.footer-background-image {
+    position: absolute;
+    top: 80%;
+    left: 85%;
+    width: 30%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .footer-text {
     text-decoration: none;
+}
+
+.footer-anim {
+    transition: opacity 0.3s ease;
+}
+
+.footer-anim:hover {
+    opacity: 0.5;
 }
