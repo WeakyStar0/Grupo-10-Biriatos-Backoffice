@@ -14,7 +14,7 @@ function Footer() {
 
                 <div className="d-flex justify-content-between align-items-top" style={{ paddingTop: '10px' , width: '80%' }} >
                     {/* Logo */}
-                    <div className="d-flex align-items-center footer-anim">
+                    <div className="d-flex align-items-center">
                         <img src={logo} alt="Logo" style={{ width: '150px' }} />
                     </div>
 
