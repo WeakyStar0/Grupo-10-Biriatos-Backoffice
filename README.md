@@ -29,7 +29,7 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 
 - **Frontend**: React, React Router, Bootstrap para estilização
 - **Backend**: Node.js, Express, Axios para requisições HTTP
-- **Base de Dados**: Postgres
+- **Base de Dados**: MongoDB
 - **Ferramentas de Desenvolvimento**: Visual Studio Code, Git, GitHub para gestão de código e colaboração
 
 ---
