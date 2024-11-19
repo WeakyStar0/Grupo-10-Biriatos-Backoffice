@@ -1,12 +1,13 @@
 import React from 'react';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../src/Components/navbar';
 import Footer from '../src/Components/footer';
 import { Helmet } from 'react-helmet';
 
 const App = () => {
+  const location = useLocation(); // Get the current route
+
   return (
     <div className="App">
       <Helmet>
@@ -14,10 +15,9 @@ const App = () => {
       </Helmet>
 
       <Navbar />
+      <Outlet /> {/* Renders the page component based on the current route */}
 
-      <Outlet />
-
-      <Footer />
+      {location.pathname !== '/' && <Footer />} {/* Render Footer only if not on Home route */}
     </div>
   );
 }

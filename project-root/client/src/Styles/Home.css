@@ -1,8 +1,9 @@
 .home-container {
     padding: 20px;
     text-align: center;
-    background-color: rgb(83, 83, 83);
-    height: 90vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 h1 {
@@ -28,4 +29,19 @@ ul {
 li {
     font-size: 1.1em;
     margin: 5px 0;
+}
+
+.cachecol1 {
+    height: 30px;
+    background-color: black;
+    opacity: 1;
+}
+
+.cachecol-home1 {
+    z-index: -1;
+    position: absolute;
+    top: 30%;
+    left: -70%;
+    width: 175vw;
+    transform: rotate(55deg);
 }

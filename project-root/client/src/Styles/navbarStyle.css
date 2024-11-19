@@ -1,15 +1,9 @@
 .navbar {
     background-color: black !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    border-bottom: 5px solid white;
 }
-
-hr {
-    border: none;
-    margin: 0;
-}
-
-.hr-white {
-    height: 10px;
-    background-color: white;
-    margin: 0;
-}
-

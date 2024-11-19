@@ -13,12 +13,10 @@ function Footer() {
             <img src={logoBlack} alt="Background" className="footer-background-image" />
 
                 <div className="d-flex justify-content-between align-items-top" style={{ paddingTop: '10px' , width: '80%' }} >
-                    {/* Logo */}
                     <div className="d-flex align-items-center">
                         <img src={logo} alt="Logo" style={{ width: '150px' }} />
                     </div>
 
-                    {/* Sobre nós */}
                     <div>
                         <h5 className='fs-5'>Sobre nós</h5>
                         <ul className="list-unstyled mb-0">
@@ -27,7 +25,6 @@ function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contactos */}
                     <div>
                         <h5 className='fs-5'>Contactos</h5>
                         <ul className="list-unstyled mb-0">
@@ -36,7 +33,6 @@ function Footer() {
                         </ul>
                     </div>
 
-                    {/* Social */}
                     <div>
                         <h5 className='fs-5'>Redes Sociais</h5>
                         <div className="d-flex">

@@ -23,7 +23,6 @@ const Navbar = () => {
                     </ul>
                 </div>
             </nav>
-            <hr className="hr-white" />
         </div>
     );
 };
