@@ -8,8 +8,19 @@
     z-index: 1030;
     border-bottom: 1vh solid white;
     overflow: hidden;
+    padding: 0% !important;
 }
 
 .btn-navbar1 {
     font-size: 1vw;
+}
+
+.nav-link {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+}
+
+.nav-item {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
 }
