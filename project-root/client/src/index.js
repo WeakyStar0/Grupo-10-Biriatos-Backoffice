@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         path: 'about',
         element: <Sobre />,
       },
+      {
+        path: 'report',
+        element: <Sobre />,
+      },
     ],
   },
 ]);
