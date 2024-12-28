@@ -19,5 +19,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
+=======
+  "type": "commonjs",
+>>>>>>> 4e0b624858ef7761996e8027e08680f02c003a19
   "description": ""
 }

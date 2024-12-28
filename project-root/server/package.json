@@ -17,5 +17,6 @@
     "helmet": "^8.0.0",
     "mongoose": "^8.8.4"
   },
+  "type": "commonjs",
   "description": ""
 }
