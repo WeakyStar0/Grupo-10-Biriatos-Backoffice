@@ -8,7 +8,7 @@ export const Home = () => {
     return (
         <div className="home-container">
 
-            <div className=''><h className='home-tit'>Viriatos Scouting</h></div>
+            <div className=''><h className='home-tit'>Biriatos Scouting</h></div>
 
 
             <img className="cachecol-home1" src={cachecol} alt="cachecol" />
