@@ -7,6 +7,7 @@ import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './Pages/Home.js';
 import { ReportPage } from './Pages/ReportPage.js';
+import { TasksPage } from './Pages/Tasks.js';
 import Sobre from './Pages/Sobre.js';
 
 const api = axios.create({
@@ -31,6 +32,13 @@ const router = createBrowserRouter([
         path: 'report',
         element: <ReportPage />,
       },
+      {
+        path: 'tasks',
+        element: <TasksPage />,
+      },
+
+      //novo caminho
+      
     ],
   },
 ]);
