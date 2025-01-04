@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './Pages/Home.js';
 import { ReportPage } from './Pages/ReportPage.js';
 import Sobre from './Pages/Sobre.js';
+import { Panel } from './Pages/Panel.js';
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: 'report',
         element: <ReportPage />,
+      },
+      {
+        path: 'panel',
+        element: <Panel />,
       },
     ],
   },
