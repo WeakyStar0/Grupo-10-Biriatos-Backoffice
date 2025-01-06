@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         element: <Sobre />,
       },
       {
-        path: 'report',
-        element: <ReportPage />,
+        path: 'create-report',
+        element: <ReportPage />
       },
       {
         path: 'panel',
