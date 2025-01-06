@@ -6,7 +6,7 @@
     width: 100%;
     height: 10% !important;
     z-index: 1030;
-    border-bottom: 1vh solid white;
+    border-bottom: 1vh solid rgb(0, 0, 0);
     overflow: hidden;
     padding: 0% !important;
 }

@@ -29,6 +29,13 @@ export const Home = () => {
             >
                 CriarEquipas
             </button>
+            
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/tarefas')}
+            >
+                TAREFAS
+            </button>
         </div>
     );
 };
