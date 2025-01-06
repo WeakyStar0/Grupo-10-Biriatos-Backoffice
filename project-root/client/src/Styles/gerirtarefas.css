@@ -1,0 +1,73 @@
+.container {
+    padding: 80px 20px 20px; /* Added top padding to avoid overlap with the fixed header */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.scrollable-table {
+    max-height: 300px; /* Set the desired max height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-bottom: 20px; /* Space below the table */
+}
+
+.scrollable-table::-webkit-scrollbar {
+    width: 8px; /* Customize scrollbar width */
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background: #ccc; /* Customize scrollbar color */
+    border-radius: 4px;
+}
+
+.scrollable-table::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Darker color on hover */
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #444;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
