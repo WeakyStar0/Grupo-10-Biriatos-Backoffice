@@ -1,7 +1,10 @@
 import React from 'react';
 import '../Styles/Panel.css'; 
+import { useNavigate } from 'react-router-dom';
 
 export const Panel = () => {
+    const navigate = useNavigate(); // Hook do React Router para navegação
+
     return (
         <div className="panel-container">
             <div className="sidebar">
@@ -33,7 +36,12 @@ export const Panel = () => {
                         </div>
                         <div className="menu-buttons">
                             <button className="menu-item">Consultar equipas</button>
-                            <button className="menu-item">Criar equipa</button>
+                            <button 
+                            className="menu-item"
+                            onClick={() => navigate('/CriarEquipas')}
+                            >
+                            Criar equipa
+                            </button>
                         </div>
                     </div>
 
@@ -51,7 +59,12 @@ export const Panel = () => {
                             <img src="/task.svg" alt="Tarefas" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item">Gerir tarefas</button>
+                            <button 
+                                className="menu-item"
+                                onClick={() => navigate('/tarefas')} // Navega para a rota "/tarefas"
+                            >
+                                Gerir tarefas
+                            </button>
                         </div>
                     </div>
                 </div>
