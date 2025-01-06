@@ -10,6 +10,7 @@ import { ReportPage } from './Pages/ReportPage.js';
 import { TasksPage } from './Pages/Tasks.js';
 import Sobre from './Pages/Sobre.js';
 import { Panel } from './Pages/Panel.js';
+import { GerirTarefas } from './Pages/gerirtarefas.js'; 
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         element: <TasksPage />,
       },
     
+      {
+        path:'tarefas',
+        element: <GerirTarefas/>,
+      }
     ],
   },
 ]);
