@@ -8,7 +8,12 @@ export const GerirTarefas = () => {
         const tasks = [
             { name: 'Tarefa 1', assignedTo: 'User 41389', date: '5/11/2024' },
             { name: 'Tarefa 2', assignedTo: 'User 41389', date: '5/11/2024' },
-            { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' },
+            { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' }, 
+            { name: 'Tarefa 4', assignedTo: 'User 41389', date: '5/11/2024' },
+            { name: 'Tarefa 5', assignedTo: 'User 41389', date: '5/11/2024' }, 
+            { name: 'Tarefa 6', assignedTo: 'User 41389', date: '5/11/2024' },
+            { name: 'Tarefa 7', assignedTo: 'User 41389', date: '5/11/2024' }, 
+            
             // Add more tasks as needed
         ];
 
