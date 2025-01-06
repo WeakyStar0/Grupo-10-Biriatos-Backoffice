@@ -1,0 +1,158 @@
+.home-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.create-team-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.team-form {
+    display: flex;
+    gap: 20px;
+}
+
+.form-controls {
+    flex: 1;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.field-preview {
+    flex: 2;
+    position: relative;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.goal-area {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    width: 20%;
+    height: 10%;
+    border: 2px solid #000;
+    background-color: transparent;
+}
+
+.penalty-box {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+    border: 2px solid #000;
+    background-color: transparent;
+}
+
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15%;
+    height: 15%;
+    border: 2px solid #000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+}
+
+.half-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.player {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ffdf6b;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+}
+
+.player.gk {
+    background-color: #ffdf6b;
+}
+
+.player.df {
+    background-color: #4fc3f7;
+}
+
+.player.md {
+    background-color: #a5d6a7;
+}
+
+.player.fw {
+    background-color: #f06292;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.buttons .btn-danger {
+    background-color: #e57373;
+    border: none;
+    color: #fff;
+}
+
+.buttons .btn-success {
+    background-color: #81c784;
+    border: none;
+    color: #fff;
+}
