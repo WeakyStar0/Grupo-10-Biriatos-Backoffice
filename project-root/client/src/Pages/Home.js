@@ -13,15 +13,19 @@ export const Home = () => {
             <div>
                 <h1 className="home-tit">Biriatos Scouting</h1>
             </div>
-
             <img className="cachecol-home1" src={cachecol} alt="cachecol" />
             <img className="cachecol-home2" src={cachecol} alt="cachecol" />
-
             <button
                 className="btn btn-primary mt-4"
                 onClick={() => navigate('/panel')}
             >
                 FDS
+            </button>
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/CriarEquipas')}
+            >
+                CriarEquipas
             </button>
             <button
                 className="btn btn-primary mt-4"

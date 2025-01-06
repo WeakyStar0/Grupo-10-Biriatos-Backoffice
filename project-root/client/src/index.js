@@ -10,7 +10,9 @@ import { ReportPage } from './Pages/ReportPage.js';
 import { TasksPage } from './Pages/Tasks.js';
 import Sobre from './Pages/Sobre.js';
 import { Panel } from './Pages/Panel.js';
-import { GerirTarefas } from './Pages/gerirtarefas.js'; 
+import { CriarEquipas } from './Pages/CriarEquipas.js';
+import { GerirEquipas } from './Pages/GerirEquipas.js';
+import { GerirTarefas } from './Pages/gerirtarefas.js';
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -31,22 +33,28 @@ const router = createBrowserRouter([
         element: <Sobre />,
       },
       {
-        path: 'report',
-        element: <ReportPage />,
+        path: 'create-report',
+        element: <ReportPage />
       },
       {
         path: 'panel',
         element: <Panel />,
       },
-      
       {
         path: 'tasks',
         element: <TasksPage />,
       },
-    
       {
-        path:'tarefas',
-        element: <GerirTarefas/>,
+        path: 'CriarEquipas',
+        element: <CriarEquipas />,
+      },
+      {
+        path: 'GerirEquipas',
+        element: <GerirEquipas />,
+      },
+      {
+        path: 'tarefas',
+        element: <GerirTarefas />,
       }
     ],
   },
