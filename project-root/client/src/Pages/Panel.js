@@ -63,7 +63,7 @@ export const Panel = () => {
                 <div className="vertical-bar">
                     <div className="greeting">
                     <h3>Olá,</h3>
-                    <h3>Marcelo</h3>
+                    <h3>Marcexo</h3>
                     </div>
                 </div>
             </div>
