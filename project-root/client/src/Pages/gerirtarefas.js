@@ -16,24 +16,18 @@ export const GerirTarefas = () => {
             
             // Add more tasks as needed
         ];
-
         const atribuirNovaTarefa = () => {
             alert('Atribuir nova tarefa ainda não implementado.');
         };
-
         const voltar = () => {
             alert('Voltar à página anterior.');
         };
-
         return (
             <div className="home-container">
-
-
                 <header className="header">
                     <h1>Viriatos Scouting</h1>
                     <span>TAREFAS</span>
                 </header>
-
                 <div className="container">
                     <table>
                         <thead>
@@ -53,17 +47,13 @@ export const GerirTarefas = () => {
                             ))}
                         </tbody>
                     </table>
-
                     <div className="button-container">
                         <button className="button" onClick={atribuirNovaTarefa}>Atribuir nova tarefa</button>
                     </div>
                 </div>
-
                 <footer className="footer">
                     <button className="button" onClick={voltar}>Voltar</button>
                 </footer>
-
-
             </div>
         );
     };

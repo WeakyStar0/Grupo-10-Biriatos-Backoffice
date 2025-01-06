@@ -11,7 +11,6 @@ export const CriarEquipas = () => {
                 <header>
                     <h1>Criar equipa</h1>
                 </header>
-
                 <div className="team-form">
                     <div className="form-controls">
                         <div className="control-group">
@@ -19,7 +18,6 @@ export const CriarEquipas = () => {
                             <button className="btn btn-secondary">Própria</button>
                             <button className="btn btn-secondary">Sombra</button>
                         </div>
-
                         <div className="control-group">
                             <label>Nome da equipa:</label>
                             <input
@@ -28,7 +26,6 @@ export const CriarEquipas = () => {
                                 placeholder="Nome da equipa..."
                             />
                         </div>
-
                         <div className="control-group">
                             <label>Escolher escalão:</label>
                             <select className="form-select">
@@ -37,7 +34,6 @@ export const CriarEquipas = () => {
                                 <option value="Sub-19">Sub-19</option>
                             </select>
                         </div>
-
                         <div className="control-group">
                             <label>Escolher jogador:</label>
                             <select className="form-select">
@@ -56,23 +52,18 @@ export const CriarEquipas = () => {
                             <div className="penalty-box"></div>
                             <div className="center-circle"></div>
                             <div className="half-line"></div>
-
                             {/* Renderização dos jogadores */}
                             <div className="player gk" style={{ top: '80%', left: '45%' }}>1</div>
                             <div className="player gk" style={{ top: '75%', left: '55%' }}>2</div>
-
                             <div className="player df" style={{ top: '65%', left: '20%' }}>3</div>
                             <div className="player df" style={{ top: '65%', left: '35%' }}>4</div>
                             <div className="player df" style={{ top: '65%', left: '65%' }}>5</div>
                             <div className="player df" style={{ top: '65%', left: '80%' }}>6</div>
-
                             <div className="player md" style={{ top: '50%', left: '25%' }}>7</div>
                             <div className="player md" style={{ top: '50%', left: '50%' }}>8</div>
                             <div className="player md" style={{ top: '50%', left: '75%' }}>9</div>
-
                             <div className="player fw" style={{ top: '35%', left: '30%' }}>10</div>
                             <div className="player fw" style={{ top: '35%', left: '70%' }}>11</div>
-
                             <div className="player fw" style={{ top: '20%', left: '40%' }}>12</div>
                             <div className="player fw" style={{ top: '20%', left: '60%' }}>13</div>
                         </div>
