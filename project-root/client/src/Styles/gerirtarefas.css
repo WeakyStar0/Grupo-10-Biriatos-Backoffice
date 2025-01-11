@@ -1,5 +1,5 @@
 .container {
-    padding: 80px 20px 20px; /* Added top padding to avoid overlap with the fixed header */
+    padding: 80px 20px 20px; /* Espaço acima para evitar sobreposição com o cabeçalho */
 }
 
 table {
@@ -21,25 +21,6 @@ table th {
     background-color: #000;
     color: #fff;
     text-transform: uppercase;
-}
-
-.scrollable-table {
-    max-height: 300px; /* Set the desired max height for the scrollable area */
-    overflow-y: auto; /* Enable vertical scrolling */
-    margin-bottom: 20px; /* Space below the table */
-}
-
-.scrollable-table::-webkit-scrollbar {
-    width: 8px; /* Customize scrollbar width */
-}
-
-.scrollable-table::-webkit-scrollbar-thumb {
-    background: #ccc; /* Customize scrollbar color */
-    border-radius: 4px;
-}
-
-.scrollable-table::-webkit-scrollbar-thumb:hover {
-    background: #888; /* Darker color on hover */
 }
 
 .button-container {
@@ -71,3 +52,43 @@ table th {
     bottom: 0;
     width: 100%;
 }
+
+/* Estilos para os retângulos no topo */
+.header {
+    width: 105%;
+    height: 150px; /* Altura total dos retângulos */
+    margin-left: -2.5%; /* Margem negativa para centralizar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-rectangle {
+    width: 110%; /* Ultrapassa ligeiramente os lados */
+    margin-left: -5%; /* Margem negativa para centralizar */
+    height: 90%; /* Ajusta a altura */
+    background-color: white; /* Cor do segundo retângulo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.core-rectangle {
+    width: 105%; /* Ultrapassa ligeiramente os lados */
+    margin-left: 4%; /* Margem negativa para centralizar */
+    height: 80%; /* Ajusta a altura */
+    background-color: black; /* Cor do retângulo interno */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinha o texto na parte inferior */
+}
+
+.core-text {
+    color: #FFD201; /* Cor do texto */
+    font-size: 2.5rem; /* Tamanho do texto */
+    margin-bottom: 10px; /* Espaço entre o texto e o final do retângulo */
+    text-align: center;
+    font-family: 'Futura Std Bold', sans-serif; /* Adiciona a fonte personalizada */
+    font-weight: bold; /* Garante que o estilo seja bold */
+}
+
