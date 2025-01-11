@@ -15,7 +15,9 @@ import { Clubes } from './Pages/Clubes.js';
 import { CriarEquipas } from './Pages/CriarEquipas.js';
 import { GerirEquipas } from './Pages/GerirEquipas.js';
 import { GerirTarefas } from './Pages/gerirtarefas.js';
-import TarefaCriar from './Pages/TarefaCriar.js';
+import { AtribuirTarefa } from './Pages/atribuirtarefa.js';
+import TarefaCriar from './Pages/TarefaCriar.js'; 
+
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -70,6 +72,10 @@ const router = createBrowserRouter([
         path: 'tarefas',
         element: <GerirTarefas />,
       },
+     {
+        path: 'atribuirtarefa',
+        element: <AtribuirTarefa />,
+      }, 
       {
         path: 'task-create',
         element: <TarefaCriar />,
