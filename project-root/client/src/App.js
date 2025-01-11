@@ -18,7 +18,8 @@ const App = () => {
       <Navbar />
       <Outlet /> {/* Renders the page component based on the current route */}
 
-      {location.pathname !== '/' && <Footer />} {/* Render Footer only if not on Home route */}
+      {location.pathname !== '/' && location.pathname !== '/panel' && <Footer />}
+
     </div>
   );
 }

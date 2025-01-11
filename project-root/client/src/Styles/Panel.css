@@ -8,7 +8,7 @@
 
 /* Estilos da barra lateral */
 .sidebar {
-    width: 40%;
+    width: 45%;
     background-color: #ffffff;
     padding: 20px;
     color: white;
@@ -20,20 +20,34 @@
 
 /* Estilo do contêiner do logo */
 .logo {
-    margin-top: 90px;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente a imagem e o texto */
+    gap: 15px; /* Espaçamento entre a imagem e o texto */
+    margin-top: 110px;
     margin-bottom: 30px; /* Espaçamento abaixo do logo */
 }
 
+/* Estilo da imagem do logo */
+.logo-image {
+    width: 100px; /* Ajuste o tamanho da imagem */
+    height: 100px;
+    flex-shrink: 0; /* Impede que o logo seja redimensionado */
+}
+
+/* Estilo do texto do logo */
 .logo h1 {
     font-size: 36px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: -25px;
     color: #000000;
+    line-height: 0.2;
 }
 
 .logo h2 {
     font-size: 24px;
     color: #000000;
+    line-height: 0.2;
 }
 
 /* Menu dividido em seções */
@@ -45,14 +59,28 @@
 
 .menu-section {
     display: flex;
-    align-items: center;
-    background-color: #2e2e2e;
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    background-color: #000000;
     padding: 10px;
     border-radius: 8px;
     gap: 10px; /* Espaçamento entre ícone e botões */
+    width: 100%; /* Garante que a seção ocupe toda a largura */
+}
+
+/* Div para manter os botões centralizados */
+.menu-buttons {
+    display: flex;
+    justify-content: center; /* Centraliza os botões dentro dessa div */
+    flex: 1; /* Faz com que os botões ocupem o espaço restante */
+    gap: 10px; /* Espaçamento entre os botões */
 }
 
 /* Ícones de cada seção */
+.menu-icon {
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
 .menu-icon img {
     width: 40px;
     height: 40px;
@@ -60,18 +88,22 @@
 
 /* Botões dentro das seções */
 .menu-item {
-    background-color: #000000;
+    background-color: #2e2e2e;
     color: white;
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 16px 15px;
+    font-size: 25px;
+    font-family: 'Futura Std Book', sans-serif; /* Define a fonte Futura */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    min-width: 10px; /* Largura mínima para garantir um bom tamanho */
+    text-align: center;
 }
 
+
 .menu-item:hover {
-    background-color: #777;
+    background-color: #777777;
 }
 
 /* Contêiner das barras verticais */
@@ -81,6 +113,7 @@
     top: 0;
     height: 100vh;
     width: 33.33%;
+    z-index: 0;
 }
 
 /* Barra preta principal */
@@ -114,19 +147,21 @@
 
 /* Saudação */
 .greeting {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #ffffff;
+    text-align: right; /* Alinha o texto à direita */
+    color: #ffffff; /* Cor do texto */
+    margin-top: 150px;
+    margin-right: 40px;
 }
 
 .greeting h3 {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 70px; 
+    font-weight: bold; 
+    font-family: 'Futura Std Bold', sans-serif; 
     margin: 0;
+    line-height: 1.2; 
 }
+
+
 
 /* Conteúdo principal */
 .main-content {
@@ -139,22 +174,25 @@
 /* Botão de logout */
 .logout {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 80px;
     z-index: 10;
 }
 
 .logout button {
-    background-color: #ff4747;
-    color: white;
-    padding: 10px 20px;
+    background-color: transparent; /* Fundo transparente */
+    color: #e0cc13; /* Cor do texto cinza escuro */
+    padding: 10px 30px; /* Espaçamento interno */
     font-size: 16px;
-    border: none;
-    border-radius: 5px;
+    font-weight: bold; /* Texto em negrito */
+    border: 2px solid #e0cc13; /* Borda cinza escuro */
+    border-radius: 20px; /* Bordas arredondadas */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    text-transform: uppercase; /* Texto em letras maiúsculas */
 }
 
 .logout button:hover {
-    background-color: #d93c3c;
+    background-color: #e0cc13; /* Fundo cinza escuro ao passar o mouse */
+    color: #ffffff; /* Texto branco */
 }
