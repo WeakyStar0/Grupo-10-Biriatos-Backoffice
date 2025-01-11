@@ -1,5 +1,14 @@
+/* Ajuste do container para ocupar a altura da página */
 .container {
-    padding: 80px 20px 20px; /* Espaço acima para evitar sobreposição com o cabeçalho */
+    padding: 0px; /* Espaço nas laterais */
+    min-height: calc(100vh - 150px); /* Ocupa o restante da tela (subtrai a altura do cabeçalho) */
+}
+
+/* Container da tabela agora ocupa a altura total, com rolagem no conteúdo */
+.task-table-container {
+    margin-top: 10px;
+    max-height: calc(100vh - 250px); /* Tamanho ajustado para ocupar o espaço restante */
+    overflow-y: auto; /* Adiciona rolagem vertical */
 }
 
 table {
@@ -21,13 +30,27 @@ table th {
     background-color: #000;
     color: #fff;
     text-transform: uppercase;
+    position: sticky; /* Torna o cabeçalho fixo */
+    top: 0; /* Fixa os cabeçalhos no topo */
+    z-index: 1; /* Garante que os cabeçalhos fiquem acima do conteúdo */
+}
+
+/* Alternando cor de fundo das linhas da tabela */
+table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Cor cinza claro para as linhas pares */
+}
+
+table tr:nth-child(odd) {
+    background-color: #fff; /* Cor branca para as linhas ímpares */
 }
 
 .button-container {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
+    font-family: 'Futura Std Book', sans-serif; /* Adicionando a fonte Futura Std Book */
 }
+
 
 .button {
     background-color: #000;
@@ -41,16 +64,6 @@ table th {
 
 .button:hover {
     background-color: #444;
-}
-
-.footer {
-    text-align: center;
-    padding: 15px 0;
-    background-color: #000;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 /* Estilos para os retângulos no topo */
@@ -85,10 +98,9 @@ table th {
 
 .core-text {
     color: #FFD201; /* Cor do texto */
-    font-size: 2.5rem; /* Tamanho do texto */
+    font-size: 2rem; /* Tamanho do texto */
     margin-bottom: 10px; /* Espaço entre o texto e o final do retângulo */
     text-align: center;
     font-family: 'Futura Std Bold', sans-serif; /* Adiciona a fonte personalizada */
     font-weight: bold; /* Garante que o estilo seja bold */
 }
-

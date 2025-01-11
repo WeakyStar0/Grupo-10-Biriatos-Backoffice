@@ -18,8 +18,11 @@ const App = () => {
       <Navbar />
       <Outlet /> {/* Renders the page component based on the current route */}
 
-      {location.pathname !== '/' && location.pathname !== '/panel' && <Footer />}
-
+      {location.pathname !== '/' && 
+       location.pathname !== '/panel' && 
+       location.pathname !== '/tarefas' && ( /* Exclude the footer on '/gerirtarefas' */
+         <Footer />
+       )}
     </div>
   );
 }

@@ -13,7 +13,19 @@ export const GerirTarefas = () => {
         { name: 'Tarefa 5', assignedTo: 'User 41389', date: '5/11/2024' },
         { name: 'Tarefa 6', assignedTo: 'User 41389', date: '5/11/2024' },
         { name: 'Tarefa 7', assignedTo: 'User 41389', date: '5/11/2024' },
-        // Add more tasks as needed
+        { name: 'Tarefa 8', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 9', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 10', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 11', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 12', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
+        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
     ];
     const navigate = useNavigate();
     const toTask = () => {
@@ -34,33 +46,32 @@ export const GerirTarefas = () => {
             </div>
 
             <div className="container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Atribuído a</th>
-                            <th>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tasks.map((task, index) => (
-                            <tr key={index}>
-                                <td>{task.name}</td>
-                                <td>{task.assignedTo}</td>
-                                <td>{task.date}</td>
+                <div className="task-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Atribuído a</th>
+                                <th>Data</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {tasks.map((task, index) => (
+                                <tr key={index}>
+                                    <td>{task.name}</td>
+                                    <td>{task.assignedTo}</td>
+                                    <td>{task.date}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
                 <div className="button-container">
                     <button className="button" onClick={toTask}>
                         Atribuir nova tarefa
                     </button>
                 </div>
             </div>
-            <footer className="footer">
-                <button className="button" onClick={voltar}>Voltar</button>
-            </footer>
         </div>
     );
 };
