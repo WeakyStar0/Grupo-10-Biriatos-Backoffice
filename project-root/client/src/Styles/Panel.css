@@ -8,7 +8,7 @@
 
 /* Estilos da barra lateral */
 .sidebar {
-    width: 40%;
+    width: 45%;
     background-color: #ffffff;
     padding: 20px;
     color: white;
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center; /* Centraliza verticalmente a imagem e o texto */
     gap: 15px; /* Espaçamento entre a imagem e o texto */
-    margin-top: 75px;
+    margin-top: 110px;
     margin-bottom: 30px; /* Espaçamento abaixo do logo */
 }
 
@@ -61,7 +61,7 @@
     display: flex;
     align-items: center; /* Alinha os itens verticalmente no centro */
     justify-content: flex-start; /* Alinha os itens à esquerda */
-    background-color: #2e2e2e;
+    background-color: #000000;
     padding: 10px;
     border-radius: 8px;
     gap: 10px; /* Espaçamento entre ícone e botões */
@@ -88,20 +88,22 @@
 
 /* Botões dentro das seções */
 .menu-item {
-    background-color: #000000;
+    background-color: #2e2e2e;
     color: white;
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 16px 15px;
+    font-size: 25px;
+    font-family: 'Futura Std Book', sans-serif; /* Define a fonte Futura */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    min-width: 180px; /* Largura mínima para garantir um bom tamanho */
+    min-width: 10px; /* Largura mínima para garantir um bom tamanho */
     text-align: center;
 }
 
+
 .menu-item:hover {
-    background-color: #777;
+    background-color: #777777;
 }
 
 /* Contêiner das barras verticais */
@@ -111,6 +113,7 @@
     top: 0;
     height: 100vh;
     width: 33.33%;
+    z-index: 0;
 }
 
 /* Barra preta principal */
@@ -151,11 +154,13 @@
 }
 
 .greeting h3 {
-    font-size: 50px; /* Tamanho do texto */
-    font-weight: bold;
+    font-size: 70px; 
+    font-weight: bold; 
+    font-family: 'Futura Std Bold', sans-serif; 
     margin: 0;
-    line-height: 1.2; /* Espaçamento entre as linhas */
+    line-height: 1.2; 
 }
+
 
 
 /* Conteúdo principal */
@@ -169,8 +174,8 @@
 /* Botão de logout */
 .logout {
     position: absolute;
-    bottom: 20px;
-    right: 70px;
+    bottom: 30px;
+    right: 80px;
     z-index: 10;
 }
 

@@ -19,7 +19,7 @@ export const Home = () => {
                 className="btn btn-primary mt-4"
                 onClick={() => navigate('/panel')}
             >
-                FDS
+                sim
             </button>
             <button
                 className="btn btn-primary mt-4"
@@ -32,7 +32,21 @@ export const Home = () => {
                 onClick={() => navigate('/tarefas')}
             >
                 TAREFAS
-            </button> 
+            </button>
+
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/createplayer')}
+            >
+                Criar Jogador
+            </button>
+
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/clubes')}
+            >
+                Clubes
+            </button>
         </div>
     );
 };
