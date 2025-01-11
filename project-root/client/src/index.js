@@ -17,6 +17,7 @@ import { GerirEquipas } from './Pages/GerirEquipas.js';
 import { GerirTarefas } from './Pages/gerirtarefas.js';
 import { AtribuirTarefa } from './Pages/atribuirtarefa.js';
 import TarefaCriar from './Pages/TarefaCriar.js'; 
+import { ConsultarRelatorio } from './Pages/ConsultarRelatorio.js';
 
 
 const api = axios.create({
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: 'task-create',
         element: <TarefaCriar />,
+      },
+      {
+        path: 'consultar-relatorio',
+        element: <ConsultarRelatorio />,
       }
     ],
   },

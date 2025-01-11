@@ -31,9 +31,7 @@ export const GerirTarefas = () => {
     const toTask = () => {
         navigate('/task-create');
     };
-    const voltar = () => {
-        alert('Voltar à página anterior.');
-    };
+    
     return (
         <div className="home-container">
             {/* Retângulos no topo */}

@@ -20,7 +20,9 @@ const App = () => {
 
       {location.pathname !== '/' && 
        location.pathname !== '/panel' && 
-       location.pathname !== '/tarefas' && ( /* Exclude the footer on '/gerirtarefas' */
+       location.pathname !== '/tarefas' && 
+       location.pathname !== '/consultar-relatorio' &&
+       ( 
          <Footer />
        )}
     </div>

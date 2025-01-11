@@ -50,7 +50,12 @@ export const Panel = () => {
                             <img src="/report.svg" alt="Relatórios" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item">Consultar relatórios</button>
+                        <button 
+                            className="menu-item"
+                            onClick={() => navigate('/consultar-relatorio')}
+                            >
+                            Consultar Relatórios
+                            </button>
                         </div>
                     </div>
 
