@@ -1,23 +1,25 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/gerirtarefas.css'
 
 export const GerirTarefas = () => {
-     { 
+    {
         const tasks = [
             { name: 'Tarefa 1', assignedTo: 'User 41389', date: '5/11/2024' },
             { name: 'Tarefa 2', assignedTo: 'User 41389', date: '5/11/2024' },
-            { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' }, 
+            { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' },
             { name: 'Tarefa 4', assignedTo: 'User 41389', date: '5/11/2024' },
-            { name: 'Tarefa 5', assignedTo: 'User 41389', date: '5/11/2024' }, 
+            { name: 'Tarefa 5', assignedTo: 'User 41389', date: '5/11/2024' },
             { name: 'Tarefa 6', assignedTo: 'User 41389', date: '5/11/2024' },
-            { name: 'Tarefa 7', assignedTo: 'User 41389', date: '5/11/2024' }, 
-            
+            { name: 'Tarefa 7', assignedTo: 'User 41389', date: '5/11/2024' },
+
             // Add more tasks as needed
         ];
-        const atribuirNovaTarefa = () => {
-            alert('Atribuir nova tarefa ainda não implementado.');
+        const navigate = useNavigate();
+        const toTask = () => {
+            navigate('/task-create');
         };
         const voltar = () => {
             alert('Voltar à página anterior.');
@@ -48,7 +50,11 @@ export const GerirTarefas = () => {
                         </tbody>
                     </table>
                     <div className="button-container">
-                        <button className="button" onClick={atribuirNovaTarefa}>Atribuir nova tarefa</button>
+                        <button
+                            className="button"
+                            onClick={toTask}>
+                            Atribuir nova tarefa
+                        </button>
                     </div>
                 </div>
                 <footer className="footer">

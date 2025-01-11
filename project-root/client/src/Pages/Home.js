@@ -19,7 +19,7 @@ export const Home = () => {
                 className="btn btn-primary mt-4"
                 onClick={() => navigate('/panel')}
             >
-                FDS
+                sim
             </button>
             <button
                 className="btn btn-primary mt-4"
