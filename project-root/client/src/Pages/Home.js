@@ -32,7 +32,7 @@ export const Home = () => {
                 onClick={() => navigate('/tarefas')}
             >
                 TAREFAS
-            </button>
+            </button> 
         </div>
     );
 };
