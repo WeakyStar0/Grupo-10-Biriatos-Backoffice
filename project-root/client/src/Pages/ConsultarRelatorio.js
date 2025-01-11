@@ -6,34 +6,37 @@ import '../Styles/gerirtarefas.css';
 
 export const ConsultarRelatorio = () => {
     const tasks = [
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        { name: 'Tarefa 1', player: 'User 41389', sub: 'ola' , date: '5/11/2024' },
-        
-        
+        { id: 1, name: 'Relatório 1', player: 'User 41389', sub: 'ola', date: '5/11/2024' },
+        { id: 2, name: 'Relatório 2', player: 'User 41390', sub: 'ola', date: '6/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
+        { id: 3, name: 'Relatório 3', player: 'User 41391', sub: 'ola', date: '7/11/2024' },
     ];
+
     const navigate = useNavigate();
-    const toTask = () => {
-        navigate('/task-create');
-    };
+
     
+    const openReport = (id) => {
+        navigate(`/create-report`); 
+    };
+
     return (
         <div className="home-container">
             <div className="header">
@@ -55,8 +58,12 @@ export const ConsultarRelatorio = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {tasks.map((task, index) => (
-                                <tr key={index}>
+                            {tasks.map((task) => (
+                                <tr
+                                    key={task.id}
+                                    onClick={() => openReport(task.id)} 
+                                    style={{ cursor: 'pointer' }} 
+                                >
                                     <td>{task.name}</td>
                                     <td>{task.player}</td>
                                     <td>{task.sub}</td>
@@ -65,11 +72,6 @@ export const ConsultarRelatorio = () => {
                             ))}
                         </tbody>
                     </table>
-                </div>
-                <div className="button-container">
-                    <button className="button" onClick={toTask}>
-                        Criar novo relatorio
-                    </button>
                 </div>
             </div>
         </div>
