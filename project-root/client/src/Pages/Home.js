@@ -33,6 +33,20 @@ export const Home = () => {
             >
                 TAREFAS
             </button>
+
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/createplayer')}
+            >
+                Criar Jogador
+            </button>
+
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/clubes')}
+            >
+                Clubes
+            </button>
         </div>
     );
 };
