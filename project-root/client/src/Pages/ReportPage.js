@@ -13,6 +13,8 @@ export const ReportPage = () => {
         ratingFinal: null,
     });
 
+    const [playerRating, setPlayerRating] = useState(null);
+
     const handleSelect = (group, value) => {
         setRatings((prevRatings) => ({
             ...prevRatings,
@@ -20,16 +22,45 @@ export const ReportPage = () => {
         }));
     };
 
+    const handlePlayerRating = (value) => {
+        setPlayerRating(value);
+    };
+
+    const clearPlayerRating = () => {
+        setPlayerRating(null);
+    };
+
     return (
         <div className="report-page-container">
             <div className="header">
-                <h1>RELATÓRIO</h1>
-                <h2>Jogador 1</h2>
-                <div className="team-section">
-                    <h3>Equipa profissional</h3>
-                    <button className="btn btn-secondary">Voltar</button>
+                <div className="inner-rectangle">
+                    <div className="core-rectangle">
+                        <p className="core-text">RELATÓRIO DE JOGADOR 1</p>
+                        <div className="player-rating-container">
+                            <div className="options">
+                                {[1, 2, 3, 4, 5].map((value) => (
+                                    <button
+                                        key={value}
+                                        className={`btn ${playerRating === value ? 'btn-dark' : 'btn-light'}`}
+                                        onClick={() => handlePlayerRating(value)}
+                                    >
+                                        {value}
+                                    </button>
+                                ))}
+                            </div>
+                            <div className="player-rating-buttons">
+                                <button className="btn btn-success" onClick={() => alert(`Rating Aceito: ${playerRating}`)}>
+                                    Aceitar
+                                </button>
+                                <button className="btn btn-danger" onClick={clearPlayerRating}>
+                                    Apagar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div className="form-section">
                 <div className="rating-group">
                     <label>Técnica</label>
@@ -37,8 +68,7 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.tecnica === value ? 'btn-dark' : 'btn-light'
-                                    }`}
+                                className={`btn ${ratings.tecnica === value ? 'btn-dark' : 'btn-light'}`}
                                 onClick={() => handleSelect('tecnica', value)}
                             >
                                 {value}
@@ -52,8 +82,7 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.inteligencia === value ? 'btn-dark' : 'btn-light'
-                                    }`}
+                                className={`btn ${ratings.inteligencia === value ? 'btn-dark' : 'btn-light'}`}
                                 onClick={() => handleSelect('inteligencia', value)}
                             >
                                 {value}
@@ -67,8 +96,7 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.velocidade === value ? 'btn-dark' : 'btn-light'
-                                    }`}
+                                className={`btn ${ratings.velocidade === value ? 'btn-dark' : 'btn-light'}`}
                                 onClick={() => handleSelect('velocidade', value)}
                             >
                                 {value}
@@ -82,8 +110,7 @@ export const ReportPage = () => {
                         {['Alto', 'Médio', 'Baixo'].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.altura === value ? 'btn-dark' : 'btn-light'
-                                    }`}
+                                className={`btn ${ratings.altura === value ? 'btn-dark' : 'btn-light'}`}
                                 onClick={() => handleSelect('altura', value)}
                             >
                                 {value}
@@ -97,8 +124,7 @@ export const ReportPage = () => {
                         {['Ectomorfo', 'Mesomorfo', 'Endomorfo'].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.morfologia === value ? 'btn-dark' : 'btn-light'
-                                    }`}
+                                className={`btn ${ratings.morfologia === value ? 'btn-dark' : 'btn-light'}`}
                                 onClick={() => handleSelect('morfologia', value)}
                             >
                                 {value}
@@ -112,8 +138,7 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.ratingFinal === value ? 'btn-dark' : 'btn-light'
-                                    }`}
+                                className={`btn ${ratings.ratingFinal === value ? 'btn-dark' : 'btn-light'}`}
                                 onClick={() => handleSelect('ratingFinal', value)}
                             >
                                 {value}

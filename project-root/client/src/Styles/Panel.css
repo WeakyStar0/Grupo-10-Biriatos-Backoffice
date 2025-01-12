@@ -180,19 +180,19 @@
 }
 
 .logout button {
-    background-color: transparent; /* Fundo transparente */
-    color: #e0cc13; /* Cor do texto cinza escuro */
-    padding: 10px 30px; /* Espaçamento interno */
+    background-color: transparent; 
+    color: #e0cc13; 
+    padding: 10px 30px; 
     font-size: 16px;
-    font-weight: bold; /* Texto em negrito */
-    border: 2px solid #e0cc13; /* Borda cinza escuro */
-    border-radius: 20px; /* Bordas arredondadas */
+    font-weight: bold; 
+    border: 2px solid #e0cc13; 
+    border-radius: 20px; 
     cursor: pointer;
     transition: all 0.3s;
-    text-transform: uppercase; /* Texto em letras maiúsculas */
+    text-transform: uppercase; 
 }
 
 .logout button:hover {
-    background-color: #e0cc13; /* Fundo cinza escuro ao passar o mouse */
-    color: #ffffff; /* Texto branco */
+    background-color: #e0cc13; 
+    color: #ffffff; 
 }
