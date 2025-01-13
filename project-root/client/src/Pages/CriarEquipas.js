@@ -7,6 +7,7 @@ import '../Styles/CriarEquipas.css'
 export const CriarEquipas = () => {
     return (
         <div className="home-container">
+            <div style={{ height: '10vh' }}></div>
             <div className="create-team-page">
                 <header>
                     <h1>Criar equipa</h1>
