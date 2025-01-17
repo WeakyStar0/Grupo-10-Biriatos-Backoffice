@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './Pages/Home.js';
+
+import Test from './Pages/test.js';
+
 import { ReportPage } from './Pages/ReportPage.js';
 import { TasksPage } from './Pages/Tasks.js';
 import Sobre from './Pages/Sobre.js';
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: 'test',
+        element: <Test />,
       },
       {
         path: 'about',
