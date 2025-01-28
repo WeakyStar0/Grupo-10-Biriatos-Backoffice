@@ -8,6 +8,7 @@ import '../Styles/atribuirtarefas.css';
   return (
     <div className="assign-task-container">
       <header className="header">
+      <div style="height: 100px;"></div>
         <h1>Atribuir tarefa</h1>
       </header>
       <div className="content">
