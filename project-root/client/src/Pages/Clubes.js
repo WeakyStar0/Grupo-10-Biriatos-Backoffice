@@ -1,19 +1,8 @@
 // ClubsPage.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/Clubes.css';
-
-export const Clubes = () => {
-    return (
-        <div className="home-container">
-
-
-
-
-        </div>
-    );
-};
 
 const clubsData = [
   { name: 'Académico de Viseu', nextMatch: 'Académico de Viseu x FC Porto' },
@@ -24,13 +13,13 @@ const clubsData = [
   { name: 'Gil Vicente', nextMatch: 'Portimonense SC x Gil Vicente FC' },
   { name: 'FC Arouca', nextMatch: 'FC Vizela x FC Arouca' },
   { name: 'Boavista FC', nextMatch: 'Boavista FC x Vitória SC' },
-  { name: 'FC Famalicão', nextMatch: 'FC Famalicão x Estoril Praia' }
+  { name: 'FC Famalicão', nextMatch: 'FC Famalicão x Estoril Praia' },
 ];
 
-const ClubsPage = () => {
-  const [search, setSearch] = ('');
+const ClubesPage = () => {
+  const [search, setSearch] = useState('');
 
-  const filteredClubs = clubsData.filter(club =>
+  const filteredClubs = clubsData.filter((club) =>
     club.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -40,25 +29,34 @@ const ClubsPage = () => {
 
   return (
     <div className="clubs-container">
-      <button className="back-button" onClick={handleBack}>Voltar</button>
+      <button className="btn btn-primary back-button" onClick={handleBack}>
+        Voltar
+      </button>
       <h1 className="clubs-title">Clubes</h1>
       <input
         type="text"
-        placeholder="pesquisar clubes"
+        placeholder="Pesquisar clubes"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="search-bar"
+        className="form-control search-bar"
       />
-      <ul className="clubs-list">
-        {filteredClubs.map((club, index) => (
-          <li key={index} className="club-item">
-            <span>{club.name}</span>
-            <strong>Próximo jogo:</strong> {club.nextMatch}
+      <ul className="clubs-list list-group mt-3">
+        {filteredClubs.length > 0 ? (
+          filteredClubs.map((club, index) => (
+            <li key={index} className="list-group-item club-item">
+              <span className="club-name">{club.name}</span>
+              <br />
+              <strong>Próximo jogo:</strong> {club.nextMatch}
+            </li>
+          ))
+        ) : (
+          <li className="list-group-item text-muted">
+            Nenhum clube encontrado.
           </li>
-        ))}
+        )}
       </ul>
     </div>
   );
 };
 
-export default ClubsPage;
+export default ClubesPage;
