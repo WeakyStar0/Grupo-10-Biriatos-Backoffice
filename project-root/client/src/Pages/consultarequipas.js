@@ -21,7 +21,7 @@ export const ConsultarEquipas = () => {
 
     
     const openEquipa = (id) => {
-        navigate(`/consultar-equipa`);  
+        navigate(`/consultar-equipas`);  
     };
 
     return (
