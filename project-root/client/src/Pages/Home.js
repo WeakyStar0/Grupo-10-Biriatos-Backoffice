@@ -47,6 +47,12 @@ export const Home = () => {
             >
                 Clubes
             </button>
+            <button
+                className="btn btn-primary mt-4"
+                onClick={() => navigate('/consultar-equipas')}
+            >
+                CE
+            </button>
         </div>
     );
 };

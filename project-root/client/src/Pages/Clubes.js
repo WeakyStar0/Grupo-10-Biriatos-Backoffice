@@ -1,5 +1,5 @@
 // ClubsPage.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/Clubes.css';
@@ -28,7 +28,7 @@ const clubsData = [
 ];
 
 const ClubsPage = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = ('');
 
   const filteredClubs = clubsData.filter(club =>
     club.name.toLowerCase().includes(search.toLowerCase())
