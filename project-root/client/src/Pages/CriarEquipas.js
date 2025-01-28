@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/CriarEquipas.css'
+import CampoSvg from '../img/Campo.svg';
 
 
 export const CriarEquipas = () => {
@@ -48,25 +49,26 @@ export const CriarEquipas = () => {
                     </div>
                     <div className="field-preview">
                         <div className="field">
-                            {/* Linhas do campo */}
-                            <div className="goal-area"></div>
-                            <div className="penalty-box"></div>
-                            <div className="center-circle"></div>
-                            <div className="half-line"></div>
-                            {/* Renderização dos jogadores */}
-                            <div className="player gk" style={{ top: '80%', left: '45%' }}>1</div>
-                            <div className="player gk" style={{ top: '75%', left: '55%' }}>2</div>
-                            <div className="player df" style={{ top: '65%', left: '20%' }}>3</div>
-                            <div className="player df" style={{ top: '65%', left: '35%' }}>4</div>
-                            <div className="player df" style={{ top: '65%', left: '65%' }}>5</div>
-                            <div className="player df" style={{ top: '65%', left: '80%' }}>6</div>
-                            <div className="player md" style={{ top: '50%', left: '25%' }}>7</div>
-                            <div className="player md" style={{ top: '50%', left: '50%' }}>8</div>
-                            <div className="player md" style={{ top: '50%', left: '75%' }}>9</div>
-                            <div className="player fw" style={{ top: '35%', left: '30%' }}>10</div>
-                            <div className="player fw" style={{ top: '35%', left: '70%' }}>11</div>
-                            <div className="player fw" style={{ top: '20%', left: '40%' }}>12</div>
-                            <div className="player fw" style={{ top: '20%', left: '60%' }}>13</div>
+                        <img src={CampoSvg} alt="Campo de futebol" className="field-image" />
+                            <div className="players">
+                                <div className="player.1" style={{ top: '85%', left: '50%' }}>1</div>
+                                <div className="player.1" style={{ top: '85%', left: '40%' }}>2</div>
+                                <div className="player.2" style={{ top: '70%', left: '45%' }}>5</div>
+                                <div className="player.2" style={{ top: '70%', left: '35%' }}>4</div>
+                                <div className="player.2" style={{ top: '70%', left: '25%' }}>6</div>
+                                <div className="player.2" style={{ top: '70%', left: '15%' }}>7</div>
+                                <div className="player.2" style={{ top: '55%', left: '50%' }}>3</div>
+                                <div className="player3" style={{ top: '55%', left: '60%' }}>8</div>
+                                <div className="player3" style={{ top: '55%', left: '70%' }}>9</div>
+                                <div className="player3" style={{ top: '55%', left: '40%' }}>10</div>
+                                <div className="player3" style={{ top: '55%', left: '30%' }}>11</div>
+                                <div className="player3" style={{ top: '40%', left: '20%' }}>12</div>
+                                <div className="player4" style={{ top: '40%', left: '30%' }}>13</div>
+                                <div className="player4" style={{ top: '40%', left: '40%' }}>14</div>
+                                <div className="player4" style={{ top: '40%', left: '50%' }}>15</div>
+                                <div className="player4" style={{ top: '40%', left: '60%' }}>16</div>
+                                <div className="player4" style={{ top: '40%', left: '70%' }}>17</div>
+                            </div>
                         </div>
                         <div className="buttons">
                             <button className="btn btn-danger">Cancelar</button>
