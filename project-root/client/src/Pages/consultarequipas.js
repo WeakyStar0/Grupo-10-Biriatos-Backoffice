@@ -6,22 +6,8 @@ import '../Styles/gerirtarefas.css';
 
 export const ConsultarEquipas = () => {
     const Equipas = [
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        { id: 1, name: 'Relatório 1', Escalão: 'Sub', Submissor: 'Carlos Cunha' , Data: 2025},
-        
-        
+        { id: 1, name: 'Relatório 1', PróximoJogo: 'xx:xx ABEIRO X BISEU'}, 
+         
     ];
 
     const navigate = useNavigate();
@@ -36,7 +22,7 @@ export const ConsultarEquipas = () => {
             <div className="header">
                 <div className="inner-rectangle">
                     <div className="core-rectangle">
-                        <p className="core-text">EQUIPAS</p>
+                        <p className="core-text">CLUBES</p>
                     </div>
                 </div>
             </div>
@@ -46,9 +32,8 @@ export const ConsultarEquipas = () => {
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Escalão</th>
-                                <th>Submissor</th>
-                                <th>Data</th> 
+                                <th>Próximo Jogo</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -59,9 +44,8 @@ export const ConsultarEquipas = () => {
                                     style={{ cursor: 'pointer' }} 
                                 >
                                     <td>{Equipas.name}</td>
-                                    <td>{Equipas.Escalão}</td>
-                                    <td>{Equipas.Submissor}</td>
-                                    <td>{Equipas.Data}</td>
+                                    <td>{Equipas.PróximoJogo}</td>
+                                   
                                    
                                 </tr>
                             ))}
