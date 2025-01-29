@@ -9,7 +9,7 @@ export const Home = () => {
     const navigate = useNavigate(); // Hook para navegação
 
     return (
-        <div className="home-container">
+        <div className="home-container1">
             <div>
                 <h1 className="home-tit">Biriatos Scouting</h1>
             </div>
