@@ -22,6 +22,8 @@ import { AtribuirTarefa } from './Pages/atribuirtarefa.js';
 import TarefaCriar from './Pages/TarefaCriar.js'; 
 import { ConsultarRelatorio } from './Pages/ConsultarRelatorio.js';
 import { ConsultarEquipas } from './Pages/consultarequipas.js';
+import  Divisoes  from './Pages/divisoes.js'; 
+
 
 
 const api = axios.create({
@@ -96,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: 'consultar-equipas',
         element: <ConsultarEquipas />,
+      },
+      {
+        path: 'divisoes',
+        element: <Divisoes /> 
       }
     ],
   },

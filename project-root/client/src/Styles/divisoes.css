@@ -1,0 +1,91 @@
+/* ScoutingUI.css */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    color: white;
+  }
+  
+  .left-panel {
+    width: 50%;
+    background: white;
+    color: black;
+    padding: 24px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .logo {
+    width: 48px;
+    height: 48px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .title {
+    margin-left: 16px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    color: gray;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .menu {
+    font-size: 16px;
+  }
+  
+  .menu li {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .right-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .primary-button {
+    border: 2px solid white;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: black;
+    color: white;
+  }
+  
+  .secondary-button {
+    margin-top: 16px;
+    border: 1px solid gray;
+    padding: 8px 16px;
+    color: gray;
+    border-radius: 4px;
+    background: none;
+  }
