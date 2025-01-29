@@ -1,11 +1,30 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import '../Styles/CriarEquipas.css'
+import '../Styles/CriarEquipas.css';
 import CampoSvg from '../img/Campo.svg';
 
-
 export const CriarEquipas = () => {
+    const jogadores = [
+        { id: 1, top: '85%', left: '50%', role: 'gk' },
+        { id: 2, top: '85%', left: '40%', role: 'gk' },
+        { id: 5, top: '70%', left: '45%', role: 'df' },
+        { id: 4, top: '70%', left: '35%', role: 'df' },
+        { id: 6, top: '70%', left: '25%', role: 'df' },
+        { id: 7, top: '70%', left: '15%', role: 'df' },
+        { id: 3, top: '55%', left: '50%', role: 'md' },
+        { id: 8, top: '55%', left: '60%', role: 'md' },
+        { id: 9, top: '55%', left: '70%', role: 'md' },
+        { id: 10, top: '55%', left: '40%', role: 'md' },
+        { id: 11, top: '55%', left: '30%', role: 'md' },
+        { id: 12, top: '40%', left: '20%', role: 'fw' },
+        { id: 13, top: '40%', left: '30%', role: 'fw' },
+        { id: 14, top: '40%', left: '40%', role: 'fw' },
+        { id: 15, top: '40%', left: '50%', role: 'fw' },
+        { id: 16, top: '40%', left: '60%', role: 'fw' },
+        { id: 17, top: '40%', left: '70%', role: 'fw' }
+    ];
+
     return (
         <div className="home-container">
             <div style={{ height: '10vh' }}></div>
@@ -22,11 +41,7 @@ export const CriarEquipas = () => {
                         </div>
                         <div className="control-group">
                             <label>Nome da equipa:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Nome da equipa..."
-                            />
+                            <input type="text" className="form-control" placeholder="Nome da equipa..." />
                         </div>
                         <div className="control-group">
                             <label>Escolher escalão:</label>
@@ -48,33 +63,31 @@ export const CriarEquipas = () => {
                         </div>
                     </div>
                     <div className="field-preview">
-                        <div className="field">
-                        <img src={CampoSvg} alt="Campo de futebol" className="field-image" />
-                            <div className="players">
-                                <div className="player.1" style={{ top: '85%', left: '50%' }}>1</div>
-                                <div className="player.1" style={{ top: '85%', left: '40%' }}>2</div>
-                                <div className="player.2" style={{ top: '70%', left: '45%' }}>5</div>
-                                <div className="player.2" style={{ top: '70%', left: '35%' }}>4</div>
-                                <div className="player.2" style={{ top: '70%', left: '25%' }}>6</div>
-                                <div className="player.2" style={{ top: '70%', left: '15%' }}>7</div>
-                                <div className="player.2" style={{ top: '55%', left: '50%' }}>3</div>
-                                <div className="player3" style={{ top: '55%', left: '60%' }}>8</div>
-                                <div className="player3" style={{ top: '55%', left: '70%' }}>9</div>
-                                <div className="player3" style={{ top: '55%', left: '40%' }}>10</div>
-                                <div className="player3" style={{ top: '55%', left: '30%' }}>11</div>
-                                <div className="player3" style={{ top: '40%', left: '20%' }}>12</div>
-                                <div className="player4" style={{ top: '40%', left: '30%' }}>13</div>
-                                <div className="player4" style={{ top: '40%', left: '40%' }}>14</div>
-                                <div className="player4" style={{ top: '40%', left: '50%' }}>15</div>
-                                <div className="player4" style={{ top: '40%', left: '60%' }}>16</div>
-                                <div className="player4" style={{ top: '40%', left: '70%' }}>17</div>
-                            </div>
-                        </div>
-                        <div className="buttons">
-                            <button className="btn btn-danger">Cancelar</button>
-                            <button className="btn btn-success">Guardar</button>
+                        <div className="field-preview">
+                            <img src={CampoSvg} alt="Campo de futebol" className="field-image" />
+                            <div className="player gk" style={{ top: "80%", left: "50%" }}>1</div>
+                            <div className="player gk" style={{ top: "80%", left: "45%" }}>2</div>
+                            <div className="player df" style={{ top: "65%", left: "40%" }}>3</div>
+                            <div className="player df" style={{ top: "65%", left: "50%" }}>4</div>
+                            <div className="player df" style={{ top: "65%", left: "60%" }}>5</div>
+                            <div className="player df" style={{ top: "65%", left: "30%" }}>6</div>
+                            <div className="player df" style={{ top: "65%", left: "20%" }}>7</div>
+                            <div className="player md" style={{ top: "50%", left: "25%" }}>8</div>
+                            <div className="player md" style={{ top: "50%", left: "35%" }}>9</div>
+                            <div className="player md" style={{ top: "50%", left: "45%" }}>10</div>
+                            <div className="player md" style={{ top: "50%", left: "55%" }}>11</div>
+                            <div className="player fw" style={{ top: "35%", left: "30%" }}>12</div>
+                            <div className="player fw" style={{ top: "35%", left: "40%" }}>13</div>
+                            <div className="player fw" style={{ top: "35%", left: "50%" }}>14</div>
+                            <div className="player fw" style={{ top: "35%", left: "60%" }}>15</div>
+                            <div className="player fw" style={{ top: "35%", left: "70%" }}>16</div>
+                            <div className="player fw" style={{ top: "35%", left: "80%" }}>17</div>
                         </div>
                     </div>
+                </div>
+                <div className="buttons">
+                    <button className="btn btn-danger">Cancelar</button>
+                    <button className="btn btn-success">Guardar</button>
                 </div>
             </div>
         </div>
