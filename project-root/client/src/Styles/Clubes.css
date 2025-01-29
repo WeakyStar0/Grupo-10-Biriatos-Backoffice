@@ -27,12 +27,24 @@
   }
   
   .club-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Define 3 colunas: nome, "Próximo jogo:", e o próximo jogo */
+    align-items: center; /* Alinha tudo verticalmente ao centro */
     padding: 10px;
     border-bottom: 1px solid #444;
   }
-  
+
+  .club-name {
+    text-align: left; /* Alinha o nome do clube à esquerda */
+  }
+
+  .next-match {
+    text-align: center; /* Mantém "Próximo jogo:" centrado */
+  }
+
+  .match-details {
+    text-align: right; /* Alinha o próximo jogo à direita */
+  }
   .club-item strong {
     margin-left: 10px;
   }

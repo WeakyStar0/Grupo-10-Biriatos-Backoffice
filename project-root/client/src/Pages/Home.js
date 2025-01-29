@@ -36,7 +36,7 @@ export const Home = () => {
 
             <button
                 className="btn btn-primary mt-4"
-                onClick={() => navigate('/createplayer')}
+                onClick={() => navigate('/criarjogador')}
             >
                 Criar Jogador
             </button>

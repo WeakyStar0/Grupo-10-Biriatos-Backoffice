@@ -13,7 +13,7 @@ import { ReportPage } from './Pages/ReportPage.js';
 import { TasksPage } from './Pages/Tasks.js';
 import Sobre from './Pages/Sobre.js';
 import { Panel } from './Pages/Panel.js';
-import  CriarJogador  from './Pages/CriarJogador.js';
+import   CriarJogador  from './Pages/CriarJogador.js';
 import  Clubes  from './Pages/Clubes.js';
 import { CriarEquipas } from './Pages/CriarEquipas.js';
 import { GerirEquipas } from './Pages/GerirEquipas.js';
