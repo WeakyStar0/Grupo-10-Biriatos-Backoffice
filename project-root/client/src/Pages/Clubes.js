@@ -45,8 +45,8 @@ const ClubesPage = () => {
           filteredClubs.map((club, index) => (
             <li key={index} className="list-group-item club-item">
               <span className="club-name">{club.name}</span>
-              <br />
-              <strong>Próximo jogo:</strong> {club.nextMatch}
+              <span className="next-match"><strong>Próximo jogo:</strong></span>
+              <span className="match-details">{club.nextMatch}</span>
             </li>
           ))
         ) : (
