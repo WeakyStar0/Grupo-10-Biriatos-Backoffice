@@ -15,10 +15,10 @@ export const CriarEquipas = () => {
     ];
 
     const positions = {
-        gk: { top: '85%', leftStart: 45, step: 5 },
-        df: { top: '70%', leftStart: 30, step: 12 },
-        md: { top: '55%', leftStart: 28, step: 14 },
-        fw: { top: '40%', leftStart: 32, step: 13 }
+        gk: { top: '85%', leftStart: 37, step: 20 },
+        df: { top: '55%', leftStart: 23, step: 12 },
+        md: { top: '38%', leftStart: 23, step: 12 },
+        fw: { top: '20%', leftStart: 23, step: 12 }
     };
 
     return (
