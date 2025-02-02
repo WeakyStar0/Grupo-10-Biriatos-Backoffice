@@ -9,42 +9,25 @@ export const GerirTarefas = () => {
         { name: 'Tarefa 1', assignedTo: 'User 41389', date: '5/11/2024' },
         { name: 'Tarefa 2', assignedTo: 'User 41389', date: '5/11/2024' },
         { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 4', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 5', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 6', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 7', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 8', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 9', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 10', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 11', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 12', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 13', assignedTo: 'User 41389', date: '5/11/2024' },
     ];
+
     const navigate = useNavigate();
     const toTask = () => {
         navigate('/task-create');
     };
-    
+
     return (
-        <div className="home-container">
-            {/* Retângulos no topo */}
-            <div className="header">
-                <div className="inner-rectangle">
-                    <div className="core-rectangle">
-                        <p className="core-text">TAREFA</p>
+        <div className="page-container">
+            <div className="top-bar">
+                <div className="top-bar-background">
+                    <div className="top-bar-content">
+                        <p className="top-bar-title">TAREFA</p>
                     </div>
                 </div>
             </div>
 
-            <div className="container">
-                <div className="task-table-container">
+            <div className="content-container">
+                <div className="table-wrapper">
                     <table>
                         <thead>
                             <tr>
@@ -64,8 +47,8 @@ export const GerirTarefas = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="button-container">
-                    <button className="button" onClick={toTask}>
+                <div className="button-wrapper">
+                    <button className="primary-button" onClick={toTask}>
                         Atribuir nova tarefa
                     </button>
                 </div>

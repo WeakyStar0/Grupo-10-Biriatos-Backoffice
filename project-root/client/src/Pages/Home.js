@@ -1,58 +1,45 @@
 import React from 'react';
 import '../Styles/Home.css';
-import cachecol from '../img/cachecol.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
-    const navigate = useNavigate(); // Hook para navegação
+    const navigate = useNavigate(); 
 
     return (
-        <div className="home-container1">
-            <div>
-                <h1 className="home-tit">Biriatos Scouting</h1>
-            </div>
-            <img className="cachecol-home1" src={cachecol} alt="cachecol" />
-            <img className="cachecol-home2" src={cachecol} alt="cachecol" />
-            <button
-                className="btn btn-primary mt-4"
-                onClick={() => navigate('/panel')}
-            >
-                sim
-            </button>
-            <button
-                className="btn btn-primary mt-4"
-                onClick={() => navigate('/CriarEquipas')}
-            >
-                CriarEquipas
-            </button>
-            <button
-                className="btn btn-primary mt-4"
-                onClick={() => navigate('/tarefas')}
-            >
-                TAREFAS
-            </button>
-
-            <button
-                className="btn btn-primary mt-4"
-                onClick={() => navigate('/criarjogador')}
-            >
-                Criar Jogador
-            </button>
-
-            <button
-                className="btn btn-primary mt-4"
-                onClick={() => navigate('/clubes')}
-            >
-                Clubes
-            </button>
-            <button
-                className="btn btn-primary mt-4"
-                onClick={() => navigate('/consultar-equipas')}
-            >
-                CE
-            </button>
+        <div className="auth-container">
+          <div className="bg-elements">
+            <div className="bg-layer dark"></div>
+            <div className="bg-layer light"></div>
+            <div className="bg-layer dark-inner"></div>
+          </div>
+    
+         
+          <div className="auth-header">
+            <img src="/LOGO Academico_Viseu_FC_black.svg" alt="Logo" className="brand-logo" />
+            <h1 className="brand-title">Viriatos Scouting</h1>
+          </div>
+    
+          <div className="auth-content">
+            <h2 className="auth-title">LOGIN</h2>
+    
+            <form className="auth-form">
+              <div className="auth-group">
+                <label>EMAIL</label>
+                <input type="text" className="auth-input" />
+              </div>
+    
+              <div className="auth-group">
+                <label>PASSWORD</label>
+                <input type="password" className="auth-input" />
+              </div>
+    
+              <p className="terms-link">Termos e Condições</p>
+    
+              <button type="submit" className="auth-button">LOGIN</button>
+            </form>
+          </div>
         </div>
-    );
-};
+      );
+}

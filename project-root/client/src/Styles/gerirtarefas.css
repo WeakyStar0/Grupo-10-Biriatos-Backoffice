@@ -1,14 +1,14 @@
 /* Ajuste do container para ocupar a altura da página */
-.container {
-    padding: 0px; /* Espaço nas laterais */
-    min-height: calc(100vh - 150px); /* Ocupa o restante da tela (subtrai a altura do cabeçalho) */
+.content-container {
+    padding: 0px;
+    min-height: calc(100vh - 150px);
 }
 
-/* Container da tabela agora ocupa a altura total, com rolagem no conteúdo */
-.task-table-container {
+/* Container da tabela com rolagem no conteúdo */
+.table-wrapper {
     margin-top: 10px;
-    max-height: calc(100vh - 250px); /* Tamanho ajustado para ocupar o espaço restante */
-    overflow-y: auto; /* Adiciona rolagem vertical */
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
 }
 
 table {
@@ -30,29 +30,29 @@ table th {
     background-color: #000;
     color: #fff;
     text-transform: uppercase;
-    position: sticky; /* Torna o cabeçalho fixo */
-    top: 0; /* Fixa os cabeçalhos no topo */
-    z-index: 1; /* Garante que os cabeçalhos fiquem acima do conteúdo */
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 /* Alternando cor de fundo das linhas da tabela */
 table tr:nth-child(even) {
-    background-color: #f2f2f2; /* Cor cinza claro para as linhas pares */
+    background-color: #f2f2f2;
 }
 
 table tr:nth-child(odd) {
-    background-color: #fff; /* Cor branca para as linhas ímpares */
+    background-color: #fff;
 }
 
-.button-container {
+/* Botão estilizado */
+.button-wrapper {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
-    font-family: 'Futura Std Book', sans-serif; /* Adicionando a fonte Futura Std Book */
+    font-family: 'Futura Std Book', sans-serif;
 }
 
-
-.button {
+.primary-button {
     background-color: #000;
     color: #fff;
     padding: 10px 15px;
@@ -62,45 +62,46 @@ table tr:nth-child(odd) {
     transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.primary-button:hover {
     background-color: #444;
 }
 
 /* Estilos para os retângulos no topo */
-.header {
+.top-bar {
     width: 105%;
-    height: 150px; /* Altura total dos retângulos */
-    margin-left: -2.5%; /* Margem negativa para centralizar */
+    height: 150px;
+    margin-left: -2.5%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.inner-rectangle {
-    width: 110%; /* Ultrapassa ligeiramente os lados */
-    margin-left: -5%; /* Margem negativa para centralizar */
-    height: 90%; /* Ajusta a altura */
-    background-color: white; /* Cor do segundo retângulo */
+.top-bar-background {
+    width: 110%;
+    margin-left: -5%;
+    height: 90%;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.core-rectangle {
-    width: 105%; /* Ultrapassa ligeiramente os lados */
-    margin-left: 4%; /* Margem negativa para centralizar */
-    height: 80%; /* Ajusta a altura */
-    background-color: black; /* Cor do retângulo interno */
+.top-bar-content {
+    width: 105%;
+    margin-left: 4%;
+    height: 80%;
+    background-color: black;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinha o texto na parte inferior */
+    align-items: flex-end;
 }
 
-.core-text {
-    color: #FFD201; /* Cor do texto */
-    font-size: 2rem; /* Tamanho do texto */
-    margin-bottom: 10px; /* Espaço entre o texto e o final do retângulo */
+.top-bar-title {
+    color: #FFD201;
+    font-size: 2rem;
+    margin-bottom: 38px;
     text-align: center;
-    font-family: 'Futura Std Bold', sans-serif; /* Adiciona a fonte personalizada */
-    font-weight: bold; /* Garante que o estilo seja bold */
+    font-family: 'Futura Std Bold', sans-serif;
+    font-weight: bold;
+    z-index: 99999999;
 }
