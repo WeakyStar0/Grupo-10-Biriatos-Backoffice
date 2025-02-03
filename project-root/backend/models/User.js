@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
   userId: { type: Number, required: true, unique: true },
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }, // Adicione este campo
+  password: { type: String, required: true },
   role: { type: String, enum: ['Administrador', 'Utilizador', 'Outro'], required: true },
 });
 

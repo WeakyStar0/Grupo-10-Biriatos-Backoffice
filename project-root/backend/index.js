@@ -2,11 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 
 const app = express();
 
 // Middleware para parsing JSON
 app.use(bodyParser.json());
+app.use(cors());
 
 // Conexão ao MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/scouting_database', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -22,7 +24,7 @@ const userSchema = new mongoose.Schema({
   userId: { type: Number, required: true, unique: true },
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }, // Adicione este campo
+  password: { type: String, required: true },
   role: { type: String, enum: ['Administrador', 'Utilizador', 'Outro'], required: true },
 });
 
@@ -102,9 +104,12 @@ app.post('/users', async (req, res) => {
   try {
       const { userId, fullName, email, password, role } = req.body;
 
+      console.log('Dados recebidos:', { userId, fullName, email, password, role }); // Log para depuração
+
       // Verifica se o email já está em uso
       const existingUser = await User.findOne({ email });
       if (existingUser) {
+          console.log('Email já está em uso:', email); // Log para depuração
           return res.status(400).json({ error: 'Email já está em uso.' });
       }
 
@@ -116,14 +121,15 @@ app.post('/users', async (req, res) => {
           userId,
           fullName,
           email,
-          password: hashedPassword, // Salva a senha criptografada
+          password: hashedPassword,
           role,
       });
 
       await user.save();
+      console.log('Usuário criado com sucesso:', user); // Log para depuração
       res.status(201).json({ message: 'Usuário criado com sucesso!', user });
   } catch (error) {
-      console.error('Erro ao criar usuário:', error);
+      console.error('Erro ao criar usuário:', error); // Log detalhado do erro
       res.status(500).json({ error: 'Erro ao criar usuário', details: error.message });
   }
 });

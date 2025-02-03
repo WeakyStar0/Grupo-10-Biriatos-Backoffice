@@ -10,25 +10,27 @@ export const CriarUtilizador = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         // Captura os dados do formulário
         const fullName = event.target.fullName.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const role = event.target.role.value;
-
+    
         // Gera um userId único (pode ser substituído por uma lógica mais robusta)
         const userId = Date.now();
-
+    
         // Dados a serem enviados para o backend
         const userData = {
             userId,
             fullName,
             email,
-            password, // Nota: Em um cenário real, a senha deve ser criptografada antes de ser enviada.
+            password,
             role,
         };
-
+    
+        console.log('Dados enviados:', userData); // Adicione este log
+    
         try {
             // Envia os dados para o backend
             const response = await fetch('http://localhost:3000/users', {
@@ -38,7 +40,7 @@ export const CriarUtilizador = () => {
                 },
                 body: JSON.stringify(userData),
             });
-
+    
             if (response.ok) {
                 alert('Usuário criado com sucesso!');
                 navigate('/'); // Redireciona para a página inicial ou outra página
