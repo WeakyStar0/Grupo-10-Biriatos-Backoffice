@@ -22,6 +22,7 @@ const App = () => {
        location.pathname !== '/panel' && 
        location.pathname !== '/tarefas' && 
        location.pathname !== '/consultar-relatorio' &&
+       location.pathname !== '/criarutilizador' &&
        ( 
          <Footer />
        )}

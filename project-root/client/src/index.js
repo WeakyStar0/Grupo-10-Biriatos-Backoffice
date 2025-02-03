@@ -23,6 +23,7 @@ import TarefaCriar from './Pages/TarefaCriar.js';
 import { ConsultarRelatorio } from './Pages/ConsultarRelatorio.js';
 import { ConsultarEquipas } from './Pages/consultarequipas.js';
 import  Divisoes  from './Pages/divisoes.js'; 
+import  CriarUtilizador from './Pages/CriarUtilizador.js'; 
 
 
 
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: 'divisoes',
         element: <Divisoes /> 
+      },
+      {
+        path: 'criarutilizador',
+        element: <CriarUtilizador /> 
       }
     ],
   },
