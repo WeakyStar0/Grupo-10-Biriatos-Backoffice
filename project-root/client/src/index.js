@@ -61,30 +61,27 @@ const router = createBrowserRouter([
         path: 'tasks',
         element: <TasksPage />,
       },
-
       {
         path: 'criarjogador',
         element: <CriarJogador />,
       },
-
       {
         path: 'clubes',
         element: <Clubes />,
       },
-    
       {
         path: 'CriarEquipas',
         element: <CriarEquipas />,
       },
       {
-        path: 'GerirEquipas',
-        element: <GerirEquipas />,
+        path: 'consultarequipas',
+        element: <ConsultarEquipas />,
       },
       {
         path: 'tarefas',
         element: <GerirTarefas />,
       },
-     {
+      {
         path: 'atribuirtarefa',
         element: <AtribuirTarefa />,
       }, 

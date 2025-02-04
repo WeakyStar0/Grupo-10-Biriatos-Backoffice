@@ -11,14 +11,11 @@ export const ConsultarEquipas = () => {
         
         
     ];
-
     const navigate = useNavigate();
-
     
     const openEquipa = (id) => {
         navigate(`/consultar-equipa`);  
     };
-
     return (
         <div className="home-container">
             <div className="header">
