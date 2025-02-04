@@ -11,8 +11,8 @@ const Navbar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <button className="btn-navbar-logo" onClick={() => navigate('/panel')} style={{ background: 'none', border: 'none', padding: 0 }}>
-                    <img src={logo} alt="Logo" style={{ width: '4%' }} />
+                <button className="btn-navbar-logo" onClick={() => navigate('/panel')} style={{ background: 'none', border: 'none'}}>
+                    <img className="navbar-logo" src={logo} alt="navbar-logo" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto btn-navbar1">

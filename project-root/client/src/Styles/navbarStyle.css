@@ -11,6 +11,16 @@
     padding: 0% !important;
 }
 
+.btn-navbar-logo {
+    height: 8vh;
+    max-height: 75px;
+}
+
+.navbar-logo {
+    height: 8vh;
+    max-height: 75px;
+}
+
 .btn-navbar1 {
     font-size: 1vw;
 }

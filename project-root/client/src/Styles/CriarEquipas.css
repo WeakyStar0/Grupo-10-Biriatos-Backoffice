@@ -96,6 +96,11 @@ header h1 {
     font-size: 1.2vw;
     color: #000;
     border: 2px solid #000;
+    transition: transform 0.3s ease; /* Adiciona a transição suave */
+}
+
+.player:hover {
+    transform: scale(1.2); /* Aumenta o tamanho em 10% */
 }
 
 .gk {
