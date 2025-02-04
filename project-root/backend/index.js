@@ -102,44 +102,47 @@ app.get('/', (req, res) => {
 // CRUD para usuários
 app.post('/users', async (req, res) => {
   try {
-      const { userId, fullName, email, password, role } = req.body;
+    const { fullName, email, password, role } = req.body;
 
-      console.log('Dados recebidos:', { userId, fullName, email, password, role }); // Log para depuração
+    // Verifica se o email já está em uso
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      console.log('Email já cadastrado:', email);
+      return res.status(400).json({ error: 'Email já está em uso.' });
+    }
 
-      // Verifica se o email já está em uso
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-          console.log('Email já está em uso:', email); // Log para depuração
-          return res.status(400).json({ error: 'Email já está em uso.' });
-      }
+    // Gera um novo userId baseado no último ID salvo
+    const lastUser = await User.findOne().sort('-userId');
+    const newUserId = lastUser ? lastUser.userId + 1 : 1;
 
-      // Criptografa a senha
-      const hashedPassword = await bcrypt.hash(password, 10);
+    // Hash da senha
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Cria o novo usuário
-      const user = new User({
-          userId,
-          fullName,
-          email,
-          password: hashedPassword,
-          role,
-      });
+    // Criação do usuário
+    const user = new User({
+      userId: newUserId,
+      fullName,
+      email,
+      password: hashedPassword,
+      role,
+    });
 
-      await user.save();
-      console.log('Usuário criado com sucesso:', user); // Log para depuração
-      res.status(201).json({ message: 'Usuário criado com sucesso!', user });
+    await user.save();
+    console.log('Usuário criado com sucesso:', user);
+    res.status(201).json({ message: 'Usuário criado com sucesso!', user });
   } catch (error) {
-      console.error('Erro ao criar usuário:', error); // Log detalhado do erro
-      res.status(500).json({ error: 'Erro ao criar usuário', details: error.message });
+    console.error('Erro ao criar usuário:', error);
+    res.status(500).json({ error: 'Erro ao criar usuário', details: error.message });
   }
 });
+
 
 app.get('/users', async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).send(users);
+    res.status(200).json(users);
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ error: 'Erro ao buscar usuários.' });
   }
 });
 
