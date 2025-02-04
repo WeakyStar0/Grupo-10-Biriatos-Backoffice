@@ -56,7 +56,7 @@ export const CriarUtilizador = () => {
             <div className="container flex-center bg-white relative">
                 <form className="form-container" onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <label htmlFor="fullName" className="input-label">Nome Completo</label>
+                        <label htmlFor="fullName" className="input-label">Nome</label>
                         <input className="input-field" type="text" id="fullName" name="fullName" required />
                     </div>
                     <div className="input-group">
