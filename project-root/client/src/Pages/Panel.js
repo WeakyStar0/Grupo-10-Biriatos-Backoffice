@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Panel.css';
+import logo from '../img/LOGO Academico_Viseu_FC.svg';
 import { useNavigate } from 'react-router-dom';
 
 export const Panel = () => {
@@ -8,13 +9,10 @@ export const Panel = () => {
     return (
         <div className="panel-container">
             <div className="sidebar">
-                <div className="logo">
-                    <img
-                        src="/LOGO Academico_Viseu_FC_black.svg"
-                        alt="Académico Viseu Logo"
-                        className="logo-image"
-                    />
-                    <div className="logo-text">
+                <div style={{ height: '100px' }}></div>
+                <div className="logo-top">
+                    <img className="logo-top-image" src={logo} alt="Logo" />
+                    <div className="logo-top-text">
                         <h1>Viriatos Scouting</h1>
                         <h2>ADMIN PANEL</h2>
                     </div>
