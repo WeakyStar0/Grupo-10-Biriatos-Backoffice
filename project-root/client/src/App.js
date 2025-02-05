@@ -21,15 +21,16 @@ const App = () => {
       <Outlet /> {/* Renderiza a página conforme a rota */}
 
       {/* Renderiza o Footer somente nas rotas permitidas */}
-      {location.pathname !== '/' && 
-       location.pathname !== '/panel' && 
-       location.pathname !== '/tarefas' && 
-       location.pathname !== '/consultar-relatorio' &&
-       location.pathname !== '/criarutilizador' &&
-       location.pathname !== '/perfildejogador' &&
-       ( 
-         <Footer />
-       )}
+      {location.pathname !== '/' &&
+        location.pathname !== '/panel' &&
+        location.pathname !== '/tarefas' &&
+        location.pathname !== '/consultar-relatorio' &&
+        location.pathname !== '/criarutilizador' &&
+        location.pathname !== '/perfildejogador' &&
+        location.pathname !== '/lista-jogadores' &&
+        (
+          <Footer />
+        )}
     </div>
   );
 }
