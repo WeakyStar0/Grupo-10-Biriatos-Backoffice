@@ -16,7 +16,6 @@ import { Panel } from './Pages/Panel.js';
 import CriarJogador from './Pages/CriarJogador.js';
 import Clubes from './Pages/Clubes.js';
 import { CriarEquipas } from './Pages/CriarEquipas.js';
-import { GerirEquipas } from './Pages/GerirEquipas.js';
 import { GerirTarefas } from './Pages/gerirtarefas.js';
 import { AtribuirTarefa } from './Pages/atribuirtarefa.js';
 import TarefaCriar from './Pages/TarefaCriar.js';
@@ -114,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: 'perfildejogador',
         element: <PerfildeJogador />
+      },
+      {
+        path: 'divisoes/:clubName',
+        element: <Divisoes />
       }
     ],
   },

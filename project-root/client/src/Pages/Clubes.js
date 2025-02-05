@@ -1,5 +1,5 @@
-// ClubsPage.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/Clubes.css';
@@ -18,6 +18,7 @@ const clubsData = [
 
 const ClubesPage = () => {
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   const filteredClubs = clubsData.filter((club) =>
     club.name.toLowerCase().includes(search.toLowerCase())
@@ -25,6 +26,10 @@ const ClubesPage = () => {
 
   const handleBack = () => {
     window.history.back();
+  };
+
+  const goToDivisions = (clubName) => {
+    navigate(`/divisoes/${encodeURIComponent(clubName)}`);
   };
 
   return (
@@ -43,7 +48,12 @@ const ClubesPage = () => {
       <ul className="clubs-list list-group mt-3">
         {filteredClubs.length > 0 ? (
           filteredClubs.map((club, index) => (
-            <li key={index} className="list-group-item club-item">
+            <li
+              key={index}
+              className="list-group-item club-item"
+              onClick={() => goToDivisions(club.name)}
+              style={{ cursor: 'pointer' }}
+            >
               <span className="club-name">{club.name}</span>
               <span className="next-match"><strong>Próximo jogo:</strong></span>
               <span className="match-details">{club.nextMatch}</span>
