@@ -130,3 +130,10 @@
 .secondary-button:hover {
   background: #222;
 }
+
+.vertical-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
