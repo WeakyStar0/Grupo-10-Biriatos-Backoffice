@@ -1,92 +1,132 @@
-/* ScoutingUI.css */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Layout principal */
 .container {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    background: black;
-    color: white;
-  }
-  
-  .left-panel {
-    width: 50%;
-    background: white;
-    color: black;
-    padding: 24px;
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-  
-  .logo {
-    width: 48px;
-    height: 48px;
-    border: 2px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  .title {
-    margin-left: 16px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .subtitle {
-    color: gray;
-  }
-  
-  .section-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
-  .menu {
-    font-size: 16px;
-  }
-  
-  .menu li {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-  }
-  
-  .highlight {
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .right-panel {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-  }
-  
-  .primary-button {
-    border: 2px solid white;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
-    background: black;
-    color: white;
-  }
-  
-  .secondary-button {
-    margin-top: 16px;
-    border: 1px solid gray;
-    padding: 8px 16px;
-    color: gray;
-    border-radius: 4px;
-    background: none;
-  }
+  display: flex;
+  height: 100vh;
+  background-color: black;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Painel Esquerdo */
+.left-panel {
+  width: 70%;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título com logo */
+.logo-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+/* Lista de jogadores */
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.menu-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 12px;
+  text-align: left;
+  font-size: 18px;
+  cursor: pointer;
+  border-bottom: 2px solid black;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-button span {
+  font-size: 20px;
+}
+
+.menu-button:hover {
+  background-color: #f0f0f0;
+}
+
+.highlighted {
+  font-weight: bold;
+}
+
+/* Painel Direito */
+.right-panel {
+  width: 30%;
+  background: black;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+/* Botões */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+.primary-button,
+.secondary-button {
+  width: 80%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  background: black;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Botão principal */
+.primary-button {
+  background: white;
+  color: black;
+}
+
+.primary-button:hover {
+  background: #ddd;
+}
+
+/* Botão secundário */
+.secondary-button {
+  background: black;
+}
+
+.secondary-button:hover {
+  background: #222;
+}
