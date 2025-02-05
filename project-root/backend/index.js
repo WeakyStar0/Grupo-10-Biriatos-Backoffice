@@ -99,7 +99,7 @@ app.get('/', (req, res) => {
   res.send('API funcionando!');
 });
 
-// CRUD para usuários
+// CRUD para utilizadors
 app.post('/users', async (req, res) => {
   try {
     const { fullName, email, password, role } = req.body;
@@ -107,7 +107,7 @@ app.post('/users', async (req, res) => {
     // Verifica se o email já está em uso
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      console.log('Email já cadastrado:', email);
+      console.log('Email já existe:', email);
       return res.status(400).json({ error: 'Email já está em uso.' });
     }
 
@@ -118,7 +118,7 @@ app.post('/users', async (req, res) => {
     // Hash da senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Criação do usuário
+    // Criação do utilizador
     const user = new User({
       userId: newUserId,
       fullName,
@@ -128,11 +128,11 @@ app.post('/users', async (req, res) => {
     });
 
     await user.save();
-    console.log('Usuário criado com sucesso:', user);
-    res.status(201).json({ message: 'Usuário criado com sucesso!', user });
+    console.log('utilizador criado com sucesso:', user);
+    res.status(201).json({ message: 'utilizador criado com sucesso!', user });
   } catch (error) {
-    console.error('Erro ao criar usuário:', error);
-    res.status(500).json({ error: 'Erro ao criar usuário', details: error.message });
+    console.error('Erro ao criar utilizador:', error);
+    res.status(500).json({ error: 'Erro ao criar utilizador', details: error.message });
   }
 });
 
@@ -142,7 +142,7 @@ app.get('/users', async (req, res) => {
     const users = await User.find();
     res.status(200).json(users);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao buscar usuários.' });
+    res.status(500).json({ error: 'Erro ao buscar utilizador.' });
   }
 });
 
