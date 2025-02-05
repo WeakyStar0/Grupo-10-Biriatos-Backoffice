@@ -1,5 +1,5 @@
 import React from 'react';
-import './JogadoresPage.css';
+import '../Styles/JogadoresPage.css';
 import { useNavigate } from 'react-router-dom';
 
 const jogadores = [
