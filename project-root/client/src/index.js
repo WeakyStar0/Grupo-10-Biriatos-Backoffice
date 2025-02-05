@@ -24,6 +24,7 @@ import { ConsultarRelatorio } from './Pages/ConsultarRelatorio.js';
 import { ConsultarEquipas } from './Pages/consultarequipas.js';
 import  Divisoes  from './Pages/divisoes.js'; 
 import  CriarUtilizador from './Pages/CriarUtilizador.js'; 
+import  PerfildeJogador from './Pages/perfildejogador.js'; 
 
 
 
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
       {
         path: 'criarutilizador',
         element: <CriarUtilizador /> 
+      },
+      {
+        path: 'perfildejogador',
+        element: <PerfildeJogador /> 
       }
     ],
   },
