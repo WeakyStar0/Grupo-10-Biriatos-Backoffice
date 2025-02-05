@@ -2,35 +2,39 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import logo from '../img/LOGO Academico_Viseu_FC.svg';
 import '../Styles/divisoes.css';
 
-export default function Divisoes() {
+export default function TeamSections() {
   const { clubName } = useParams(); // Captura o nome do clube da URL
   const navigate = useNavigate(); // Para voltar atrás
   return (
-    <div className="container">
+    <div className="divisoes-main-container">
       {/* Painel Esquerdo */}
-      <div className="left-panel">
-        <div className="logo-title">
-          <img src="logo.png" alt="Logo" className="logo" />
-          <h1>Viriatos Scouting</h1>
+      <div className="sidebar-panel">
+        <div className="header-container">
+          <img className="logo-top-image" src={logo} alt="Logo" />
+          <div className="jogadores-header">
+            <div className="logo-top-text">
+              <h1>Viriatos Scouting</h1>
+              <h2>DIVISÕES</h2>
+            </div>
+          </div>
         </div>
-        <h3 className="sub-title">JOGADORES - {clubName}</h3>
-        <div className="menu">
-          <button className="menu-button">Equipa profissional</button>
-          <button className="menu-button">Sub-23</button>
-          <button className="menu-button highlighted">Sub-19 <span>&gt;</span></button>
-          <button className="menu-button">Formação Masculino <span>&gt;</span></button>
-          <button className="menu-button">Formação Feminino <span>&gt;</span></button>
+        <h3 className="section-title">DIVISÕES - {clubName}</h3>
+        <div className="navigation-menu">
+          <button className="navigation-button">Equipa profissional</button>
+          <button className="navigation-button">Sub-23</button>
+          <button className="navigation-button selected">Sub-19 <span>&gt;</span></button>
+          <button className="navigation-button">Formação Masculino <span>&gt;</span></button>
+          <button className="navigation-button">Formação Feminino <span>&gt;</span></button>
         </div>
       </div>
       {/* Painel Direito */}
-      <div className="vertical-bars">
-        <div className="vertical-bar-3"></div>
-        <div className="vertical-bar-2"></div>
-        <div className="vertical-bar">
-          <button className="primary-button">Novos jogadores</button>
-          <button className="secondary-button" onClick={() => navigate(-1)}>Voltar</button>
+      <div className="right-section">
+        <div className="button-group">
+          <button className="add-player-button">Novos jogadores</button>
+          <button className="back-button" onClick={() => navigate(-1)}>Voltar</button>
         </div>
       </div>
     </div>
