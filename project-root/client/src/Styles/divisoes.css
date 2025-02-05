@@ -7,16 +7,17 @@
 }
 
 /* Layout principal */
-.container {
+.divisoes-main-container {
   display: flex;
   height: 100vh;
   background-color: black;
+  margin-top: 5vh;
   padding: 20px;
   gap: 20px;
 }
 
 /* Painel Esquerdo */
-.left-panel {
+.sidebar-panel {
   width: 70%;
   background-color: white;
   padding: 40px;
@@ -27,7 +28,7 @@
 }
 
 /* Título com logo */
-.logo-title {
+.header-container {
   font-size: 30px;
   font-weight: 700;
   color: black;
@@ -36,20 +37,20 @@
   gap: 15px;
 }
 
-.logo {
+.team-logo {
   width: 50px;
   height: auto;
 }
 
 /* Lista de jogadores */
-.menu {
+.navigation-menu {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
   gap: 15px;
 }
 
-.menu-button {
+.navigation-button {
   background-color: white;
   color: black;
   border: none;
@@ -64,20 +65,20 @@
   align-items: center;
 }
 
-.menu-button span {
+.navigation-button span {
   font-size: 20px;
 }
 
-.menu-button:hover {
+.navigation-button:hover {
   background-color: #f0f0f0;
 }
 
-.highlighted {
+.selected {
   font-weight: bold;
 }
 
 /* Painel Direito */
-.right-panel {
+.right-section {
   width: 30%;
   background: black;
   padding: 40px;
@@ -89,7 +90,7 @@
 }
 
 /* Botões */
-.button-container {
+.button-group {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -97,8 +98,8 @@
   align-items: center;
 }
 
-.primary-button,
-.secondary-button {
+.add-player-button,
+.back-button {
   width: 80%;
   padding: 12px;
   font-size: 18px;
@@ -113,20 +114,20 @@
 }
 
 /* Botão principal */
-.primary-button {
+.add-player-button {
   background: white;
   color: black;
 }
 
-.primary-button:hover {
+.add-player-button:hover {
   background: #ddd;
 }
 
 /* Botão secundário */
-.secondary-button {
+.back-button {
   background: black;
 }
 
-.secondary-button:hover {
+.back-button:hover {
   background: #222;
 }
