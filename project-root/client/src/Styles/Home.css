@@ -1,49 +1,134 @@
-.home-container {
-    text-align: center;
-    height: 100vh;
-    position: relative;
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Futura-std', sans-serif;
+    background: white;
     overflow: hidden;
 }
 
-p {
-    font-size: 1.2em;
+.auth-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    background: white;
+}
+
+.bg-elements .bg-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.bg-elements .dark {
+    width: 200%;
+    height: 108%;
+    background: black;
+}
+
+.bg-elements .light {
+    width: 190%;
+    height: 98%;
+    background: white;
+}
+
+.bg-elements .dark-inner {
+    width: 180%;
+    height: 88%;
+    background: black;
+}
+
+.auth-header {
+    position: absolute;
+    top: 95px; 
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    height: 100px;
+    margin-right: 10px;
+}
+
+.brand-title {
+    font-size: 55px;
+    font-weight: 900; 
+    font-family: 'Futura', sans-serif;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke: 1px rgb(255, 255, 255); 
+    letter-spacing: -4.3px; 
+}
+
+.auth-content {
+    position: relative;
+    z-index: 10;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-top: 0px; 
+}
+
+.auth-title {
+    font-size: 90px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-group label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.terms-link {
+    font-size: 12px;
     margin: 10px 0;
+    color: white;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.auth-button {
+    background: black;
+    color: white;
+    padding: 12px;
+    border-color: hsl(0, 0%, 100%);
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-li {
-    font-size: 1.1em;
-    margin: 5px 0;
+.auth-button:hover {
+    background: #333;
 }
 
-.cachecol1 {
-    height: 30px;
-    background-color: black;
-    opacity: 1;
-}
+@media (max-width: 768px) {
+    .auth-header {
+        top: 50px; 
+        left: 10px;
+    }
 
-.cachecol-home1 {
-    z-index: -1;
-    position: absolute;
-    top: 30%;
-    left: -85%;
-    width: 175vw;
-    transform: rotate(55deg);
-}
-
-.cachecol-home2 {
-    z-index: -1;
-    position: absolute;
-    top: 30%;
-    right: -85%;
-    width: 175vw;
-    transform: rotate(-55deg);
-}
-
-.home-tit {
-    font-size: 5vh;
+    .brand-title {
+        font-size: 24px;
+    }
 }

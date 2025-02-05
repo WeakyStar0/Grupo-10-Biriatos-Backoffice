@@ -3,12 +3,13 @@
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1",
+    "project-root": "file:",
     "react": "^19.0.0",
-    "react-bootstrap": "^2.10.7",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "concurrently": "^9.1.1"
+    "concurrently": "^9.1.2"
   },
   "name": "project-root",
   "version": "1.0.0",

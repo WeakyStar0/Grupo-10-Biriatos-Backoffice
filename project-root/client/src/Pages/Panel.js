@@ -1,5 +1,6 @@
 import React from 'react';
-import '../Styles/Panel.css'; 
+import '../Styles/Panel.css';
+import logo from '../img/LOGO Academico_Viseu_FC.svg';
 import { useNavigate } from 'react-router-dom';
 
 export const Panel = () => {
@@ -8,13 +9,10 @@ export const Panel = () => {
     return (
         <div className="panel-container">
             <div className="sidebar">
-                <div className="logo">
-                    <img 
-                        src="/LOGO Academico_Viseu_FC_black.svg" 
-                        alt="Académico Viseu Logo" 
-                        className="logo-image" 
-                    />
-                    <div className="logo-text">
+                <div style={{ height: '100px' }}></div>
+                <div className="logo-top">
+                    <img className="logo-top-image" src={logo} alt="Logo" />
+                    <div className="logo-top-text">
                         <h1>Viriatos Scouting</h1>
                         <h2>ADMIN PANEL</h2>
                     </div>
@@ -25,70 +23,62 @@ export const Panel = () => {
                             <img src="/person.svg" alt="Jogadores" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item">Consultar jogadores</button>
-                            <button className="menu-item">Criar jogador</button>
+                            <button className="menu-item" onClick={() => navigate('/clubes')}>
+                                Consultar jogadores
+                            </button>
+                            <button className="menu-item" onClick={() => navigate('/criarjogador')}>
+                                Criar jogador
+                            </button>
                         </div>
                     </div>
-
                     <div className="menu-section">
                         <div className="menu-icon">
                             <img src="/group.svg" alt="Equipas" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item">Consultar equipas</button>
-                            <button 
-                            className="menu-item"
-                            onClick={() => navigate('/CriarEquipas')}
-                            >
-                            Criar equipa
+                            <button className="menu-item" onClick={() => navigate('/consultarequipas')}>
+                                Consultar equipas
+                            </button>
+                            <button className="menu-item" onClick={() => navigate('/CriarEquipas')}>
+                                Criar equipa
                             </button>
                         </div>
                     </div>
-
                     <div className="menu-section">
                         <div className="menu-icon">
                             <img src="/report.svg" alt="Relatórios" />
                         </div>
                         <div className="menu-buttons">
-                        <button 
-                            className="menu-item"
-                            onClick={() => navigate('/consultar-relatorio')}
-                            >
-                            Consultar Relatórios
+                            <button className="menu-item" onClick={() => navigate('/consultar-relatorio')}>
+                                Consultar Relatórios
                             </button>
                         </div>
                     </div>
-
                     <div className="menu-section">
                         <div className="menu-icon">
                             <img src="/task.svg" alt="Tarefas" />
                         </div>
                         <div className="menu-buttons">
-                            <button 
-                                className="menu-item"
-                                onClick={() => navigate('/tarefas')} // Navega para a rota "/tarefas"
-                            >
+                            <button className="menu-item" onClick={() => navigate('/tarefas')}>
                                 Gerir tarefas
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div className="vertical-bars">
                 <div className="vertical-bar-3"></div>
                 <div className="vertical-bar-2"></div>
                 <div className="vertical-bar">
                     <div className="greeting">
-                    <h3>Olá,</h3>
-                    <h3>Marcelo</h3>
+                        <h3>Olá,</h3>
+                        <h3>Marcelo</h3>
                     </div>
                 </div>
             </div>
-
             <div className="main-content"></div>
             <div className="logout">
-                <button>LOGOUT</button>
+                <button onClick={() => navigate('/')}>LOGOUT</button>
             </div>
         </div>
     );
