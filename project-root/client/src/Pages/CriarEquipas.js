@@ -88,7 +88,7 @@ export const CriarEquipas = () => {
             }
         } catch (error) {
             console.error('Erro ao criar equipe:', error);
-            alert('Erro ao criar equipe. Tente novamente.');
+            alert('Erro ao criar equipa. Tente novamente.');
         }
     };
 
