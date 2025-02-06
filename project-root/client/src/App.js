@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <Helmet>
-        <title>Viriatos Scouting App</title>
+        <title>Viriatos Scouting</title>
       </Helmet>
       {/* Renderiza a Navbar somente se não estiver na página de login */}
       {location.pathname !== '/' && <Navbar />}
