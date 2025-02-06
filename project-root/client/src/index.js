@@ -10,14 +10,12 @@ import { Home } from './Pages/Home.js';
 import Test from './Pages/test.js';
 
 import { ReportPage } from './Pages/ReportPage.js';
-import { TasksPage } from './Pages/Tasks.js';
 import Sobre from './Pages/Sobre.js';
 import { Panel } from './Pages/Panel.js';
 import CriarJogador from './Pages/CriarJogador.js';
 import Clubes from './Pages/Clubes.js';
 import { CriarEquipas } from './Pages/CriarEquipas.js';
 import { GerirTarefas } from './Pages/gerirtarefas.js';
-import { AtribuirTarefa } from './Pages/atribuirtarefa.js';
 import TarefaCriar from './Pages/TarefaCriar.js';
 import { ConsultarRelatorio } from './Pages/ConsultarRelatorio.js';
 import { ConsultarEquipas } from './Pages/consultarequipas.js';
@@ -60,10 +58,6 @@ const router = createBrowserRouter([
         element: <Panel />,
       },
       {
-        path: 'tasks',
-        element: <TasksPage />,
-      },
-      {
         path: 'criarjogador',
         element: <CriarJogador />,
       },
@@ -72,40 +66,8 @@ const router = createBrowserRouter([
         element: <Clubes />,
       },
       {
-        path: 'CriarEquipas',
-        element: <CriarEquipas />,
-      },
-      {
-        path: 'consultarequipas',
-        element: <ConsultarEquipas />,
-      },
-      {
-        path: 'tarefas',
-        element: <GerirTarefas />,
-      },
-      {
-        path: 'atribuirtarefa',
-        element: <AtribuirTarefa />,
-      },
-      {
-        path: 'task-create',
-        element: <TarefaCriar />,
-      },
-      {
-        path: 'consultar-relatorio',
-        element: <ConsultarRelatorio />,
-      },
-      {
-        path: 'consultar-equipas',
-        element: <ConsultarEquipas />,
-      },
-      {
-        path: 'divisoes',
+        path: 'divisoes/:clubName',
         element: <Divisoes />
-      },
-      {
-        path: 'criarutilizador',
-        element: <CriarUtilizador />
       },
       {
         path: "lista-jogadores",
@@ -116,8 +78,28 @@ const router = createBrowserRouter([
         element: <PerfildeJogador />
       },
       {
-        path: 'divisoes/:clubName',
-        element: <Divisoes />
+        path: 'CriarEquipas',
+        element: <CriarEquipas />,
+      },
+      {
+        path: 'consultarequipas',
+        element: <ConsultarEquipas />,
+      },
+      {
+        path: 'consultar-relatorio',
+        element: <ConsultarRelatorio />,
+      },
+      {
+        path: 'tarefas',
+        element: <GerirTarefas />,
+      },
+      {
+        path: 'task-create',
+        element: <TarefaCriar />,
+      },
+      {
+        path: 'criarutilizador',
+        element: <CriarUtilizador />
       },
       {
         path: 'report-page/:reportId',
