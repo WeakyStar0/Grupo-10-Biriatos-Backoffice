@@ -119,7 +119,6 @@ export const CriarEquipas = () => {
         md: { top: '38%', leftStart: 23, step: 12 },
         fw: { top: '20%', leftStart: 23, step: 12 }
     };
-
     return (
         <div className="home-container">
             <div className="top-bar">

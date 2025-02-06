@@ -67,7 +67,6 @@ export const GerirTarefas = () => {
                     </div>
                 </div>
             </div>
-
             <div className="content-container">
                 <div className="table-wrapper">
                     <table>

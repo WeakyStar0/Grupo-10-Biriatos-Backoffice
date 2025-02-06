@@ -5,33 +5,29 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/Clubes.css';
 
 const clubsData = [
-  { name: 'Académico de Viseu'},
-  { name: 'Sporting CP'},
-  { name: 'FC Porto'},
-  { name: 'Sporting de Braga'},
-  { name: 'Vitória de Guimarães'},
-  { name: 'Gil Vicente'},
-  { name: 'FC Arouca'},
-  { name: 'Boavista FC'},
-  { name: 'FC Famalicão'},
+  { name: 'Académico de Viseu' },
+  { name: 'Sporting CP' },
+  { name: 'FC Porto' },
+  { name: 'Sporting de Braga' },
+  { name: 'Vitória de Guimarães' },
+  { name: 'Gil Vicente' },
+  { name: 'FC Arouca' },
+  { name: 'Boavista FC' },
+  { name: 'FC Famalicão' },
 ];
 
 const ClubesPage = () => {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
-
   const filteredClubs = clubsData.filter((club) =>
     club.name.toLowerCase().includes(search.toLowerCase())
   );
-
   const handleBack = () => {
     window.history.back();
   };
-
   const goToDivisions = (clubName) => {
     navigate(`/divisoes/${encodeURIComponent(clubName)}`);
   };
-
   return (
     <div className="clubs-container">
       <h1 className="clubs-title">Clubes</h1>

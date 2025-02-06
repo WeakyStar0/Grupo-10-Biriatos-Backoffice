@@ -10,14 +10,12 @@ export const ReportPage = () => {
     const [report, setReport] = useState(null);
     const [athleteName, setAthleteName] = useState('');
     const [playerRating, setPlayerRating] = useState(null);
-
     useEffect(() => {
         const fetchReport = async () => {
             try {
                 // Busca o relatório pelo ID
                 const reportResponse = await axios.get(`http://localhost:3000/reports/${reportId}`);
                 setReport(reportResponse.data);
-
                 // Busca o nome do atleta usando o athleteId do relatório
                 const athleteResponse = await axios.get(`http://localhost:3000/athletes/${reportResponse.data.athleteId}`);
                 setAthleteName(athleteResponse.data.fullName);
@@ -25,18 +23,14 @@ export const ReportPage = () => {
                 console.error('Erro ao buscar relatório ou atleta:', error);
             }
         };
-
         fetchReport();
     }, [reportId]);
-
     const handlePlayerRating = (value) => {
         setPlayerRating(value);
     };
-
     const clearPlayerRating = () => {
         setPlayerRating(null);
     };
-
     // Função para traduzir a altura de inglês para português
     const translateHeight = (height) => {
         switch (height) {
@@ -50,7 +44,6 @@ export const ReportPage = () => {
                 return height;
         }
     };
-
     // Função para traduzir a morfologia de inglês para português
     const translateMorphology = (morphology) => {
         switch (morphology) {
@@ -64,11 +57,9 @@ export const ReportPage = () => {
                 return morphology;
         }
     };
-
     if (!report) {
         return <div>Carregando..</div>;
     }
-
     return (
         <div className="report-page-container">
             <div className="header">
@@ -99,7 +90,6 @@ export const ReportPage = () => {
                     </div>
                 </div>
             </div>
-
             <div className="form-section">
                 <div className="rating-group">
                     <label>Técnica</label>
