@@ -43,7 +43,7 @@ body, html {
 
 .auth-header {
     position: absolute;
-    top: 95px; 
+    top: 10px; 
     left: 20px;
     display: flex;
     align-items: center;
@@ -55,7 +55,7 @@ body, html {
 }
 
 .brand-title {
-    font-size: 55px;
+    font-size: 65px;
     font-weight: 900; 
     font-family: 'Futura', sans-serif;
     color: rgb(0, 0, 0);
@@ -124,7 +124,7 @@ body, html {
 
 @media (max-width: 768px) {
     .auth-header {
-        top: 50px; 
+        top: 10px; 
         left: 10px;
     }
 

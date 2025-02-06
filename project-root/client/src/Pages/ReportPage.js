@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import '../Styles/reportStyles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import axios from 'axios';
 
 export const ReportPage = () => {
-    const [ratings, setRatings] = useState({
-        tecnica: null,
-        inteligencia: null,
-        velocidade: null,
-        altura: null,
-        morfologia: null,
-        ratingFinal: null,
-    });
-
+    const { reportId } = useParams();
+    const [report, setReport] = useState(null);
     const [playerRating, setPlayerRating] = useState(null);
 
-    const handleSelect = (group, value) => {
-        setRatings((prevRatings) => ({
-            ...prevRatings,
-            [group]: value,
-        }));
-    };
+    useEffect(() => {
+        const fetchReport = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3000/reports/${reportId}`);
+                setReport(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar relatório:', error);
+            }
+        };
+
+        fetchReport();
+    }, [reportId]);
 
     const handlePlayerRating = (value) => {
         setPlayerRating(value);
@@ -30,12 +31,16 @@ export const ReportPage = () => {
         setPlayerRating(null);
     };
 
+    if (!report) {
+        return <div>Carregando...</div>;
+    }
+
     return (
         <div className="report-page-container">
             <div className="header">
                 <div className="inner-rectangle">
                     <div className="core-rectangle">
-                        <p className="core-text">RELATÓRIO DE JOGADOR 1</p>
+                        <p className="core-text">RELATÓRIO DE {report.athleteId}</p>
                         <div className="player-rating-container">
                             <div className="options">
                                 {[1, 2, 3, 4, 5].map((value) => (
@@ -68,8 +73,8 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.tecnica === value ? 'btn-dark' : 'btn-light'}`}
-                                onClick={() => handleSelect('tecnica', value)}
+                                className={`btn ${report.technical === value ? 'btn-dark' : 'btn-light'}`}
+                                disabled
                             >
                                 {value}
                             </button>
@@ -82,8 +87,8 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.inteligencia === value ? 'btn-dark' : 'btn-light'}`}
-                                onClick={() => handleSelect('inteligencia', value)}
+                                className={`btn ${report.intelligence === value ? 'btn-dark' : 'btn-light'}`}
+                                disabled
                             >
                                 {value}
                             </button>
@@ -96,8 +101,8 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.velocidade === value ? 'btn-dark' : 'btn-light'}`}
-                                onClick={() => handleSelect('velocidade', value)}
+                                className={`btn ${report.speed === value ? 'btn-dark' : 'btn-light'}`}
+                                disabled
                             >
                                 {value}
                             </button>
@@ -110,8 +115,8 @@ export const ReportPage = () => {
                         {['Alto', 'Médio', 'Baixo'].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.altura === value ? 'btn-dark' : 'btn-light'}`}
-                                onClick={() => handleSelect('altura', value)}
+                                className={`btn ${report.height === value ? 'btn-dark' : 'btn-light'}`}
+                                disabled
                             >
                                 {value}
                             </button>
@@ -124,8 +129,8 @@ export const ReportPage = () => {
                         {['Ectomorfo', 'Mesomorfo', 'Endomorfo'].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.morfologia === value ? 'btn-dark' : 'btn-light'}`}
-                                onClick={() => handleSelect('morfologia', value)}
+                                className={`btn ${report.morphology === value ? 'btn-dark' : 'btn-light'}`}
+                                disabled
                             >
                                 {value}
                             </button>
@@ -138,8 +143,8 @@ export const ReportPage = () => {
                         {[1, 2, 3, 4].map((value) => (
                             <button
                                 key={value}
-                                className={`btn ${ratings.ratingFinal === value ? 'btn-dark' : 'btn-light'}`}
-                                onClick={() => handleSelect('ratingFinal', value)}
+                                className={`btn ${report.finalRating === value ? 'btn-dark' : 'btn-light'}`}
+                                disabled
                             >
                                 {value}
                             </button>
@@ -148,11 +153,7 @@ export const ReportPage = () => {
                 </div>
                 <div className="observations">
                     <label>Observações</label>
-                    <textarea className="form-control" rows="3"></textarea>
-                </div>
-                <div className="buttons">
-                    <button className="btn btn-dark">GUARDAR</button>
-                    <button className="btn btn-dark">ENVIAR</button>
+                    <textarea className="form-control" rows="3" value={report.freeText} readOnly></textarea>
                 </div>
             </div>
             <div style={{ height: '24.4vh' }}></div>
