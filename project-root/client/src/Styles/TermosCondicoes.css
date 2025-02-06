@@ -1,12 +1,13 @@
 
  .terms-container {
-  max-width: 800px;
+  max-width: 100vw;
    margin: auto;
   padding: 20px;
-   font-family: Arial, sans-serif;
+   font-family: 'Futura-std', sans-serif;  
  }
  h1, h2 {
-   color: #003366;
+   color: #000000;
+   font-weight: 600;
  }
  p, ul {
    color: #333;
@@ -15,3 +16,9 @@
  ul {
    padding-left: 20px;
   }
+  .terms-container {
+    height: 100vh;
+    overflow-y: auto;
+    
+  }
+  
