@@ -1,12 +1,17 @@
 .player-page-body {
   margin: 0;
   font-family: "Futura STD", Arial, sans-serif;
+<<<<<<< HEAD
   background-color: black;
   color: white;
+=======
+  color: black;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+<<<<<<< HEAD
 }
 
 .player-page-container {
@@ -16,12 +21,26 @@
   padding: 20px;
   box-sizing: border-box;
   position: relative;
+=======
+  background-color: black;
+}
+
+.player-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-back-button {
   position: absolute;
   top: 10px;
+<<<<<<< HEAD
   right: 10px;
+=======
+  left: 10px;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
   background: none;
   border: 1px solid white;
   color: white;
@@ -32,7 +51,14 @@
 
 .player-main-frame {
   display: flex;
+<<<<<<< HEAD
   margin-bottom: 20px;
+=======
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: black;
+  align-items: center;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-left-frame {
@@ -40,6 +66,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   border-right: 2px solid white;
 }
 
@@ -51,12 +78,77 @@
 .player-right-frame {
   flex: 2;
   padding: 20px;
+=======
+}
+
+.player-silhouette {
+  width: 120%;
+  height: auto;
+}
+
+.player-divider {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.player-divider-outer {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player-divider-border {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.player-divider-main {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.player-right-frame {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-info {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   gap: 10px;
+=======
+  margin-left: 50px;
+  gap: 10px;
+  color: black;
+  max-height: 35vh;
+}
+
+.player-info hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid black;
+  margin: 5px 0;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-country {
@@ -76,6 +168,7 @@
 .player-age,
 .player-position,
 .player-club {
+<<<<<<< HEAD
   font-size: 16px;
 }
 
@@ -96,11 +189,53 @@
 }
 
 .player-footer {
+=======
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.player-agent {
+  margin-top: 20px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 500px;
+  align-self: flex-end;
+}
+
+.agent-inputs {
+  display: flex;
+  gap: 5px;
+}
+
+.agent-title {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.agent-input {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 3px;
+  flex: 1;
+}
+
+.player-footer {
+  width: 100%;
+  height: 300px;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
   padding: 10px 20px;
+<<<<<<< HEAD
   border-top: 2px solid white;
 }
 
@@ -120,4 +255,32 @@
 
 .player-manage-button:hover {
   background-color: #ccc;
+=======
+  border-top: 20px solid white;
+}
+
+.player-name {
+  font-size: 50px;
+  color: #FFD700;
+  font-weight: bold;
+  transform: translateX(2.5vw);
+
+}
+
+.player-manage-button {
+  background-color: black;
+  color: white;
+  border: 5px solid white;
+  border-radius: 10px;
+  padding: 20px 40px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+  transform: translateX(-5vw);
+}
+
+.player-manage-button:hover {
+  background-color: white;
+  color: black;
+>>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
