@@ -48,6 +48,12 @@ export const CriarEquipas = () => {
 
         const player = players.find(p => p.athleteId === parseInt(selectedPlayerId));
         if (player) {
+            // Verifica se o jogador já foi adicionado
+            if (addedPlayers.some(p => p.athleteId === player.athleteId)) {
+                alert('Este jogador já foi adicionado à equipe.');
+                return;
+            }
+
             const positionCount = addedPlayers.filter(p => p.position === selectedPosition).length;
             const maxPlayers = selectedPosition === 'Guarda-redes' ? 2 : 5;
 
@@ -88,7 +94,7 @@ export const CriarEquipas = () => {
             }
         } catch (error) {
             console.error('Erro ao criar equipe:', error);
-            alert('Erro ao criar equipa. Tente novamente.');
+            alert('Erro ao criar equipe. Tente novamente.');
         }
     };
 
@@ -114,11 +120,12 @@ export const CriarEquipas = () => {
     };
 
     const positions = {
-        gk: { top: '85%', leftStart: 37, step: 20 },
-        df: { top: '55%', leftStart: 23, step: 12 },
-        md: { top: '38%', leftStart: 23, step: 12 },
-        fw: { top: '20%', leftStart: 23, step: 12 }
+        gk: { top: '85%', leftStart: 37, step: 20 }, // Guarda-redes
+        df: { top: '55%', leftStart: 23, step: 12 }, // Defesa
+        md: { top: '38%', leftStart: 23, step: 12 }, // Médio
+        fw: { top: '20%', leftStart: 23, step: 12 }  // Avançado
     };
+
     return (
         <div className="home-container">
             <div className="top-bar">
@@ -215,16 +222,25 @@ export const CriarEquipas = () => {
                             {addedPlayers.map((player, index) => {
                                 const positionCategory = getPositionCategory(player.position);
                                 const pos = positions[positionCategory];
+                                const playerIndex = addedPlayers
+                                    .filter(p => p.position === player.position)
+                                    .findIndex(p => p.athleteId === player.athleteId);
+
                                 return (
                                     <div
                                         key={player.athleteId}
                                         className={`player ${positionCategory}`}
                                         style={{
                                             top: pos.top,
-                                            left: `${pos.leftStart + (index % pos.step)}%`,
+                                            left: `${pos.leftStart + playerIndex * pos.step}%`,
                                         }}
-                                        title={`${player.fullName} - ${player.position}`}
                                     >
+                                        <div className="player-info">
+                                            <p><strong>Nome:</strong> {player.fullName}</p>
+                                            <p><strong>Posição:</strong> {player.position}</p>
+                                            <p><strong>Nacionalidade:</strong> {player.nationality}</p>
+                                            <p><strong>Data de Nascimento:</strong> {new Date(player.dateOfBirth).toLocaleDateString()}</p>
+                                        </div>
                                         {player.fullName}
                                     </div>
                                 );

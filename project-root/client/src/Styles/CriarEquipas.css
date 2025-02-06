@@ -85,24 +85,48 @@ header h1 {
 
 .player {
     position: absolute;
-    width: 7%;
-    height: auto;
-    aspect-ratio: 1;
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+    padding: 5px;
     border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.2vw;
-    color: #000;
-    border: 2px solid #000;
-    transition: transform 0.3s ease;
-    /* Adiciona a transição suave */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Adiciona transição suave */
+}
+.player:hover {
+    transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+    z-index: 10; /* Garante que o jogador hover fique acima dos outros */
 }
 
-.player:hover {
-    transform: scale(1.2);
-    /* Aumenta o tamanho em 10% */
+
+.player:hover .player-info {
+    display: block; /* Exibe as informações ao passar o mouse */
+}
+
+.player .player-info {
+    display: none; /* Oculta as informações por padrão */
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 20; /* Garante que as informações fiquem acima de tudo */
+    width: 200px;
+    text-align: left;
+}
+
+
+
+.player-info p {
+    margin: 5px 0;
 }
 
 .gk {
