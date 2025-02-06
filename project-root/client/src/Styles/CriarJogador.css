@@ -1,81 +1,196 @@
-.player-creation-container {
-    background-color: #1e1e1e;
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  .back-button {
-    background: #444;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .back-button:hover {
-    background: #666;
-  }
-  
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .photo-upload {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed #666;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .photo-upload p {
-    margin-top: 10px;
-    color: #ccc;
-  }
-  
-  .form-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .form-fields select,
-  .form-fields input[type="text"],
-  .form-fields input[type="date"] {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .agent-info {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .agent-info input {
-    flex: 1;
-  }
-  
-  .create-button {
-    background: #ffc107;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .create-button:hover {
-    background: #e0a800;
-  }
+.create-player-page-body {
+  margin: 0;
+  font-family: "Futura STD", Arial, sans-serif;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.create-player-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-player-back-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-player-main-frame {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: black;
+  align-items: center;
+}
+
+.create-player-left-frame {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-player-photo-upload {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: 2px dashed black;
+  border-radius: 10px;
+}
+
+.create-player-photo-upload p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: black;
+}
+
+.create-player-divider {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.create-player-divider-outer {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.create-player-divider-border {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.create-player-divider-main {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.create-player-right-frame {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+}
+
+.create-player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: black;
+  max-height: 50vh;
+}
+
+.create-player-info select,
+.create-player-info input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.create-player-birth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-player-agent {
+  margin-top: 20px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.create-agent-inputs {
+  display: flex;
+  gap: 5px;
+}
+
+.create-agent-title {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.create-agent-input {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 3px;
+  flex: 1;
+}
+
+.create-player-footer {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  border-top: 20px solid white;
+}
+
+.create-player-name {
+  font-size: 20px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: white;
+  flex: 1;
+  margin-right: 20px;
+}
+
+.create-player-create-button {
+  background-color: black;
+  color: white;
+  border: 5px solid white;
+  border-radius: 10px;
+  padding: 20px 40px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.create-player-create-button:hover {
+  background-color: white;
+  color: black;
+}
