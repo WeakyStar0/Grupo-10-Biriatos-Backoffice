@@ -33,7 +33,7 @@ export const CriarUtilizador = () => {
 
             if (response.ok) {
                 alert('Usuário criado com sucesso!');
-                navigate('/');
+                
             } else {
                 const errorData = await response.json();
                 alert(`Erro ao criar usuário: ${errorData.error}`);

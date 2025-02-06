@@ -5,15 +5,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/Clubes.css';
 
 const clubsData = [
-  { name: 'Académico de Viseu', nextMatch: 'Académico de Viseu x FC Porto' },
-  { name: 'Sporting CP', nextMatch: 'Sporting CP x SC Braga' },
-  { name: 'FC Porto', nextMatch: 'Académico de Viseu x FC Porto' },
-  { name: 'Sporting de Braga', nextMatch: 'Sporting CP x SC Braga' },
-  { name: 'Vitória de Guimarães', nextMatch: 'Boavista FC x Vitória SC' },
-  { name: 'Gil Vicente', nextMatch: 'Portimonense SC x Gil Vicente FC' },
-  { name: 'FC Arouca', nextMatch: 'FC Vizela x FC Arouca' },
-  { name: 'Boavista FC', nextMatch: 'Boavista FC x Vitória SC' },
-  { name: 'FC Famalicão', nextMatch: 'FC Famalicão x Estoril Praia' },
+  { name: 'Académico de Viseu'},
+  { name: 'Sporting CP'},
+  { name: 'FC Porto'},
+  { name: 'Sporting de Braga'},
+  { name: 'Vitória de Guimarães'},
+  { name: 'Gil Vicente'},
+  { name: 'FC Arouca'},
+  { name: 'Boavista FC'},
+  { name: 'FC Famalicão'},
 ];
 
 const ClubesPage = () => {
@@ -34,9 +34,6 @@ const ClubesPage = () => {
 
   return (
     <div className="clubs-container">
-      <button className="btn btn-primary back-button" onClick={handleBack}>
-        Voltar
-      </button>
       <h1 className="clubs-title">Clubes</h1>
       <input
         type="text"
@@ -55,8 +52,6 @@ const ClubesPage = () => {
               style={{ cursor: 'pointer' }}
             >
               <span className="club-name">{club.name}</span>
-              <span className="next-match"><strong>Próximo jogo:</strong></span>
-              <span className="match-details">{club.nextMatch}</span>
             </li>
           ))
         ) : (

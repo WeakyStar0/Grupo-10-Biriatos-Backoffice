@@ -66,7 +66,7 @@ export const ReportPage = () => {
     };
 
     if (!report) {
-        return <div>Carregando...</div>;
+        return <div>Carregando..</div>;
     }
 
     return (
@@ -74,7 +74,7 @@ export const ReportPage = () => {
             <div className="header">
                 <div className="inner-rectangle">
                     <div className="core-rectangle">
-                        <p className="core-text">RELATÓRIO DE {athleteName}</p>
+                        <p className="core-text">RELATÓRIO DE {athleteName.toUpperCase()}</p>
                         <div className="player-rating-container">
                             <div className="options">
                                 {[1, 2, 3, 4, 5].map((value) => (
