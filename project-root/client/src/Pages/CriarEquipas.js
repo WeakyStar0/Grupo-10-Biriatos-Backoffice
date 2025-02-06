@@ -1,19 +1,117 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/CriarEquipas.css';
 import '../Styles/gerirtarefas.css';
 import CampoSvg from '../img/Campo.svg';
+import axios from 'axios';
 
 export const CriarEquipas = () => {
     const [selectedPlayer, setSelectedPlayer] = useState(null);
+    const [players, setPlayers] = useState([]);
+    const [teams, setTeams] = useState([]);
+    const [selectedTeam, setSelectedTeam] = useState('');
+    const [selectedPlayerId, setSelectedPlayerId] = useState('');
+    const [selectedPosition, setSelectedPosition] = useState('');
+    const [teamType, setTeamType] = useState('Própria');
+    const [teamName, setTeamName] = useState('');
+    const [addedPlayers, setAddedPlayers] = useState([]);
 
-    const jogadores = [
-        { id: 1, role: 'gk' }, { id: 2, role: 'gk' },
-        { id: 3, role: 'df' }, { id: 4, role: 'df' }, { id: 5, role: 'df' }, { id: 6, role: 'df' }, { id: 7, role: 'df' },
-        { id: 8, role: 'md' }, { id: 9, role: 'md' }, { id: 10, role: 'md' }, { id: 11, role: 'md' }, { id: 12, role: 'md' },
-        { id: 13, role: 'fw' }, { id: 14, role: 'fw' }, { id: 15, role: 'fw' }, { id: 16, role: 'fw' }, { id: 17, role: 'fw' }
-    ];
+    useEffect(() => {
+        const fetchPlayers = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/athletes');
+                setPlayers(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar jogadores:', error);
+            }
+        };
+
+        const fetchTeams = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/teams');
+                setTeams(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar equipes:', error);
+            }
+        };
+
+        fetchPlayers();
+        fetchTeams();
+    }, []);
+
+    const handleAddPlayer = () => {
+        if (!selectedPlayerId || !selectedPosition) {
+            alert('Por favor, selecione um jogador e uma posição.');
+            return;
+        }
+
+        const player = players.find(p => p.athleteId === parseInt(selectedPlayerId));
+        if (player) {
+            const positionCount = addedPlayers.filter(p => p.position === selectedPosition).length;
+            const maxPlayers = selectedPosition === 'Guarda-redes' ? 2 : 5;
+
+            if (positionCount >= maxPlayers) {
+                alert(`Você só pode adicionar ${maxPlayers} jogadores na posição de ${selectedPosition}.`);
+                return;
+            }
+
+            const newPlayer = { ...player, position: selectedPosition };
+            setAddedPlayers([...addedPlayers, newPlayer]);
+            setSelectedPlayer(newPlayer);
+            setSelectedPlayerId('');
+            setSelectedPosition('');
+        }
+    };
+
+    const handleSaveTeam = async () => {
+        if (!teamName || addedPlayers.length === 0) {
+            alert('Por favor, preencha o nome da equipe e adicione pelo menos um jogador.');
+            return;
+        }
+
+        const newTeam = {
+            teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário (substitua por um ID único no backend)
+            teamName: teamName,
+            teamType: teamType,
+            tasks: [],
+            players: addedPlayers.map(player => player.athleteId),
+        };
+
+        try {
+            const response = await axios.post('http://localhost:3000/teams', newTeam);
+            if (response.status === 201) {
+                alert('Equipe criada com sucesso!');
+                setTeamName('');
+                setAddedPlayers([]);
+                setSelectedPlayer(null);
+            }
+        } catch (error) {
+            console.error('Erro ao criar equipe:', error);
+            alert('Erro ao criar equipe. Tente novamente.');
+        }
+    };
+
+    const handleCancel = () => {
+        setTeamName('');
+        setAddedPlayers([]);
+        setSelectedPlayer(null);
+    };
+
+    const getPositionCategory = (position) => {
+        switch (position) {
+            case 'Guarda-redes':
+                return 'gk';
+            case 'Defesa':
+                return 'df';
+            case 'Médio':
+                return 'md';
+            case 'Avançado':
+                return 'fw';
+            default:
+                return 'unknown';
+        }
+    };
 
     const positions = {
         gk: { top: '85%', leftStart: 37, step: 20 },
@@ -24,8 +122,7 @@ export const CriarEquipas = () => {
 
     return (
         <div className="home-container">
-
-<div className="top-bar">
+            <div className="top-bar">
                 <div className="top-bar-background">
                     <div className="top-bar-content">
                         <p className="top-bar-title">CRIAR EQUIPA</p>
@@ -38,49 +135,111 @@ export const CriarEquipas = () => {
                     <div className="form-controls">
                         <div className="control-group">
                             <label>Tipo de equipa:</label>
-                            <button className="btn btn-secondary">Própria</button>
-                            <button className="btn btn-secondary">Sombra</button>
+                            <button
+                                className={`btn ${teamType === 'Própria' ? 'btn-primary' : 'btn-secondary'}`}
+                                onClick={() => setTeamType('Própria')}
+                            >
+                                Própria
+                            </button>
+                            <button
+                                className={`btn ${teamType === 'Sombra' ? 'btn-primary' : 'btn-secondary'}`}
+                                onClick={() => setTeamType('Sombra')}
+                            >
+                                Sombra
+                            </button>
                         </div>
                         <div className="control-group">
                             <label>Equipa:</label>
-                            <input type="text" className="form-control" placeholder="Equipa..." />
+                            <select
+                                className="form-select"
+                                value={selectedTeam}
+                                onChange={(e) => setSelectedTeam(e.target.value)}
+                            >
+                                <option value="">Selecione uma equipa...</option>
+                                {teams.map((team) => (
+                                    <option key={team.teamId} value={team.teamId}>
+                                        {team.teamName}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
-                        
                         <div className="control-group">
                             <label>Jogador:</label>
-                            <select className="form-select">
+                            <select
+                                className="form-select"
+                                value={selectedPlayerId}
+                                onChange={(e) => setSelectedPlayerId(e.target.value)}
+                            >
                                 <option value="">Selecione um jogador...</option>
-                                <option value="Jogador 1">Jogador 1</option>
-                                <option value="Jogador 2">Jogador 2</option>
-                                <option value="Jogador 3">Jogador 3</option>
+                                {players
+                                    .filter(player => player.teamId === parseInt(selectedTeam))
+                                    .map((player) => (
+                                        <option key={player.athleteId} value={player.athleteId}>
+                                            {player.fullName}
+                                        </option>
+                                    ))}
                             </select>
-                            <button className="btn btn-primary mt-2">Adicionar</button>
-                            {selectedPlayer !== null && <span className="ms-2">Jogador selecionado: {selectedPlayer}</span>}
                         </div>
+                        <div className="control-group">
+                            <label>Posição:</label>
+                            <select
+                                className="form-select"
+                                value={selectedPosition}
+                                onChange={(e) => setSelectedPosition(e.target.value)}
+                            >
+                                <option value="">Selecione uma posição...</option>
+                                <option value="Guarda-redes">Guarda-redes</option>
+                                <option value="Defesa">Defesa</option>
+                                <option value="Médio">Médio</option>
+                                <option value="Avançado">Avançado</option>
+                            </select>
+                        </div>
+                        <button className="btn btn-primary mt-2" onClick={handleAddPlayer}>
+                            Adicionar
+                        </button>
+                        {addedPlayers.length > 0 && (
+                            <div className="mt-2">
+                                <h5>Jogadores Adicionados:</h5>
+                                <ul>
+                                    {addedPlayers.map((player, index) => (
+                                        <li key={index}>
+                                            {player.fullName} - {player.position}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </div>
                     <div className="field-preview">
                         <img src={CampoSvg} alt="Campo de futebol" className="field-image" />
-                        <div className="playersField" >
-                            {Object.keys(positions).map(role => {
-                                const pos = positions[role];
-                                const jogadoresPorPosicao = jogadores.filter(j => j.role === role);
-                                return jogadoresPorPosicao.map((jogador, index) => (
+                        <div className="playersField">
+                            {addedPlayers.map((player, index) => {
+                                const positionCategory = getPositionCategory(player.position);
+                                const pos = positions[positionCategory];
+                                return (
                                     <div
-                                        key={jogador.id}
-                                        className={`player ${jogador.role}`}
-                                        style={{ top: pos.top, left: `${pos.leftStart + index * pos.step}%` }}
-                                        onClick={() => setSelectedPlayer(jogador.id)}
+                                        key={player.athleteId}
+                                        className={`player ${positionCategory}`}
+                                        style={{
+                                            top: pos.top,
+                                            left: `${pos.leftStart + (index % pos.step)}%`,
+                                        }}
+                                        title={`${player.fullName} - ${player.position}`}
                                     >
-                                        {jogador.id}
+                                        {player.fullName}
                                     </div>
-                                ));
+                                );
                             })}
                         </div>
                     </div>
                 </div>
                 <div className="buttons">
-                    <button className="btn btn-danger">Cancelar</button>
-                    <button className="btn btn-success">Guardar</button>
+                    <button className="btn btn-danger" onClick={handleCancel}>
+                        Cancelar
+                    </button>
+                    <button className="btn btn-success" onClick={handleSaveTeam}>
+                        Guardar
+                    </button>
                 </div>
             </div>
         </div>
