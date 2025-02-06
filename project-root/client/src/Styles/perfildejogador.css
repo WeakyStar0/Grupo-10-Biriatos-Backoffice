@@ -1,119 +1,198 @@
 .player-page-body {
-    margin: 0;
-    font-family: "Futura STD", Arial, sans-serif;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .player-page-container {
-    width: 900px;
-    background-color: #121212;
-    border: 2px solid white;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-  }
-  
-  .player-back-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: 1px solid white;
-    color: white;
-    padding: 5px 15px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .player-main-frame {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .player-left-frame {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 2px solid white;
-  }
-  
-  .player-silhouette {
-    width: 80%;
-    height: auto;
-  }
-  
-  .player-right-frame {
-    flex: 2;
-    padding: 20px;
-  }
-  
-  .player-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .player-country {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 18px;
-  }
-  
-  .player-flag {
-    width: 30px;
-    height: auto;
-  }
-  
-  .player-gender, .player-professional, .player-age, .player-position, .player-club {
-    font-size: 16px;
-  }
-  
-  .player-agent {
-    border: 1px solid white;
-    padding: 10px;
-    margin-top: 20px;
-  }
-  
-  .player-agent-contact, .player-agent-name {
-    width: 100%;
-    margin-top: 10px;
-    padding: 5px;
-    background: black;
-    border: 1px solid white;
-    color: white;
-  }
-  
-  .player-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    padding: 10px 20px;
-    border-top: 2px solid white;
-  }
-  
-  .player-name {
-    font-size: 20px;
-    color: #FFD700;
-  }
-  
-  .player-manage-button {
-    background-color: white;
-    color: black;
-    border: 2px solid white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .player-manage-button:hover {
-    background-color: #ccc;
-  }
-  
+  margin: 0;
+  font-family: "Futura STD", Arial, sans-serif;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.player-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.player-main-frame {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: black;
+  align-items: center;
+}
+
+.player-left-frame {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-silhouette {
+  width: 120%;
+  height: auto;
+}
+
+.player-divider {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.player-divider-outer {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player-divider-border {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.player-divider-main {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.player-right-frame {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  gap: 10px;
+  color: black;
+  max-height: 35vh;
+}
+
+.player-info hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid black;
+  margin: 5px 0;
+}
+
+.player-country {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+
+.player-flag {
+  width: 30px;
+  height: auto;
+}
+
+.player-gender,
+.player-professional,
+.player-age,
+.player-position,
+.player-club {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.player-agent {
+  margin-top: 20px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 500px;
+  align-self: flex-end;
+}
+
+.agent-inputs {
+  display: flex;
+  gap: 5px;
+}
+
+.agent-title {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.agent-input {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 3px;
+  flex: 1;
+}
+
+.player-footer {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  border-top: 20px solid white;
+}
+
+.player-name {
+  font-size: 50px;
+  color: #FFD700;
+  font-weight: bold;
+  transform: translateX(2.5vw);
+
+}
+
+.player-manage-button {
+  background-color: black;
+  color: white;
+  border: 5px solid white;
+  border-radius: 10px;
+  padding: 20px 40px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+  transform: translateX(-5vw);
+}
+
+.player-manage-button:hover {
+  background-color: white;
+  color: black;
+}
