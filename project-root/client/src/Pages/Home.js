@@ -16,7 +16,7 @@ export const Home = () => {
       </div>
       <div className="auth-header">
         <img src="/LOGO Academico_Viseu_FC_black.svg" alt="Logo" className="brand-logo" />
-        <h1 className="brand-title">Viriatos Scouting</h1>
+        <h1 className="brand-title">Biriatos Scouting</h1>
       </div>
       <div className="auth-content">
         <h2 className="auth-title">LOGIN</h2>
