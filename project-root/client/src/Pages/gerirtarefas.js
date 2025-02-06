@@ -1,19 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/gerirtarefas.css';
+import axios from 'axios';
 
 export const GerirTarefas = () => {
-    const tasks = [
-        { name: 'Tarefa 1', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 2', assignedTo: 'User 41389', date: '5/11/2024' },
-        { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' },
-    ];
-
+    const [tasks, setTasks] = useState([]);
+    const [users, setUsers] = useState([]);
+    const [athletes, setAthletes] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchTasks = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/tasks');
+                setTasks(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar tarefas:', error);
+            }
+        };
+
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/users');
+                setUsers(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar usuários:', error);
+            }
+        };
+
+        const fetchAthletes = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/athletes');
+                setAthletes(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar atletas:', error);
+            }
+        };
+
+        fetchTasks();
+        fetchUsers();
+        fetchAthletes();
+    }, []);
+
     const toTask = () => {
         navigate('/task-create');
+    };
+
+    const getUserName = (userId) => {
+        const user = users.find(user => user.userId === userId);
+        return user ? user.fullName : 'Desconhecido';
+    };
+
+    const getAthleteName = (athleteId) => {
+        const athlete = athletes.find(athlete => athlete.athleteId === athleteId);
+        return athlete ? athlete.fullName : 'Desconhecido';
     };
 
     return (
@@ -31,17 +73,17 @@ export const GerirTarefas = () => {
                     <table>
                         <thead>
                             <tr>
-                                <th>Nome</th>
+                                <th>Jogador</th>
                                 <th>Atribuído a</th>
-                                <th>Data</th>
+                                <th>Descrição</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {tasks.map((task, index) => (
-                                <tr key={index}>
-                                    <td>{task.name}</td>
-                                    <td>{task.assignedTo}</td>
-                                    <td>{task.date}</td>
+                            {tasks.map((task) => (
+                                <tr key={task.taskId}>
+                                    <td>{getAthleteName(task.athleteId)}</td>
+                                    <td>{getUserName(task.userId)}</td>
+                                    <td>{task.description}</td>
                                 </tr>
                             ))}
                         </tbody>
