@@ -105,6 +105,13 @@ body, html {
     margin: 10px 0;
     color: white;
 }
+ 
+ .terms-link:hover{
+     color: #ffc107;
+     cursor: pointer;
+     text-decoration-style:dashed;
+     
+ }
 
 .auth-button {
     background: black;
@@ -121,6 +128,8 @@ body, html {
 .auth-button:hover {
     background: #333;
 }
+
+
 
 @media (max-width: 768px) {
     .auth-header {
