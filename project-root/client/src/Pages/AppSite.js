@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/AppSite.css";
+import "../img/mao.png";
+import "../img/telele-1.png";
 
 
 const data = [
@@ -37,7 +39,7 @@ const data = [
         </span>
       </>
     ),
-    imageSrc: "../img/telele-1 (1).png",
+    imageSrc: "../img/telele-1.png",
     circleColors: ["#ffffff", "#ffd201", "#ffffff"],
     showImage: true,
   },
@@ -99,7 +101,7 @@ export default function ViriatosScouting() {
                 </div>
               </div>
             </div>
-            <img className="logo" src="img/logo.svg" alt="Logo" />
+            <img className="logo" src="../img/logo.svg" alt="Logo" />
             <div className="circulos">
               {data[currentIndex].circleColors.map((color, i) => (
                 <div key={i} style={{ backgroundColor: color }}></div>
