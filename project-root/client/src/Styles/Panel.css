@@ -5,24 +5,22 @@
     position: relative;
 }
 
-
 .panel-sidebar {
-    width: 45%;
+    width: 50%;
     background-color: #ffffff;
     padding: 20px;
-    color: white;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: visible;
+    min-width: 400px; /* Evita que a barra lateral fique pequena demais */
 }
 
 .logo-top {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding-bottom: 20px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    gap: 30px; /* Aumenta o espaço entre logo e texto */
+    width: 100%; /* Garante que ocupa todo o espaço disponível */
 }
 
 .logo-top-image {
@@ -30,24 +28,28 @@
     height: 150px;
 }
 
+.logo-top-text {
+    flex-grow: 1; /* Permite que o texto ocupe mais espaço */
+    text-align: left;
+    position: relative;
+    z-index: 5; /* Garante que o texto fica à frente */
+}
+
 .logo-top h1 {
     font-size: 60px;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: -25px;
     color: white;
-    line-height: 0.2;
-    -webkit-text-stroke-color: #000;
-    -webkit-text-stroke-width: 3px;
+    line-height: 1;
+    -webkit-text-stroke: 3px black;
+    white-space: nowrap; /* Evita que o texto quebre */
 }
 
 .logo-top h2 {
-    font-weight: 600;
     font-size: 30px;
+    font-weight: 600;
     color: white;
-    line-height: 0.2;
-    -webkit-text-stroke-color: #000;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke: 2px black;
+    white-space: nowrap;
 }
 
 .menu {
@@ -60,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: #000000;
+    background-color: #000;
     padding: 10px;
     border-radius: 8px;
     gap: 10px;
@@ -74,7 +76,6 @@
     gap: 10px;
 }
 
-
 .menu-icon {
     flex-shrink: 0;
 }
@@ -85,27 +86,24 @@
     height: 60px;
 }
 
-/* Botões dentro das seções */
+/* Botões */
 .panel-menu-item {
     background-color: #2e2e2e;
     color: white;
     padding: 16px 15px;
     font-size: 25px;
-    font-family: 'Futura Std Book', sans-serif; /* Define a fonte Futura */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    min-width: 10px; /* Largura mínima para garantir um bom tamanho */
     text-align: center;
 }
 
-
-.menu-item:hover {
+.panel-menu-item:hover {
     background-color: #777777;
 }
 
-/* Contêiner das barras verticais */
+/* Barras verticais */
 .vertical-bars {
     position: absolute;
     right: 50px;
@@ -115,7 +113,6 @@
     z-index: 0;
 }
 
-/* Barra preta principal */
 .vertical-bar {
     position: absolute;
     width: 100%;
@@ -124,7 +121,6 @@
     z-index: 3;
 }
 
-/* Barra vermelha */
 .vertical-bar-2 {
     position: absolute;
     width: calc(110%);
@@ -134,7 +130,6 @@
     right: -25px;
 }
 
-/* Barra preta maior */
 .vertical-bar-3 {
     position: absolute;
     width: calc(120%);
@@ -146,21 +141,18 @@
 
 /* Saudação */
 .greeting {
-    text-align: right; /* Alinha o texto à direita */
-    color: #ffffff; /* Cor do texto */
+    text-align: right;
+    color: #ffffff;
     margin-top: 150px;
     margin-right: 40px;
 }
 
 .greeting h3 {
-    font-size: 70px; 
-    font-weight: bold; 
-    font-family: 'Futura Std Bold', sans-serif; 
+    font-size: 70px;
+    font-weight: bold;
     margin: 0;
-    line-height: 1.2; 
+    line-height: 1.2;
 }
-
-
 
 /* Conteúdo principal */
 .main-content {
@@ -179,19 +171,19 @@
 }
 
 .logout button {
-    background-color: transparent; 
-    color: #e0cc13; 
-    padding: 10px 30px; 
+    background-color: transparent;
+    color: #e0cc13;
+    padding: 10px 30px;
     font-size: 16px;
-    font-weight: bold; 
-    border: 2px solid #e0cc13; 
-    border-radius: 20px; 
+    font-weight: bold;
+    border: 2px solid #e0cc13;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 .logout button:hover {
-    background-color: #e0cc13; 
-    color: #ffffff; 
+    background-color: #e0cc13;
+    color: #ffffff;
 }
