@@ -1,27 +1,11 @@
 .player-page-body {
   margin: 0;
   font-family: "Futura STD", Arial, sans-serif;
-<<<<<<< HEAD
-  background-color: black;
-  color: white;
-=======
   color: black;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-<<<<<<< HEAD
-}
-
-.player-page-container {
-  width: 900px;
-  background-color: #121212;
-  border: 2px solid white;
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
-=======
   background-color: black;
 }
 
@@ -30,17 +14,12 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-back-button {
   position: absolute;
   top: 10px;
-<<<<<<< HEAD
-  right: 10px;
-=======
   left: 10px;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
   background: none;
   border: 1px solid white;
   color: white;
@@ -51,14 +30,10 @@
 
 .player-main-frame {
   display: flex;
-<<<<<<< HEAD
-  margin-bottom: 20px;
-=======
   width: 100%;
   height: calc(100vh - 80px);
   background: black;
   align-items: center;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-left-frame {
@@ -66,19 +41,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  border-right: 2px solid white;
-}
-
-.player-silhouette {
-  width: 80%;
-  height: auto;
-}
-
-.player-right-frame {
-  flex: 2;
-  padding: 20px;
-=======
 }
 
 .player-silhouette {
@@ -128,15 +90,11 @@
   justify-content: center;
   background-color: white;
   height: 100%;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-info {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  gap: 10px;
-=======
   margin-left: 50px;
   gap: 10px;
   color: black;
@@ -148,7 +106,6 @@
   border: none;
   border-top: 1px solid black;
   margin: 5px 0;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
 
 .player-country {
@@ -168,28 +125,6 @@
 .player-age,
 .player-position,
 .player-club {
-<<<<<<< HEAD
-  font-size: 16px;
-}
-
-.player-agent {
-  border: 1px solid white;
-  padding: 10px;
-  margin-top: 20px;
-}
-
-.player-agent-contact,
-.player-agent-name {
-  width: 100%;
-  margin-top: 10px;
-  padding: 5px;
-  background: black;
-  border: 1px solid white;
-  color: white;
-}
-
-.player-footer {
-=======
   font-weight: 600;
   font-size: 25px;
 }
@@ -229,33 +164,11 @@
 .player-footer {
   width: 100%;
   height: 300px;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
   padding: 10px 20px;
-<<<<<<< HEAD
-  border-top: 2px solid white;
-}
-
-.player-name {
-  font-size: 20px;
-  color: #FFD700;
-}
-
-.player-manage-button {
-  background-color: white;
-  color: black;
-  border: 2px solid white;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.player-manage-button:hover {
-  background-color: #ccc;
-=======
   border-top: 20px solid white;
 }
 
@@ -282,5 +195,4 @@
 .player-manage-button:hover {
   background-color: white;
   color: black;
->>>>>>> e0d75f408486cfacb34a0aec516a53b5c3b0e76c
 }
