@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export const Panel = () => {
     const navigate = useNavigate(); // Hook do React Router para navegação
-
     return (
         <div className="panel-container">
             <div className="panel-sidebar">

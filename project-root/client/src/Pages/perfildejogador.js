@@ -5,11 +5,9 @@ const perfildejogador = () => {
   const handleBackClick = () => {
     alert("Voltando à página anterior...");
   };
-
   const handleManageClick = () => {
     alert("Gerindo jogador...");
   };
-
   return (
     <div className="player-page-body">
       <div className="player-page-container">

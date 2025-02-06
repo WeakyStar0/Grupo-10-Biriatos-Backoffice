@@ -16,7 +16,6 @@ const CriarJogador = () => {
     agentName: '',
     photo: null,
   });
-
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setPlayerData({
@@ -24,7 +23,6 @@ const CriarJogador = () => {
       [name]: files ? files[0] : value,
     });
   };
-
   const handleSubmit = () => {
     if (Object.values(playerData).some((field) => field === '' || field === null)) {
       alert('Por favor, preencha todos os campos obrigatórios.');
@@ -33,11 +31,9 @@ const CriarJogador = () => {
     console.log('Jogador criado:', playerData);
     alert('Jogador criado com sucesso!');
   };
-
   const handleBack = () => {
     window.history.back();
   };
-
   return (
     <div className="player-creation-container">
       <button className="back-button" onClick={handleBack}>

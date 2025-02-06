@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 function Test() {
     const [report, setReport] = useState(null); // Estado para armazenar o relatório
     const [error, setError] = useState(null);  // Estado para armazenar erros
-
     useEffect(() => {
         const fetchReport = async () => {
             try {
@@ -20,18 +19,14 @@ function Test() {
                 setError(err.message);
             }
         };
-
         fetchReport();
     }, []);
-
     if (error) {
         return <div>Erro: {error}</div>; // Mostra erro, se houver
     }
-
     if (!report) {
         return <div>A carregar...</div>; // Mostra mensagem enquanto carrega
     }
-
     return (
         <div>
             <h1>Relatório</h1>

@@ -66,11 +66,9 @@ const posicoes = [
 
 export default function JogadoresPage() {
     const navigate = useNavigate();
-
     const handleVoltarClick = () => {
         navigate(-1);  // Voltar para a página anterior
     };
-
     return (
         <div>
             <div className="tira-preta">

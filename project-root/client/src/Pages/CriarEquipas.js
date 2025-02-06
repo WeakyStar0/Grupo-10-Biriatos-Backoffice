@@ -6,21 +6,18 @@ import CampoSvg from '../img/Campo.svg';
 
 export const CriarEquipas = () => {
     const [selectedPlayer, setSelectedPlayer] = useState(null);
-
     const jogadores = [
         { id: 1, role: 'gk' }, { id: 2, role: 'gk' },
         { id: 3, role: 'df' }, { id: 4, role: 'df' }, { id: 5, role: 'df' }, { id: 6, role: 'df' }, { id: 7, role: 'df' },
         { id: 8, role: 'md' }, { id: 9, role: 'md' }, { id: 10, role: 'md' }, { id: 11, role: 'md' }, { id: 12, role: 'md' },
         { id: 13, role: 'fw' }, { id: 14, role: 'fw' }, { id: 15, role: 'fw' }, { id: 16, role: 'fw' }, { id: 17, role: 'fw' }
     ];
-
     const positions = {
         gk: { top: '85%', leftStart: 37, step: 20 },
         df: { top: '55%', leftStart: 23, step: 12 },
         md: { top: '38%', leftStart: 23, step: 12 },
         fw: { top: '20%', leftStart: 23, step: 12 }
     };
-
     return (
         <div className="home-container">
             <div style={{ height: '10vh' }}></div>

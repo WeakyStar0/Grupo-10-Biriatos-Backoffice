@@ -37,27 +37,22 @@ const teamMembers = [
 
 const Sobre = () => {
     const [activeMember, setActiveMember] = useState(null);
-
     const handleMemberClick = (index) => {
         setActiveMember(index === activeMember ? null : index);
     };
-
     return (
         <div>
             <Helmet>
                 <title>FicheNet - Sobre</title>
             </Helmet>
-
             <hr className='line4' />
             <div className="background-text-container">
                 <div className="scrolling-text">EQUIPA FICHE</div>
             </div>
             <hr className='line5' />
-
             <img className='pexe-cinza' src='https://imgur.com/E2H1RrA.png' alt=''></img>
             <img className='wave' src='https://imgur.com/XoxZWDf.png' alt=''></img>
             <img className='wave2' src='https://imgur.com/XoxZWDf.png' alt=''></img>
-
             <div className='aboutpage'>
                 <div className="containerinfo mt-4 text-center">
                     <div className='left-container2'>
@@ -65,7 +60,6 @@ const Sobre = () => {
                             <img className="pexe1" alt="" src='https://imgur.com/nwEHKMd.png'></img>
                         </div>
                     </div>
-
                     <div className='right-container2'>
                         <div className="accordion">
                             {teamMembers.map((member, index) => (
@@ -84,9 +78,7 @@ const Sobre = () => {
                     </div>
                 </div>
             </div>
-
             <div className='halftone' />
-
         </div>
     );
 };

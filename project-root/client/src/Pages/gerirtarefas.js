@@ -10,12 +10,10 @@ export const GerirTarefas = () => {
         { name: 'Tarefa 2', assignedTo: 'User 41389', date: '5/11/2024' },
         { name: 'Tarefa 3', assignedTo: 'User 41389', date: '5/11/2024' },
     ];
-
     const navigate = useNavigate();
     const toTask = () => {
         navigate('/task-create');
     };
-
     return (
         <div className="page-container">
             <div className="top-bar">
@@ -25,7 +23,6 @@ export const GerirTarefas = () => {
                     </div>
                 </div>
             </div>
-
             <div className="content-container">
                 <div className="table-wrapper">
                     <table>

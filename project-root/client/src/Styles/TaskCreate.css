@@ -1,4 +1,6 @@
-select, textarea, button {
+select,
+textarea,
+button {
     border-radius: 5px;
     outline: 1px solid black;
 }
@@ -30,19 +32,25 @@ textarea {
 }
 
 .form-group {
-    display: flex;               /* Alinha o label e o input lado a lado */
-    align-items: center;         /* Alinha verticalmente o conteúdo */
-    gap: 10px;                   /* Espaço entre o label e o campo */
+    display: flex;
+    /* Alinha o label e o input lado a lado */
+    align-items: center;
+    /* Alinha verticalmente o conteúdo */
+    gap: 10px;
+    /* Espaço entre o label e o campo */
 }
 
 label {
     font-weight: bold;
-    width: 200px;                /* Define uma largura fixa para o label */
+    width: 200px;
+    /* Define uma largura fixa para o label */
     text-align: left;
 }
 
-select, textarea {
-    flex-grow: 1;                /* Faz o select ou textarea ocupar o restante do espaço */
+select,
+textarea {
+    flex-grow: 1;
+    /* Faz o select ou textarea ocupar o restante do espaço */
 }
 
 .buttons {

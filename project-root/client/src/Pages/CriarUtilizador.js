@@ -6,31 +6,25 @@ import { useNavigate } from 'react-router-dom';
 
 export const CriarUtilizador = () => {
     const navigate = useNavigate();
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         const fullName = event.target.fullName.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const role = event.target.role.value;
-
         const userData = {
             fullName,
             email,
             password,
             role,
         };
-
         console.log('Enviando dados:', userData);
-
         try {
             const response = await fetch('http://localhost:3000/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData),
             });
-
             if (response.ok) {
                 alert('Usuário criado com sucesso!');
                 navigate('/');
@@ -43,7 +37,6 @@ export const CriarUtilizador = () => {
             alert('Erro ao conectar com o servidor.');
         }
     };
-
     return (
         <>
             <div className="top-bar">
