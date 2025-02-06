@@ -8,15 +8,21 @@ import axios from 'axios';
 export const ReportPage = () => {
     const { reportId } = useParams();
     const [report, setReport] = useState(null);
+    const [athleteName, setAthleteName] = useState('');
     const [playerRating, setPlayerRating] = useState(null);
 
     useEffect(() => {
         const fetchReport = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/reports/${reportId}`);
-                setReport(response.data);
+                // Busca o relatório pelo ID
+                const reportResponse = await axios.get(`http://localhost:3000/reports/${reportId}`);
+                setReport(reportResponse.data);
+
+                // Busca o nome do atleta usando o athleteId do relatório
+                const athleteResponse = await axios.get(`http://localhost:3000/athletes/${reportResponse.data.athleteId}`);
+                setAthleteName(athleteResponse.data.fullName);
             } catch (error) {
-                console.error('Erro ao buscar relatório:', error);
+                console.error('Erro ao buscar relatório ou atleta:', error);
             }
         };
 
@@ -31,6 +37,34 @@ export const ReportPage = () => {
         setPlayerRating(null);
     };
 
+    // Função para traduzir a altura de inglês para português
+    const translateHeight = (height) => {
+        switch (height) {
+            case 'High':
+                return 'Alto';
+            case 'Medium':
+                return 'Médio';
+            case 'Low':
+                return 'Baixo';
+            default:
+                return height;
+        }
+    };
+
+    // Função para traduzir a morfologia de inglês para português
+    const translateMorphology = (morphology) => {
+        switch (morphology) {
+            case 'Ectomorph':
+                return 'Ectomorfo';
+            case 'Mesomorph':
+                return 'Mesomorfo';
+            case 'Endomorph':
+                return 'Endomorfo';
+            default:
+                return morphology;
+        }
+    };
+
     if (!report) {
         return <div>Carregando...</div>;
     }
@@ -40,7 +74,7 @@ export const ReportPage = () => {
             <div className="header">
                 <div className="inner-rectangle">
                     <div className="core-rectangle">
-                        <p className="core-text">RELATÓRIO DE {report.athleteId}</p>
+                        <p className="core-text">RELATÓRIO DE {athleteName}</p>
                         <div className="player-rating-container">
                             <div className="options">
                                 {[1, 2, 3, 4, 5].map((value) => (
@@ -112,13 +146,13 @@ export const ReportPage = () => {
                 <div className="rating-group">
                     <label>Altura</label>
                     <div className="options">
-                        {['Alto', 'Médio', 'Baixo'].map((value) => (
+                        {['High', 'Medium', 'Low'].map((value) => (
                             <button
                                 key={value}
                                 className={`btn ${report.height === value ? 'btn-dark' : 'btn-light'}`}
                                 disabled
                             >
-                                {value}
+                                {translateHeight(value)}
                             </button>
                         ))}
                     </div>
@@ -126,13 +160,13 @@ export const ReportPage = () => {
                 <div className="rating-group">
                     <label>Morfologia</label>
                     <div className="options">
-                        {['Ectomorfo', 'Mesomorfo', 'Endomorfo'].map((value) => (
+                        {['Ectomorph', 'Mesomorph', 'Endomorph'].map((value) => (
                             <button
                                 key={value}
                                 className={`btn ${report.morphology === value ? 'btn-dark' : 'btn-light'}`}
                                 disabled
                             >
-                                {value}
+                                {translateMorphology(value)}
                             </button>
                         ))}
                     </div>
