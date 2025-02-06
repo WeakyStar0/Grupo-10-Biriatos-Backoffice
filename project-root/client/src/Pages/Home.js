@@ -29,7 +29,7 @@ export const Home = () => {
             <label>PASSWORD</label>
             <input type="password" className="auth-input" />
           </div>
-          <p className="terms-link">Termos e Condições</p>
+          <p className="terms-link" onClick={() => navigate('/termoscondicoes')}>Termos e Condições</p>
           <button type="submit" className="auth-button">LOGIN</button>
         </form>
       </div>
