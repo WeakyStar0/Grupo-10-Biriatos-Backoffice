@@ -163,12 +163,13 @@ app.post('/athletes', async (req, res) => {
 
 
 app.get('/athletes', async (req, res) => {
-  const { teamId } = req.query;
   try {
-    const athletes = await Athlete.find({ teamId: parseInt(teamId) });
-    res.json(athletes);
+    const athletes = await Athlete.find({});
+    console.log('Atletas encontrados:', athletes); 
+    res.status(200).json(athletes);
   } catch (error) {
-    res.status(500).send('Erro ao buscar atletas.');
+    console.error('Erro ao buscar atletas:', error); 
+    res.status(500).json({ error: 'Erro ao buscar atletas.' });
   }
 });
 
@@ -290,10 +291,10 @@ app.post("/reports", async (req, res) => {
 
 app.get('/reports', async (req, res) => {
   try {
-    const reports = await Report.find();
-    res.status(200).send(reports);
+      const reports = await Report.find({});
+      res.json(reports);
   } catch (error) {
-    res.status(500).send(error);
+      res.status(500).json({ message: error.message });
   }
 });
 
