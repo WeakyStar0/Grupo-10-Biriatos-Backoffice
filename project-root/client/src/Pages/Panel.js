@@ -62,6 +62,9 @@ export const Panel = () => {
                             <button className="panel-menu-item" onClick={() => navigate('/tarefas')}>
                                 Gerir tarefas
                             </button>
+                            <button className="panel-menu-item" onClick={() => navigate('/criarutilizador')}>
+                                Criar Utilizador
+                            </button>
                         </div>
                     </div>
                 </div>
