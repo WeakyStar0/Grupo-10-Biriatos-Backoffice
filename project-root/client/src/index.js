@@ -25,7 +25,7 @@ import Divisoes from './Pages/divisoes.js';
 import CriarUtilizador from './Pages/CriarUtilizador.js';
 import Listajogadores from './Pages/listajogadores.js';
 import PerfildeJogador from './Pages/perfildejogador.js';
-
+import  TermosCondicoes from './Pages/TermosCondicoes.js'
 
 
 const api = axios.create({
@@ -122,6 +122,10 @@ const router = createBrowserRouter([
         path: 'report-page/:reportId',
         element: <ReportPage />
       },  
+      {
+        path: 'termoscondicoes',
+        element: <TermosCondicoes />
+      }
     ],
   },
 ]);
