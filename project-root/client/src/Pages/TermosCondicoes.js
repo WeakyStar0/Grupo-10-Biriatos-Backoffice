@@ -4,6 +4,8 @@ import '../Styles/TermosCondicoes.css'
 const TermosCondicoes = () => {
   return (
     <div className="terms-container">
+                        <div style={{ height: '100px' }}></div>
+
       <h1>Política de Privacidade e Termos de Utilização</h1>
       
       <section>
