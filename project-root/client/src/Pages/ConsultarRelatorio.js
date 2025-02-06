@@ -12,7 +12,6 @@ export const ConsultarRelatorio = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Função para buscar os relatórios da API
         const fetchReports = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/reports');
@@ -22,7 +21,6 @@ export const ConsultarRelatorio = () => {
             }
         };
 
-        // Função para buscar os usuários da API
         const fetchUsers = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/users');
@@ -32,14 +30,12 @@ export const ConsultarRelatorio = () => {
             }
         };
 
-        // Função para buscar os atletas da API
         const fetchAthletes = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/athletes');
-                console.log('Resposta da API (Atletas):', response.data); // Depuração
                 setAthletes(response.data);
             } catch (error) {
-                console.error('Erro ao buscar atletas:', error); // Depuração
+                console.error('Erro ao buscar atletas:', error);
             }
         };
 
@@ -49,20 +45,16 @@ export const ConsultarRelatorio = () => {
     }, []);
 
     const openReport = (id) => {
-        navigate(`/create-report/${id}`);
+        navigate(`/report-page/${id}`);
     };
 
-    // Função para obter o nome do usuário com base no userId
     const getUserName = (userId) => {
         const user = users.find(user => user.userId === userId);
         return user ? user.fullName : 'Desconhecido';
     };
 
-    // Função para obter o nome do atleta com base no athleteId
     const getAthleteName = (athleteId) => {
-        console.log('Buscando atleta com ID:', athleteId, 'Tipo:', typeof athleteId); // Depuração
         const athlete = athletes.find(athlete => athlete.athleteId === athleteId);
-        console.log('Atleta encontrado:', athlete); // Depuração
         return athlete ? athlete.fullName : 'Desconhecido';
     };
 

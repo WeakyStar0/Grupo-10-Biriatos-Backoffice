@@ -117,7 +117,11 @@ const router = createBrowserRouter([
       {
         path: 'divisoes/:clubName',
         element: <Divisoes />
-      }
+      },
+      {
+        path: 'report-page/:reportId',
+        element: <ReportPage />
+      },  
     ],
   },
 ]);

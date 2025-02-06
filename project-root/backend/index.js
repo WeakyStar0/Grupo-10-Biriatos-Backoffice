@@ -298,6 +298,19 @@ app.get('/reports', async (req, res) => {
   }
 });
 
+app.get('/reports/:reportId', async (req, res) => {
+  const reportId = parseInt(req.params.reportId);
+  try {
+      const report = await Report.findOne({ reportId });
+      if (!report) {
+          return res.status(404).json({ error: 'Relatório não encontrado.' });
+      }
+      res.status(200).json(report);
+  } catch (error) {
+      res.status(500).json({ error: 'Erro ao buscar relatório.' });
+  }
+});
+
 // CRUD para tarefas
 app.post('/tasks', async (req, res) => {
   try {
