@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../Styles/App.Site.css";
+import "../Styles/AppSite.css";
 
 
 const data = [
@@ -16,7 +16,7 @@ const data = [
       </>
     ),
     text2: "",
-    imageSrc: "img/mao.png",
+    imageSrc: "../img/mao.png",
     circleColors: ["#ffd201", "#ffffff", "#ffffff"],
     showImage: true,
   },
@@ -37,7 +37,7 @@ const data = [
         </span>
       </>
     ),
-    imageSrc: "img/telele-1.png",
+    imageSrc: "../img/telele-1 (1).png",
     circleColors: ["#ffffff", "#ffd201", "#ffffff"],
     showImage: true,
   },
