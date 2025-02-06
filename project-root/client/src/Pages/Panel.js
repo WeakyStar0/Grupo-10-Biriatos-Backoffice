@@ -8,7 +8,7 @@ export const Panel = () => {
 
     return (
         <div className="panel-container">
-            <div className="sidebar">
+            <div className="panel-sidebar">
                 <div style={{ height: '100px' }}></div>
                 <div className="logo-top">
                     <img className="logo-top-image" src={logo} alt="Logo" />
@@ -18,48 +18,48 @@ export const Panel = () => {
                     </div>
                 </div>
                 <div className="menu">
-                    <div className="menu-section">
+                    <div className="panel-menu-section">
                         <div className="menu-icon">
                             <img src="/person.svg" alt="Jogadores" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item" onClick={() => navigate('/clubes')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/clubes')}>
                                 Consultar jogadores
                             </button>
-                            <button className="menu-item" onClick={() => navigate('/criarjogador')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/criarjogador')}>
                                 Criar jogador
                             </button>
                         </div>
                     </div>
-                    <div className="menu-section">
+                    <div className="panel-menu-section">
                         <div className="menu-icon">
                             <img src="/group.svg" alt="Equipas" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item" onClick={() => navigate('/consultarequipas')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/consultarequipas')}>
                                 Consultar equipas
                             </button>
-                            <button className="menu-item" onClick={() => navigate('/CriarEquipas')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/CriarEquipas')}>
                                 Criar equipa
                             </button>
                         </div>
                     </div>
-                    <div className="menu-section">
+                    <div className="panel-menu-section">
                         <div className="menu-icon">
                             <img src="/report.svg" alt="Relatórios" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item" onClick={() => navigate('/consultar-relatorio')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/consultar-relatorio')}>
                                 Consultar Relatórios
                             </button>
                         </div>
                     </div>
-                    <div className="menu-section">
+                    <div className="panel-menu-section">
                         <div className="menu-icon">
                             <img src="/task.svg" alt="Tarefas" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="menu-item" onClick={() => navigate('/tarefas')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/tarefas')}>
                                 Gerir tarefas
                             </button>
                         </div>
