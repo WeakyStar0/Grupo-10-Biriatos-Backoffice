@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Para organizar os elementos verticalmente */
+  }
+  .webpage {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: calc(100% / 0.85); 
+    height: calc(100% / 0.85);
+    transform-origin: top left;
+    
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+    
+   
+    align-items: center;
+    
+  }
+  
+  .webpage .overlap-wrapper {
+    background-color: #ffffff;
+    overflow: visible; 
+    width: 100vw;
+    height: auto;
+  }
+  
+  .webpage .mega-overlap-wrapper {
+    background-color: #ffffff;
+    overflow: visible; 
+    width: 100vw;
+    height: auto;
+  }
+  
+  .webpage .overlap {
+    position: relative;
+    width: calc(3345px * 0.85); 
+    height: calc(870px * 0.85);
+    top: calc(-674px * 0.85);
+    left: calc(-776px * 0.85);
+  }
+  
+  .webpage .titulo {
+    position: absolute;
+    width: calc(3050px * 0.85);
+    height: calc(1821px * 0.85);
+    top: calc(279px * 0.85);
+    left: calc(148px * 0.85);
+    transform: rotate(11.21deg);
+  }
+  
+  .webpage .overlap-group {
+    position: relative;
+    width: calc(3052px * 0.85);
+    height: calc(1822px * 0.85);
+  }
+  
+  .webpage .cachecol {
+    position: absolute;
+    width: calc(2930px * 0.85);
+    height: calc(1582px * 0.85);
+    top: calc(120px * 0.85);
+    left: calc(61px * 0.85);
+    transform: rotate(4.79deg);
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+  }
+  
+  .webpage .div {
+    position: relative;
+    width: calc(2985px * 0.85);
+    height: calc(1641px * 0.85);
+    top: calc(-29px * 0.85);
+    left: calc(-29px * 0.85);
+  }
+  
+  .webpage .overlap-group-2 {
+    position: absolute;
+    width: calc(2700px * 0.85);
+    height: calc(1400px * 0.85);
+    top: 0;
+    left: 0;
+  }
+  
+  .webpage .rectangle {
+    width: calc(7000px * 0.85);
+    height: calc(487px * 0.85);
+    top: calc(-300px * 0.85);
+    left: calc(-17px * 0.85);
+    background-color: #ffffff;
+    border: calc(45px * 0.85) solid;
+    border-color: #000000;
+    position: absolute;
+    transform: rotate(-22.70deg);
+  }
+  
+  .webpage .rectangle-2 {
+    width: calc(6868px * 0.85);
+    height: calc(363px * 0.85);
+    top: calc(-229px * 0.85);
+    left: calc(22px * 0.85);
+    background-color: #000000;
+    position: absolute;
+    transform: rotate(-22.70deg);
+  }
+  
+  .webpage .fa-a-download-da-app {
+    position: absolute;
+    width: calc(658px * 0.85);
+    top: calc(890px * 0.85);
+    left: calc(600px * 0.85);
+    transform: rotate(-22.42deg);
+    font-family: "Futura Std-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: calc(36px * 0.85);
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  
+  .webpage .text-wrapper {
+    font-family: "Futura Std-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: calc(36px * 0.85);
+    letter-spacing: 0;
+    
+  }
+  
+  .webpage .span {
+    text-decoration: underline;
+  }
+  
+  .webpage .text-wrapper-2 {
+    position: absolute;
+    width: calc(554px * 0.85);
+    top: calc(1067px * 0.85);
+    left: calc(777px * 0.85);
+    transform: rotate(-22.42deg);
+    font-family: "Futura Std-Heavy", Helvetica;
+    font-weight: 400;
+    color: #ffd201;
+    font-size: calc(36px * 0.85);
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .webpage .VIRIATOS-SCOUTING {
+    position: absolute;
+    top: calc(540px * 0.85);
+    left: calc(520px * 0.85);
+    transform: rotate(-11.21deg);
+    font-family: "Futura Std-Medium", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: calc(89.2px * 0.85);
+    letter-spacing: 0;
+    line-height: normal;
+    z-index: 2;
+    mix-blend-mode: difference;
+    filter: invert(1);
+  }
+  
+  .webpage .text-wrapper-4 {
+    font-family: "Futura Std-Bold", Helvetica;
+    font-weight: bold; 
+    color: #000000; 
+    font-size: calc(89.2px * 0.85); 
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .webpage .text-wrapper-5 {
+    font-family: "Futura Std-Bold", Helvetica;
+    font-weight: bold; 
+    color: #ffffff;
+    font-size: calc(36px * 0.85);
+    letter-spacing: 0;
+  }
+  
+  
+  .webpage .logo {
+    position: absolute;
+    width: calc(246px * 0.85);
+    height: calc(246px * 0.85);
+    top: calc(700px * 0.85);
+    left: calc(1969px * 0.85);
+  }
+  
+  .webpage .circulos {
+    position: absolute;
+    width: calc(15px * 0.85);
+    height: calc(75px * 0.85);
+    top: calc(1075px * 0.85);
+    left: calc(2135px * 0.85);
+    
+  }
+  
+  .webpage .element {
+    position: absolute;
+    width: calc(15px * 0.85);
+    height: calc(15px * 0.85);
+    top: 0;
+    left: 0;
+    background-color: #ffd201;
+    border-radius: calc(7.5px * 0.85);
+  }
+  
+  .webpage .element-2 {
+    position: absolute;
+    width: calc(15px * 0.85);
+    height: calc(15px * 0.85);
+    top: calc(30px * 0.85);
+    left: 0;
+    background-color: #ffffff;
+    border-radius: calc(7.5px * 0.85);
+  }
+  
+  .webpage .element-3 {
+    position: absolute;
+    width: calc(15px * 0.85);
+    height: calc(15px * 0.85);
+    top: calc(60px * 0.85);
+    left: 0;
+    background-color: #ffffff;
+    border-radius: calc(7.5px * 0.85);
+  }
+  
+  .webpage .seta {
+    position: absolute;
+    width: calc(34px * 0.85);
+    height: calc(34px * 0.85);
+    top: calc(1172px * 0.85);
+    left: calc(1508px * 0.85);
+    background-color: #ffd201;
+    border-radius: calc(17px * 0.85);
+    opacity: 0;
+  }
+  
+  .webpage .vector {
+    position: absolute;
+    width: calc(20px * 0.85);
+    height: calc(40px * 0.85);
+    top: calc(-3px * 0.85);
+    left: calc(8.5px * 0.85);
+  }
+  
+  .webpage .mao {
+    position: absolute;
+    width: calc(805px * 0.85);
+    height: calc(825px * 0.85);
+    top: calc(728px * 0.85);
+    left: calc(1411px * 0.85);
+    
+  }
+  
+  
+  
+  #dynamic-text-2 {
+    opacity: 0;
+    position: absolute;
+   
+    z-index: 1; 
+  }
+  
+  
+  
