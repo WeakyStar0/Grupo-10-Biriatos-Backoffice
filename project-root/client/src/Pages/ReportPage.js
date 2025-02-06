@@ -66,7 +66,7 @@ export const ReportPage = () => {
     };
 
     if (!report) {
-        return <div>Carregando...</div>;
+        return <div>Carregando..</div>;
     }
 
     return (
