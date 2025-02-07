@@ -101,11 +101,11 @@ header h1 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease; /* Adiciona transição suave */
+    transition: all 0.3s ease; 
 }
 .player:hover {
-    transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
-    z-index: 10; /* Garante que o jogador hover fique acima dos outros */
+    transform: scale(1.2); 
+    z-index: 10; 
 }
 
 .btn-primary{
