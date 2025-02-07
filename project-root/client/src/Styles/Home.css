@@ -7,6 +7,15 @@ html {
     overflow: hidden;
 }
 
+.auth-group label {
+    transform: translate(-35%);
+
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
 .auth-container {
     position: relative;
     min-height: 100vh;
@@ -127,7 +136,8 @@ html {
 }
 
 .auth-button:hover {
-    background: #333;
+    background: #ffc107;
+    color: #000;
 }
 
 
@@ -142,3 +152,70 @@ html {
         font-size: 24px;
     }
 }
+
+/* The element bellow is from Uiverse.io by suleymanlaarabidev */
+.home-card {
+    border: #000 solid 3px;
+    position: fixed;
+    top: 45%;
+    right: 3%;
+    width: 8%;
+    height: 20%;
+    background: white;
+    transition: all 0.4s;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.home-card:hover {
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.1);
+    background: #ffc107;
+}
+
+.home-first-content {
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    border-radius: 15px;
+}
+
+.home-card:hover .home-first-content {
+    height: 100px;
+    opacity: 0;
+}
+
+.home-second-content {
+    height: 0%;
+    width: 100%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: all 0.4s;
+    font-size: 0px;
+    transform: rotate(90deg) scale(-1);
+}
+
+.home-card:hover .home-second-content {
+    opacity: 1;
+    height: 100%;
+    font-size: 1.8rem;
+    transform: rotate(0deg);
+    transform: translate(0%, -55%);
+}
+
+.custom-link {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+/* end of element */

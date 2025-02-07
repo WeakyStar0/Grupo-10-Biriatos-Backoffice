@@ -13,7 +13,9 @@ export const ConsultarEquipas = () => {
         const fetchTeams = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/teams');
-                setTeams(response.data);
+                // Filtra as equipas para remover as do tipo "Club"
+                const filteredTeams = response.data.filter(team => team.teamType !== 'Club');
+                setTeams(filteredTeams);
             } catch (error) {
                 console.error('Erro ao buscar equipes:', error);
             }
@@ -23,7 +25,7 @@ export const ConsultarEquipas = () => {
     }, []);
 
     const handleTeamClick = (team) => {
-        if (team.teamType === 'Shadow') {
+        if (team.teamType === 'Shadow' || team.teamType === 'Own') {
             navigate(`/equipa/${team.teamId}`, { state: { team } });
         }
     };
@@ -48,9 +50,17 @@ export const ConsultarEquipas = () => {
                         </thead>
                         <tbody>
                             {teams.map((team, index) => (
-                                <tr key={index} onClick={() => handleTeamClick(team)} style={{ cursor: team.teamType === 'Shadow' ? 'pointer' : 'default' }}>
+                                <tr
+                                    key={index}
+                                    onClick={() => handleTeamClick(team)}
+                                    style={{ cursor: team.teamType === 'Shadow' || team.teamType === 'Own' ? 'pointer' : 'default' }}
+                                >
                                     <td>{team.teamName}</td>
-                                    <td>{team.teamType === 'Own' ? 'Própria' : 'Sombra'}</td>
+                                    <td>
+                                        {team.teamType === 'Own' ? 'Própria' : 
+                                         team.teamType === 'Shadow' ? 'Sombra' : 
+                                         'Club'}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

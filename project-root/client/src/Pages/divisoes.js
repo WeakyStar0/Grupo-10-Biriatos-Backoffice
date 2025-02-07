@@ -1,12 +1,12 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import logo from '../img/LOGO Academico_Viseu_FC.svg';
 import '../Styles/divisoes.css';
 
 export default function TeamSections() {
-  const { clubName } = useParams(); // Captura o nome do clube da URL
+  
   const navigate = useNavigate(); // Para voltar atrás
   return (
     <div className="divisoes-main-container">
@@ -21,7 +21,7 @@ export default function TeamSections() {
             </div>
           </div>
         </div>
-        <h3 className="section-title">DIVISÕES - {clubName}</h3>
+        <h3 className="section-title">DIVISÕES</h3>
         <div className="navigation-menu">
           <button className="navigation-button">Equipa profissional</button>
           <button className="navigation-button">Sub-23</button>

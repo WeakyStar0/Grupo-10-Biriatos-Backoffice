@@ -5,6 +5,7 @@ import '../Styles/CriarEquipas.css';
 import '../Styles/gerirtarefas.css';
 import CampoSvg from '../img/Campo.svg';
 import axios from 'axios';
+import Select from 'react-select';
 
 export const CriarEquipas = () => {
     const [selectedPlayer, setSelectedPlayer] = useState(null);
@@ -13,8 +14,8 @@ export const CriarEquipas = () => {
     const [selectedTeam, setSelectedTeam] = useState('');
     const [selectedPlayerId, setSelectedPlayerId] = useState('');
     const [selectedPosition, setSelectedPosition] = useState('');
-    const [teamType, setTeamType] = useState('Própria'); 
-    const [teamName, setTeamName] = useState(''); 
+    const [teamType, setTeamType] = useState('Própria');
+    const [teamName, setTeamName] = useState('');
     const [addedPlayers, setAddedPlayers] = useState([]);
 
     useEffect(() => {
@@ -30,7 +31,8 @@ export const CriarEquipas = () => {
         const fetchTeams = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/teams');
-                setTeams(response.data);
+                const clubTeams = response.data.filter(team => team.teamType === 'Club'); // Filtra apenas equipas do tipo "Club"
+                setTeams(clubTeams);
             } catch (error) {
                 console.error('Erro ao buscar equipes:', error);
             }
@@ -39,6 +41,27 @@ export const CriarEquipas = () => {
         fetchPlayers();
         fetchTeams();
     }, []);
+
+    // Filtra os jogadores com base no tipo de equipa e na equipa selecionada
+    const filteredPlayers = players.filter(player => {
+        if (teamType === 'Própria') {
+            return player.teamId === 1; // Apenas jogadores do "Académico de Viseu"
+        } else if (teamType === 'Sombra') {
+            return player.teamId === parseInt(selectedTeam); // Apenas jogadores da equipa selecionada
+        }
+        return false;
+    });
+
+    // Mapeia os jogadores filtrados para o formato esperado pelo Select
+    const playerOptions = filteredPlayers.map(player => ({
+        value: player.athleteId,
+        label: `${player.fullName} | ${player.position} | ${new Date().getFullYear() - new Date(player.dateOfBirth).getFullYear()} anos`
+    }));
+
+    // Função para lidar com a mudança de seleção de jogador
+    const handlePlayerChange = (selectedOption) => {
+        setSelectedPlayerId(selectedOption ? selectedOption.value : '');
+    };
 
     const handleAddPlayer = () => {
         if (!selectedPlayerId || !selectedPosition) {
@@ -70,18 +93,25 @@ export const CriarEquipas = () => {
         }
     };
 
+    const handleRemovePlayer = (playerId) => {
+        setAddedPlayers(addedPlayers.filter(player => player.athleteId !== playerId));
+    };
+
     const handleSaveTeam = async () => {
         if (!teamName || (teamType === 'Sombra' && addedPlayers.length === 0)) {
-            alert('Por favor, preencha o nome da equipe e adicione pelo menos um jogador.');
+            alert('Por favor, preencha o nome da equipa e adicione pelo menos um jogador.');
             return;
         }
     
         const newTeam = {
-            teamId: Math.floor(Math.random() * 1000), // Gera um ID 
+            teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário
             teamName: teamName,
             teamType: teamType === 'Própria' ? 'Own' : 'Shadow', // Salva como "Own" ou "Shadow"
             tasks: [],
-            players: addedPlayers.map(player => player.athleteId),
+            players: addedPlayers.map(player => ({
+                athleteId: player.athleteId,
+                position: player.position, // Salva a posição do jogador na equipa
+            })),
         };
     
         try {
@@ -108,6 +138,7 @@ export const CriarEquipas = () => {
         setTeamType(type);
         setTeamName('');
         setAddedPlayers([]); // Limpa os jogadores ao trocar o tipo de equipa
+        setSelectedTeam(''); // Limpa a equipa selecionada ao trocar o tipo de equipa
     };
 
     const getPositionCategory = (position) => {
@@ -171,69 +202,68 @@ export const CriarEquipas = () => {
                             />
                         </div>
                         {teamType === 'Sombra' && (
-                            <>
-                                <div className="control-group">
-                                    <label>Equipa:</label>
-                                    <select
-                                        className="form-select"
-                                        value={selectedTeam}
-                                        onChange={(e) => setSelectedTeam(e.target.value)}
-                                    >
-                                        <option value="">Selecione uma equipa...</option>
-                                        {teams.map((team) => (
-                                            <option key={team.teamId} value={team.teamId}>
-                                                {team.teamName}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <div className="control-group">
-                                    <label>Jogador:</label>
-                                    <select
-                                        className="form-select"
-                                        value={selectedPlayerId}
-                                        onChange={(e) => setSelectedPlayerId(e.target.value)}
-                                    >
-                                        <option value="">Selecione um jogador...</option>
-                                        {players
-                                            .filter(player => player.teamId === parseInt(selectedTeam))
-                                            .map((player) => (
-                                                <option key={player.athleteId} value={player.athleteId}>
-                                                    {player.fullName}
-                                                </option>
-                                            ))}
-                                    </select>
-                                </div>
-                                <div className="control-group">
-                                    <label>Posição:</label>
-                                    <select
-                                        className="form-select"
-                                        value={selectedPosition}
-                                        onChange={(e) => setSelectedPosition(e.target.value)}
-                                    >
-                                        <option value="">Selecione uma posição...</option>
-                                        <option value="Guarda-redes">Guarda-redes</option>
-                                        <option value="Defesa">Defesa</option>
-                                        <option value="Médio">Médio</option>
-                                        <option value="Avançado">Avançado</option>
-                                    </select>
-                                </div>
-                                <button className="btn btn-primary mt-2" onClick={handleAddPlayer}>
-                                    Adicionar
-                                </button>
-                                {addedPlayers.length > 0 && (
-                                    <div className="mt-2">
-                                        <h5>Jogadores Adicionados:</h5>
-                                        <ul>
-                                            {addedPlayers.map((player, index) => (
-                                                <li key={index}>
-                                                    {player.fullName} - {player.position}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                            </>
+                            <div className="control-group">
+                                <label>Equipa:</label>
+                                <select
+                                    className="form-select"
+                                    value={selectedTeam}
+                                    onChange={(e) => setSelectedTeam(e.target.value)}
+                                >
+                                    <option value="">Selecione uma equipa...</option>
+                                    {teams.map((team) => (
+                                        <option key={team.teamId} value={team.teamId}>
+                                            {team.teamName}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+                        <div className="control-group">
+                            <label>Jogador:</label>
+                            <Select
+                                options={playerOptions}
+                                value={playerOptions.find(option => option.value === selectedPlayerId)}
+                                onChange={handlePlayerChange}
+                                isSearchable
+                                placeholder="Selecione um jogador..."
+                                className="react-select-container"
+                                classNamePrefix="react-select"
+                            />
+                        </div>
+                        <div className="control-group">
+                            <label>Posição:</label>
+                            <select
+                                className="form-select"
+                                value={selectedPosition}
+                                onChange={(e) => setSelectedPosition(e.target.value)}
+                            >
+                                <option value="">Selecione uma posição...</option>
+                                <option value="Guarda-redes">Guarda-redes</option>
+                                <option value="Defesa">Defesa</option>
+                                <option value="Médio">Médio</option>
+                                <option value="Avançado">Avançado</option>
+                            </select>
+                        </div>
+                        <button className="btn btn-primary mt-2" onClick={handleAddPlayer}>
+                            Adicionar
+                        </button>
+                        {addedPlayers.length > 0 && (
+                            <div className="mt-2">
+                                <h5>Jogadores Adicionados:</h5>
+                                <ul>
+                                    {addedPlayers.map((player, index) => (
+                                        <li key={index}>
+                                            {player.fullName} - {player.position}
+                                            <button
+                                                className="btn btn-danger btn-sm ms-2"
+                                                onClick={() => handleRemovePlayer(player.athleteId)}
+                                            >
+                                                Remover
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         )}
                     </div>
                     <div className="field-preview">
