@@ -13,8 +13,7 @@ const App = () => {
       <Helmet>
         <title>Viriatos Scouting</title>
       </Helmet>
-      {/* Renderiza a Navbar somente se não estiver na página de login */}
-      {location.pathname !== '/' && <Navbar />}
+      
       <Outlet />
       {location.pathname === '/' && <Footer />}
     </div>

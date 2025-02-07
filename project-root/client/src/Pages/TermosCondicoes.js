@@ -6,8 +6,8 @@ const TermosCondicoes = () => {
     <div className="terms-body">
       <img src="/LOGO Academico_Viseu_FC_black.svg" alt="Logo" className="terms-brand-logo" />
       <div className="terms-container">
-        <h1>Política de Privacidade e Termos de Utilização</h1>
-
+        <h1 className="termos-title">TERMOS E CONDIÇÕES</h1>
+        <img src="/LOGO Academico_Viseu_FC_black.svg" alt="Logo" className="terms-title-logo" />
         <section>
           <h2>1. Identificação do Responsável pelo Tratamento</h2>
           <p>O tratamento dos dados pessoais fornecidos na plataforma "Viriatos Scouting" é da responsabilidade do Sport Club Académico de Viseu.</p>
