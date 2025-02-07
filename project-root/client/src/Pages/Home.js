@@ -4,6 +4,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useNavigate } from 'react-router-dom';
 
+const HoverCard = () => {
+  return (
+    <div class="home-card">
+      <div class="home-first-content">
+        <span>App Viriatos Scouting</span>
+      </div>
+      <a href="https://weakystar0.github.io/Grupo-10-Biriatos-Webpage/index.html" target="_blank" rel="noopener noreferrer" className="custom-link">
+        <div class="home-second-content">
+          <span>Clique<br />aqui</span>
+        </div>
+      </a>
+    </div>
+  );
+};
+
 export const Home = () => {
   const navigate = useNavigate();
 
@@ -33,6 +48,7 @@ export const Home = () => {
           <button type="submit" className="auth-button">LOGIN</button>
         </form>
       </div>
+      <HoverCard />
     </div>
   );
-}
+};
