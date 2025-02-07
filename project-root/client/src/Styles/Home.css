@@ -7,6 +7,15 @@ html {
     overflow: hidden;
 }
 
+.auth-group label {
+    transform: translate(-35%);
+
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
 .auth-container {
     position: relative;
     min-height: 100vh;
@@ -43,6 +52,7 @@ html {
 }
 
 .auth-header {
+    padding-top: 10vh;
     position: absolute;
     top: 10px;
     left: 20px;
