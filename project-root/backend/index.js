@@ -100,6 +100,28 @@ app.get('/', (req, res) => {
   res.send('API funcionando!');
 });
 
+app.post('/users/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: 'Usuário não encontrado' });
+    }
+
+    // Aqui você deve verificar a senha (não implementado neste exemplo)
+    // if (user.password !== password) {
+    //   return res.status(400).json({ error: 'Senha incorreta' });
+    // }
+
+    res.json({ user });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao fazer login' });
+  }
+});
+
+
 // CRUD para utilizadors
 app.post('/users', async (req, res) => {
   try {
