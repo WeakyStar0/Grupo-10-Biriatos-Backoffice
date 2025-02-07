@@ -15,7 +15,6 @@ const App = () => {
       </Helmet>
       {/* Renderiza a Navbar somente se não estiver na página de login */}
       {location.pathname !== '/' && <Navbar />}
-      {location.pathname !== '/termoscondicoes' && <Navbar />}
       <Outlet />
       {location.pathname === '/' && <Footer />}
     </div>
