@@ -27,7 +27,7 @@ import  TermosCondicoes from './Pages/TermosCondicoes.js';
 import  AppSite from './Pages/AppSite.js'
 import { EquipaDetalhes } from './Pages/EquipaDetalhes.js';
 import NovoJogador from './Pages/NovoJogador.js';
-
+import {NovosJogadores} from './Pages/novosjogadores.js';
 
 
 const api = axios.create({
@@ -123,7 +123,12 @@ const router = createBrowserRouter([
       {
         path:'NovoJogador',
         element: <NovoJogador />
+      },
+      {
+        path:'NovosJogadores',
+        element:<NovosJogadores />
       }
+      
       
     ],
   },
