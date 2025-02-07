@@ -52,6 +52,7 @@ const PerfilDeJogador = () => {
             </div>
           </div>
         </div>
+        <button className="perfil-de-jogador-voltar-button">Voltar</button>
 
         {/* Footer */}
         <div className="player-footer">
