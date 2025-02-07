@@ -1,51 +1,100 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "../Styles/CriarJogador.css";
+import axios from 'axios';
 
 const CriarJogador = () => {
   const [playerData, setPlayerData] = useState({
-    name: "",
+    fullName: "",
     nationality: "",
     gender: "",
-    category: "",
     birthDate: "",
     position: "",
-    team: "",
-    agentContact: "",
+    teamId: "",
     agentName: "",
-    photo: null,
+    agentContact: "",
   });
+
+  const [teams, setTeams] = useState([]); // Estado para armazenar as equipas do tipo "Club"
+  const [isLoading, setIsLoading] = useState(true); // Estado para controlar o carregamento
+
+  // Busca as equipas do tipo "Club" ao carregar o componente
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/teams');
+        const clubTeams = response.data.filter(team => team.teamType === 'Club'); // Filtra apenas as equipas do tipo "Club"
+        setTeams(clubTeams);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Erro ao buscar equipas:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchTeams();
+  }, []);
+
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
     setPlayerData({
       ...playerData,
-      [name]: files ? files[0] : value,
+      [name]: value,
     });
   };
 
-  const calculateAge = (birthDate) => {
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
-  };
-
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    // Validação dos campos obrigatórios
     if (Object.values(playerData).some((field) => field === "" || field === null)) {
       alert("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
-    console.log("Jogador criado:", playerData);
-    alert("Jogador criado com sucesso!");
+
+    try {
+      // Cria o agente primeiro
+      const agentResponse = await axios.post('http://localhost:3000/agents', {
+        agentId: Math.floor(Math.random() * 1000), // Gera um ID temporário
+        agentName: playerData.agentName,
+        contactInfo: playerData.agentContact,
+      });
+
+      const agentId = agentResponse.data.agentId; // ID do agente criado
+
+      // Cria o jogador
+      const athleteResponse = await axios.post('http://localhost:3000/athletes', {
+        athleteId: Math.floor(Math.random() * 1000), // Gera um ID temporário
+        fullName: playerData.fullName,
+        dateOfBirth: new Date(playerData.birthDate).toISOString(),
+        nationality: playerData.nationality,
+        position: playerData.position,
+        gender: playerData.gender,
+        teamId: parseInt(playerData.teamId),
+        agentId: agentId,
+      });
+
+      console.log('Jogador criado:', athleteResponse.data);
+      alert('Jogador criado com sucesso!');
+      setPlayerData({
+        fullName: "",
+        nationality: "",
+        gender: "",
+        birthDate: "",
+        position: "",
+        teamId: "",
+        agentName: "",
+        agentContact: "",
+      });
+    } catch (error) {
+      console.error('Erro ao criar jogador ou agente:', error);
+      alert('Erro ao criar jogador. Tente novamente.');
+    }
   };
+
   const handleBack = () => {
     window.history.back();
   };
+
   return (
     <div className="create-player-page-body">
       <div className="create-player-page-container">
@@ -56,7 +105,7 @@ const CriarJogador = () => {
         <div className="create-player-main-frame">
           <div className="create-player-left-frame">
             <div className="create-player-photo-upload">
-              <input type="file" name="photo" onChange={handleChange} />
+              <input type="file" name="photo" disabled />
               <p>Adicione uma foto</p>
             </div>
           </div>
@@ -71,37 +120,45 @@ const CriarJogador = () => {
 
           <div className="create-player-right-frame">
             <div className="create-player-info">
-              <select name="nationality" onChange={handleChange} required>
+              <select
+                name="nationality"
+                value={playerData.nationality}
+                onChange={handleChange}
+                required
+              >
                 <option value="">*Nacionalidade</option>
                 <option value="Portugal">Portugal</option>
                 <option value="Brasil">Brasil</option>
               </select>
 
-              <select name="gender" onChange={handleChange} required>
+              <select
+                name="gender"
+                value={playerData.gender}
+                onChange={handleChange}
+                required
+              >
                 <option value="">*Género</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-              </select>
-
-              <select name="category" onChange={handleChange} required>
-                <option value="">*Escalão</option>
-                <option value="Sub-18">Sub-18</option>
-                <option value="Sub-21">Sub-21</option>
+                <option value="Male">Masculino</option>
+                <option value="Female">Feminino</option>
+                <option value="Other">Outro</option>
               </select>
 
               <div className="create-player-birth">
                 <input
                   type="date"
                   name="birthDate"
+                  value={playerData.birthDate}
                   onChange={handleChange}
                   required
                 />
-                {playerData.birthDate && (
-                  <span>{calculateAge(playerData.birthDate)} anos</span>
-                )}
               </div>
 
-              <select name="position" onChange={handleChange} required>
+              <select
+                name="position"
+                value={playerData.position}
+                onChange={handleChange}
+                required
+              >
                 <option value="">*Posição</option>
                 <option value="Guarda-Redes">Guarda-redes</option>
                 <option value="Defesa">Defesa</option>
@@ -109,10 +166,19 @@ const CriarJogador = () => {
                 <option value="Avançado">Avançado</option>
               </select>
 
-              <select name="team" onChange={handleChange} required>
+              <select
+                name="teamId"
+                value={playerData.teamId}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+              >
                 <option value="">*Equipa</option>
-                <option value="Equipa A">Equipa A</option>
-                <option value="Equipa B">Equipa B</option>
+                {teams.map((team) => (
+                  <option key={team.teamId} value={team.teamId}>
+                    {team.teamName}
+                  </option>
+                ))}
               </select>
 
               <div className="create-player-agent">
@@ -123,6 +189,7 @@ const CriarJogador = () => {
                     type="text"
                     name="agentContact"
                     placeholder="Contacto"
+                    value={playerData.agentContact}
                     onChange={handleChange}
                   />
                   <input
@@ -130,6 +197,7 @@ const CriarJogador = () => {
                     type="text"
                     name="agentName"
                     placeholder="Nome"
+                    value={playerData.agentName}
                     onChange={handleChange}
                   />
                 </div>
@@ -142,8 +210,9 @@ const CriarJogador = () => {
           <input
             className="create-player-name"
             type="text"
-            name="name"
-            placeholder="nome de jogador..."
+            name="fullName"
+            placeholder="Nome do jogador..."
+            value={playerData.fullName}
             onChange={handleChange}
           />
           <button className="create-player-create-button" onClick={handleSubmit}>
