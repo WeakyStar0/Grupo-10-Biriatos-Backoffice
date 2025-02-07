@@ -25,7 +25,7 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto btn-navbar1">
                         <li className="nav-item">
-                            <a className="nav-link" href="clubes" onClick={() => navigate('/clubes')}>Clubes</a>
+                            <a className="nav-link" href="divisoes" onClick={() => navigate('/divisoes')}>Divisões</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="consultar-equipas" onClick={() => navigate('/consultar-equipas')}>Equipas</a>
