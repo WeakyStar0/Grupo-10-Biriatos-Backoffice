@@ -48,6 +48,7 @@ const NovoJogador = () => {
                         </div> 
                     </div> 
                 </div> 
+                <button className="novo-jogador-voltar-button">Voltar</button>
                 {/* Footer */} 
                 <div className="novo-jogador-footer"> 
                     <span className="player-name">Jogador 1</span> 
