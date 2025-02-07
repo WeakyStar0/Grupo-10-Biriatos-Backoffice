@@ -5,6 +5,7 @@ import '../Styles/CriarEquipas.css';
 import '../Styles/gerirtarefas.css';
 import CampoSvg from '../img/Campo.svg';
 import axios from 'axios';
+import Select from 'react-select';
 
 export const CriarEquipas = () => {
     const [selectedPlayer, setSelectedPlayer] = useState(null);
@@ -41,6 +42,17 @@ export const CriarEquipas = () => {
         fetchPlayers();
         fetchTeams();
     }, []);
+
+    // Mapeia os jogadores para o formato esperado pelo Select
+    const playerOptions = players.map(player => ({
+        value: player.athleteId,
+        label: `${player.fullName} | ${player.position} | ${new Date().getFullYear() - new Date(player.dateOfBirth).getFullYear()} anos`
+    }));
+
+    // Função para lidar com a mudança de seleção de jogador
+    const handlePlayerChange = (selectedOption) => {
+        setSelectedPlayerId(selectedOption ? selectedOption.value : '');
+    };
 
     const handleAddPlayer = () => {
         if (!selectedPlayerId || !selectedPosition) {
@@ -83,7 +95,7 @@ export const CriarEquipas = () => {
         }
     
         const newTeam = {
-            teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário
+            teamId: Math.floor(Math.random() * 1000), // Gera um ID
             teamName: teamName,
             teamType: teamType === 'Própria' ? 'Own' : 'Shadow', // Salva como "Own" ou "Shadow"
             tasks: [],
@@ -209,28 +221,15 @@ export const CriarEquipas = () => {
                         )}
                         <div className="control-group">
                             <label>Jogador:</label>
-                            <input
-                                type="text"
-                                className="form-control mb-2"
-                                placeholder="Pesquisar jogador..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
+                            <Select
+                                options={playerOptions}
+                                value={playerOptions.find(option => option.value === selectedPlayerId)}
+                                onChange={handlePlayerChange}
+                                isSearchable
+                                placeholder="Selecione um jogador..."
+                                className="react-select-container"
+                                classNamePrefix="react-select"
                             />
-                            <select
-                                className="form-select"
-                                value={selectedPlayerId}
-                                onChange={(e) => setSelectedPlayerId(e.target.value)}
-                            >
-                                <option value="">Selecione um jogador...</option>
-                                {filteredPlayers.map((player) => {
-                                    const age = new Date().getFullYear() - new Date(player.dateOfBirth).getFullYear();
-                                    return (
-                                        <option key={player.athleteId} value={player.athleteId}>
-                                            {player.fullName} | {player.position} | {age} anos
-                                        </option>
-                                    );
-                                })}
-                            </select>
                         </div>
                         <div className="control-group">
                             <label>Posição:</label>
