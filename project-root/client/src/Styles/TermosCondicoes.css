@@ -1,28 +1,75 @@
+.terms-body {
+  height: 100vh;
+  background-color: #373737;
+}
+
 .terms-container {
+  transform: translate(0%, 10%);
+  width: 70vw;
   max-width: 100vw;
   margin: auto;
   padding: 20px;
   font-family: 'Futura-std', sans-serif;
+  height: 92vh;
+  overflow-y: auto;
+  background-color: white;
 }
 
-h1,
+.terms-container {
+  background-color: white;
+  width: 70vw;
+  max-width: 100vw;
+  font-family: 'Futura-std', sans-serif;
+
+  box-shadow:
+    0 0 0 25px black,
+    /* Primeira borda preta */
+    0 0 0 40px white,
+    /* Segunda borda branca */
+    0 0 0 55px black;
+  /* Terceira borda preta */
+}
+
+.terms-container h1,
 h2 {
   color: #000000;
   font-weight: 600;
 }
 
-p,
+.terms-container p,
 ul {
   color: #333;
   line-height: 1.6;
 }
 
-ul {
+.terms-container ul {
   padding-left: 20px;
 }
 
-.terms-container {
-  height: 100vh;
-  overflow-y: auto;
+.terms-brand-logo {
+  position: absolute;
+  right: -10%;
+  top: 60%;
+  transform: translateY(-50%);
+  max-width: 50vw;
+  opacity: 0.2;
+  display: block;
+}
 
+.terms-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terms-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.terms-container::-webkit-scrollbar-thumb {
+  background: #373737;
+  border-radius: 10px;
+}
+
+.terms-container::-webkit-scrollbar-thumb:hover {
+  background: #ffc107;
 }

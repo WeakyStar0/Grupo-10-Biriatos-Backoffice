@@ -17,7 +17,6 @@ export const CriarEquipas = () => {
     const [teamType, setTeamType] = useState('Própria');
     const [teamName, setTeamName] = useState('');
     const [addedPlayers, setAddedPlayers] = useState([]);
-    const [searchTerm, setSearchTerm] = useState(''); // Estado para o termo de pesquisa
 
     useEffect(() => {
         const fetchPlayers = async () => {
@@ -43,8 +42,18 @@ export const CriarEquipas = () => {
         fetchTeams();
     }, []);
 
-    // Mapeia os jogadores para o formato esperado pelo Select
-    const playerOptions = players.map(player => ({
+    // Filtra os jogadores com base no tipo de equipa e na equipa selecionada
+    const filteredPlayers = players.filter(player => {
+        if (teamType === 'Própria') {
+            return player.teamId === 1; // Apenas jogadores do "Académico de Viseu"
+        } else if (teamType === 'Sombra') {
+            return player.teamId === parseInt(selectedTeam); // Apenas jogadores da equipa selecionada
+        }
+        return false;
+    });
+
+    // Mapeia os jogadores filtrados para o formato esperado pelo Select
+    const playerOptions = filteredPlayers.map(player => ({
         value: player.athleteId,
         label: `${player.fullName} | ${player.position} | ${new Date().getFullYear() - new Date(player.dateOfBirth).getFullYear()} anos`
     }));
@@ -95,7 +104,7 @@ export const CriarEquipas = () => {
         }
     
         const newTeam = {
-            teamId: Math.floor(Math.random() * 1000), // Gera um ID
+            teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário
             teamName: teamName,
             teamType: teamType === 'Própria' ? 'Own' : 'Shadow', // Salva como "Own" ou "Shadow"
             tasks: [],
@@ -129,6 +138,7 @@ export const CriarEquipas = () => {
         setTeamType(type);
         setTeamName('');
         setAddedPlayers([]); // Limpa os jogadores ao trocar o tipo de equipa
+        setSelectedTeam(''); // Limpa a equipa selecionada ao trocar o tipo de equipa
     };
 
     const getPositionCategory = (position) => {
@@ -152,17 +162,6 @@ export const CriarEquipas = () => {
         md: { top: '38%', leftStart: 23, step: 12 }, // Médio
         fw: { top: '20%', leftStart: 23, step: 12 }  // Avançado
     };
-
-    // Filtra jogadores com base no tipo de equipa e no termo de pesquisa
-    const filteredPlayers = players.filter(player => {
-        if (teamType === 'Própria') {
-            return player.teamId === 1; // Apenas jogadores do "Académico de Viseu"
-        } else {
-            return player.teamId === parseInt(selectedTeam);
-        }
-    }).filter(player => 
-        player.fullName.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
     return (
         <div className="home-container">
