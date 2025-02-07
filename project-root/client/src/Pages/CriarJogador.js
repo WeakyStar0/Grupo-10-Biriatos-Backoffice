@@ -110,7 +110,7 @@ const CriarJogador = () => {
     window.history.back();
   };
 
-  // Função para renderizar o SVG com base na posição selecionada
+  // Função para renderizar o SVG com base na posição 
   const renderPositionSVG = () => {
     switch (playerData.position) {
       case 'Guarda-Redes':
