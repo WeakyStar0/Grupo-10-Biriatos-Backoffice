@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/consultarequipas.css';
+import axios from 'axios';
 
 export const ConsultarEquipas = () => {
-    const teams = [
-        { name: 'Equipe A', type: 'Própria', tier: 'Sub-23', submitter: 'User 12345', date: '10/02/2025' },
-        { name: 'Equipe B', type: 'Sombra', tier: 'Sub-19', submitter: 'User 67890', date: '12/02/2025' },
-        { name: 'Equipe C', type: 'Própria', tier: 'Equipa profissional', submitter: 'User 11223', date: '15/02/2025' },
-    ];
+    const [teams, setTeams] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchTeams = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/teams');
+                setTeams(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar equipes:', error);
+            }
+        };
+
+        fetchTeams();
+    }, []);
+
+    const handleTeamClick = (team) => {
+        if (team.teamType === 'Shadow') {
+            navigate(`/equipa/${team.teamId}`, { state: { team } });
+        }
+    };
+
     return (
         <div className="page-container">
             <div className="top-bar">
@@ -27,19 +44,13 @@ export const ConsultarEquipas = () => {
                             <tr>
                                 <th>Nome da Equipa</th>
                                 <th>Tipo</th>
-                                <th>Escalão</th>
-                                <th>Submissor</th>
-                                <th>Data</th>
                             </tr>
                         </thead>
                         <tbody>
                             {teams.map((team, index) => (
-                                <tr key={index}>
-                                    <td>{team.name}</td>
-                                    <td>{team.type}</td>
-                                    <td>{team.tier}</td>
-                                    <td>{team.submitter}</td>
-                                    <td>{team.date}</td>
+                                <tr key={index} onClick={() => handleTeamClick(team)} style={{ cursor: team.teamType === 'Shadow' ? 'pointer' : 'default' }}>
+                                    <td>{team.teamName}</td>
+                                    <td>{team.teamType === 'Own' ? 'Própria' : 'Sombra'}</td>
                                 </tr>
                             ))}
                         </tbody>

@@ -75,15 +75,15 @@ export const CriarEquipas = () => {
             alert('Por favor, preencha o nome da equipe e adicione pelo menos um jogador.');
             return;
         }
-
+    
         const newTeam = {
             teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário (substitua por um ID único no backend)
             teamName: teamName,
-            teamType: teamType,
+            teamType: teamType === 'Própria' ? 'Own' : 'Shadow', // Salva como "Own" ou "Shadow"
             tasks: [],
             players: addedPlayers.map(player => player.athleteId),
         };
-
+    
         try {
             const response = await axios.post('http://localhost:3000/teams', newTeam);
             if (response.status === 201) {
