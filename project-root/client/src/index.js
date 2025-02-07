@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         element: <Clubes />,
       },
       {
-        path: 'divisoes/:clubName',
+        path: 'divisoes',
         element: <Divisoes />
       },
       {
