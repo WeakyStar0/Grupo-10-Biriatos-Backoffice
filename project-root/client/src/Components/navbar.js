@@ -10,7 +10,7 @@ const Navbar = () => {
     const location = useLocation();
 
     
-    const hiddenRoutes = ["/termoscondicoes", "/"];
+    const hiddenRoutes = ["/termoscondicoes", "/"]; //COLOQUEM AQUI AS ROUTES QUE NAO QUEREM NAVBAR A APARECER
 
     if (hiddenRoutes.includes(location.pathname)) {
         return null;
