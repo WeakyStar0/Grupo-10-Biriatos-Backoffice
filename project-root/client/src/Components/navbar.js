@@ -17,10 +17,16 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto btn-navbar1">
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Home</a>
+                            <a className="nav-link" href="clubes"onClick={() => navigate('/clubes')} >Clubes</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Link</a>
+                            <a className="nav-link" href="consultar-equipas"onClick={() => navigate('/consultar-equipas')}>Equipas</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="consultar-relatorio"onClick={() => navigate('/consultar-relatorio')}>Relatórios</a>
+                        </li> 
+                        <li className="nav-item">
+                            <a className="nav-link" href="tarefas"onClick={() => navigate('/tarefas')}>Tarefas</a>
                         </li>
                     </ul>
                 </div>
