@@ -25,6 +25,8 @@ import Listajogadores from './Pages/listajogadores.js';
 import PerfildeJogador from './Pages/perfildejogador.js';
 import  TermosCondicoes from './Pages/TermosCondicoes.js';
 import  AppSite from './Pages/AppSite.js'
+import { EquipaDetalhes } from './Pages/EquipaDetalhes.js';
+
 
 
 const api = axios.create({
@@ -82,7 +84,7 @@ const router = createBrowserRouter([
         element: <CriarEquipas />,
       },
       {
-        path: 'consultarequipas',
+        path: 'consultar-equipas',
         element: <ConsultarEquipas />,
       },
       {
@@ -112,7 +114,12 @@ const router = createBrowserRouter([
       {
         path: 'AppSite',
         element: <AppSite />
+      },
+      {
+        path:'equipa/:teamId',
+        element: <EquipaDetalhes />
       }
+      
     ],
   },
 ]);

@@ -14,7 +14,7 @@ const TermosCondicoes = () => {
           <li><strong>Entidade Responsável:</strong> Sport Club Académico de Viseu</li>
           <li><strong>NIPC:</strong> 503954306</li>
           <li><strong>Sede:</strong> Estádio Municipal do Fontelo, Avenida Anacleto Pinto, Viseu, Portugal</li>
-          <li><strong>Contacto do Encarregado da Proteção de Dados (EPD):</strong> [especificar e-mail]</li>
+          <li><strong>Contacto do Encarregado da Proteção de Dados (EPD):</strong> epd.protecaodedados@aima.gov.pt.</li>
           <br></br>
         </ul>
       </section>

@@ -35,7 +35,7 @@ export const Panel = () => {
                             <img src="/group.svg" alt="Equipas" />
                         </div>
                         <div className="menu-buttons">
-                            <button className="panel-menu-item" onClick={() => navigate('/consultarequipas')}>
+                            <button className="panel-menu-item" onClick={() => navigate('/consultar-equipas')}>
                                 Consultar equipas
                             </button>
                             <button className="panel-menu-item" onClick={() => navigate('/CriarEquipas')}>
