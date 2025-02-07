@@ -51,13 +51,15 @@ const NovoJogador = () => {
                 {/* Footer */} 
                 <div className="novo-jogador-footer"> 
                     <span className="player-name">Jogador 1</span> 
-                    <span className="novo-jogador-submitted">Submetido a 5/11/2024 por User 41398</span> 
-                    <div className="novo-jogador-buttons"> 
-                        <button className="novo-jogador-accept-button">Aceitar</button> 
-                        <button className="novo-jogador-reject-button">Recusar</button> 
-                    </div> 
-                </div> 
-            </div> 
+                    <div className="novo-jogador-actions">
+                        <span className="novo-jogador-submitted">Submetido a 5/11/2024 por User 41398</span> 
+                        <div className="novo-jogador-buttons"> 
+                            <button className="novo-jogador-accept-button">Aceitar</button> 
+                            <button className="novo-jogador-reject-button">Recusar</button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div> 
     ); 
 }; 
