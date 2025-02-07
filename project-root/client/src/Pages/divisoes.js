@@ -63,7 +63,7 @@ export default function TeamSections() {
       {/* Painel Direito */}
       <div className="teamsections-action-panel">
         <div className="teamsections-button-group">
-          <button className="teamsections-add-button">Novos jogadores</button>
+          <button className="teamsections-add-button" onClick ={() =>navigate('/novosjogadores')}>Novos jogadores</button>
           <button className="teamsections-back-button" onClick={() => navigate(-1)}>Voltar</button>
         </div>
       </div>
