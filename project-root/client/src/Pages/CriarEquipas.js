@@ -13,8 +13,8 @@ export const CriarEquipas = () => {
     const [selectedTeam, setSelectedTeam] = useState('');
     const [selectedPlayerId, setSelectedPlayerId] = useState('');
     const [selectedPosition, setSelectedPosition] = useState('');
-    const [teamType, setTeamType] = useState('Própria');
-    const [teamName, setTeamName] = useState('');
+    const [teamType, setTeamType] = useState('Própria'); // Estado para o tipo de equipa
+    const [teamName, setTeamName] = useState(''); // Estado para o nome da equipa
     const [addedPlayers, setAddedPlayers] = useState([]);
 
     useEffect(() => {
@@ -71,7 +71,7 @@ export const CriarEquipas = () => {
     };
 
     const handleSaveTeam = async () => {
-        if (!teamName || addedPlayers.length === 0) {
+        if (!teamName || (teamType === 'Sombra' && addedPlayers.length === 0)) {
             alert('Por favor, preencha o nome da equipe e adicione pelo menos um jogador.');
             return;
         }
@@ -102,6 +102,12 @@ export const CriarEquipas = () => {
         setTeamName('');
         setAddedPlayers([]);
         setSelectedPlayer(null);
+    };
+
+    const handleTeamTypeChange = (type) => {
+        setTeamType(type);
+        setTeamName('');
+        setAddedPlayers([]); // Limpa os jogadores ao trocar o tipo de equipa
     };
 
     const getPositionCategory = (position) => {
@@ -143,77 +149,91 @@ export const CriarEquipas = () => {
                             <label>Tipo de equipa:</label>
                             <button
                                 className={`btn ${teamType === 'Própria' ? 'btn-primary' : 'btn-secondary'}`}
-                                onClick={() => setTeamType('Própria')}
+                                onClick={() => handleTeamTypeChange('Própria')}
                             >
                                 Própria
                             </button>
                             <button
                                 className={`btn ${teamType === 'Sombra' ? 'btn-primary' : 'btn-secondary'}`}
-                                onClick={() => setTeamType('Sombra')}
+                                onClick={() => handleTeamTypeChange('Sombra')}
                             >
                                 Sombra
                             </button>
                         </div>
                         <div className="control-group">
-                            <label>Equipa:</label>
-                            <select
-                                className="form-select"
-                                value={selectedTeam}
-                                onChange={(e) => setSelectedTeam(e.target.value)}
-                            >
-                                <option value="">Selecione uma equipa...</option>
-                                {teams.map((team) => (
-                                    <option key={team.teamId} value={team.teamId}>
-                                        {team.teamName}
-                                    </option>
-                                ))}
-                            </select>
+                            <label>Nome da Equipa:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Nome da equipa..."
+                                value={teamName}
+                                onChange={(e) => setTeamName(e.target.value)}
+                            />
                         </div>
-                        <div className="control-group">
-                            <label>Jogador:</label>
-                            <select
-                                className="form-select"
-                                value={selectedPlayerId}
-                                onChange={(e) => setSelectedPlayerId(e.target.value)}
-                            >
-                                <option value="">Selecione um jogador...</option>
-                                {players
-                                    .filter(player => player.teamId === parseInt(selectedTeam))
-                                    .map((player) => (
-                                        <option key={player.athleteId} value={player.athleteId}>
-                                            {player.fullName}
-                                        </option>
-                                    ))}
-                            </select>
-                        </div>
-                        <div className="control-group">
-                            <label>Posição:</label>
-                            <select
-                                className="form-select"
-                                value={selectedPosition}
-                                onChange={(e) => setSelectedPosition(e.target.value)}
-                            >
-                                <option value="">Selecione uma posição...</option>
-                                <option value="Guarda-redes">Guarda-redes</option>
-                                <option value="Defesa">Defesa</option>
-                                <option value="Médio">Médio</option>
-                                <option value="Avançado">Avançado</option>
-                            </select>
-                        </div>
-                        <button className="btn btn-primary mt-2" onClick={handleAddPlayer}>
-                            Adicionar
-                        </button>
-                        {addedPlayers.length > 0 && (
-                            <div className="mt-2">
-                                <h5>Jogadores Adicionados:</h5>
-                                <ul>
-                                    {addedPlayers.map((player, index) => (
-                                        <li key={index}>
-                                            {player.fullName} - {player.position}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                        {teamType === 'Sombra' && (
+                            <>
+                                <div className="control-group">
+                                    <label>Equipa:</label>
+                                    <select
+                                        className="form-select"
+                                        value={selectedTeam}
+                                        onChange={(e) => setSelectedTeam(e.target.value)}
+                                    >
+                                        <option value="">Selecione uma equipa...</option>
+                                        {teams.map((team) => (
+                                            <option key={team.teamId} value={team.teamId}>
+                                                {team.teamName}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="control-group">
+                                    <label>Jogador:</label>
+                                    <select
+                                        className="form-select"
+                                        value={selectedPlayerId}
+                                        onChange={(e) => setSelectedPlayerId(e.target.value)}
+                                    >
+                                        <option value="">Selecione um jogador...</option>
+                                        {players
+                                            .filter(player => player.teamId === parseInt(selectedTeam))
+                                            .map((player) => (
+                                                <option key={player.athleteId} value={player.athleteId}>
+                                                    {player.fullName}
+                                                </option>
+                                            ))}
+                                    </select>
+                                </div>
+                                <div className="control-group">
+                                    <label>Posição:</label>
+                                    <select
+                                        className="form-select"
+                                        value={selectedPosition}
+                                        onChange={(e) => setSelectedPosition(e.target.value)}
+                                    >
+                                        <option value="">Selecione uma posição...</option>
+                                        <option value="Guarda-redes">Guarda-redes</option>
+                                        <option value="Defesa">Defesa</option>
+                                        <option value="Médio">Médio</option>
+                                        <option value="Avançado">Avançado</option>
+                                    </select>
+                                </div>
+                                <button className="btn btn-primary mt-2" onClick={handleAddPlayer}>
+                                    Adicionar
+                                </button>
+                                {addedPlayers.length > 0 && (
+                                    <div className="mt-2">
+                                        <h5>Jogadores Adicionados:</h5>
+                                        <ul>
+                                            {addedPlayers.map((player, index) => (
+                                                <li key={index}>
+                                                    {player.fullName} - {player.position}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                            </>
                         )}
                     </div>
                     <div className="field-preview">

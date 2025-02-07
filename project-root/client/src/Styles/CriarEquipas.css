@@ -57,6 +57,8 @@ header h1 {
     overflow: hidden;
 }
 
+
+
 .field-preview {
     position: relative;
     width: 100%;
@@ -100,6 +102,17 @@ header h1 {
 .player:hover {
     transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
     z-index: 10; /* Garante que o jogador hover fique acima dos outros */
+}
+
+.btn-primary{
+    background-color: #ffdf6b;
+    color: #000;
+}
+
+.btn-primary:hover{
+    background-color: #ffdf6bcb;
+    color: #000;
+    
 }
 
 
@@ -155,6 +168,7 @@ header h1 {
 .buttons .btn {
     padding: 10px 20px;
     font-size: 16px;
+    
 }
 
 .buttons .btn-danger {
