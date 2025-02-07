@@ -26,6 +26,7 @@ import PerfildeJogador from './Pages/perfildejogador.js';
 import  TermosCondicoes from './Pages/TermosCondicoes.js';
 import  AppSite from './Pages/AppSite.js'
 import { EquipaDetalhes } from './Pages/EquipaDetalhes.js';
+import NovoJogador from './Pages/NovoJogador.js';
 
 
 
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path:'equipa/:teamId',
         element: <EquipaDetalhes />
+      },
+      {
+        path:'NovoJogador',
+        element: <NovoJogador />
       }
       
     ],
