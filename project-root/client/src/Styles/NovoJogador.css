@@ -113,67 +113,76 @@
     height: auto; 
 } 
 
-.novo-jogador-footer { 
-    width: 100%; 
-    height: 300px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    background-color: #7D7D7D; 
-    border-top: 20px solid white; 
-} 
-
-.novo-jogador-submitted { 
-    font-size: 14px; 
-    color: white; 
-    margin-bottom: 10px; 
-    transform: translateX(30vw);
-} 
-
-.novo-jogador-buttons { 
-    display: flex; 
-    gap: 20px; 
-} 
-
-.novo-jogador-accept-button { 
-    background-color: #FFD201; 
-    color: black; 
-    border: 5px solid white; 
-    border-radius: 10px; 
-    padding: 20px 40px; 
-    cursor: pointer; 
-    font-size: 30px; 
-    font-weight: 600; 
-    transform: translateX(30vw);
-} 
-
-.novo-jogador-accept-button:hover { 
-    background-color: white; 
-    color: black; 
-} 
-
-.novo-jogador-reject-button { 
-    background-color: black; 
-    color: white; 
-    border: 5px solid black; 
-    border-radius: 10px; 
-    padding: 20px 40px; 
-    cursor: pointer; 
-    font-size: 30px; 
-    font-weight: 600; 
-    transform: translateX(30vw);
-} 
-
-.novo-jogador-reject-button:hover { 
-    background-color: white; 
-    color: black; 
+.novo-jogador-footer {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between; /* Nome à esquerda, botões à direita */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #7D7D7D;
+    border-top: 20px solid white;
+    padding: 0 50px;
 }
-
 .player-name {
     font-size: 50px;
     color: white;
     font-weight: bold;
-    transform: translateX(2.5vw);
-  
-  }
+}
+
+.novo-jogador-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha tudo ao centro */
+    justify-content: center;
+    gap: 10px; /* Espaço entre o texto e os botões */
+    position: relative; /* Permite ajustes finos */
+    right: 0; /* Mantém à direita */
+}
+
+.novo-jogador-submitted {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+.novo-jogador-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.novo-jogador-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.novo-jogador-buttons button {
+    width: 200px; /* Define uma largura fixa */
+    height: 80px; /* Define uma altura fixa */
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Especificações individuais, mantendo tamanhos iguais */
+.novo-jogador-accept-button {
+    background-color: #FFD201;
+    color: black;
+    border: 5px solid white;
+}
+
+.novo-jogador-accept-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.novo-jogador-reject-button {
+    background-color: black;
+    color: white;
+    border: 5px solid black;
+}
+
+.novo-jogador-reject-button:hover {
+    background-color: white;
+    color: black;
+}

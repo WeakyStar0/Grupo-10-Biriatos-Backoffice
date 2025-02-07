@@ -3,6 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "../Styles/CriarJogador.css";
 import axios from 'axios';
+import gkimg from '../img/vector-GK.svg';
+import avimg from '../img/vector-AV.svg';
+import dfimg from '../img/vector-DF.svg';
+import mdimg from '../img/vector-MD.svg';
 
 const CriarJogador = () => {
   const [playerData, setPlayerData] = useState({
@@ -17,23 +21,34 @@ const CriarJogador = () => {
   });
 
   const [teams, setTeams] = useState([]); // Estado para armazenar as equipas do tipo "Club"
+  const [countries, setCountries] = useState([]); // Estado para armazenar a lista de países
   const [isLoading, setIsLoading] = useState(true); // Estado para controlar o carregamento
 
-  // Busca as equipas do tipo "Club" ao carregar o componente
+  // Busca as equipas do tipo "Club" e a lista de países ao carregar o componente
   useEffect(() => {
     const fetchTeams = async () => {
       try {
         const response = await axios.get('http://localhost:3000/teams');
         const clubTeams = response.data.filter(team => team.teamType === 'Club'); // Filtra apenas as equipas do tipo "Club"
         setTeams(clubTeams);
-        setIsLoading(false);
       } catch (error) {
         console.error('Erro ao buscar equipas:', error);
-        setIsLoading(false);
+      }
+    };
+
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get('https://restcountries.com/v3.1/all');
+        const countryNames = response.data.map(country => country.name.common).sort(); // Ordena os países alfabeticamente
+        setCountries(countryNames);
+      } catch (error) {
+        console.error('Erro ao buscar países:', error);
       }
     };
 
     fetchTeams();
+    fetchCountries();
+    setIsLoading(false);
   }, []);
 
   const handleChange = (e) => {
@@ -95,6 +110,51 @@ const CriarJogador = () => {
     window.history.back();
   };
 
+  // Função para renderizar o SVG com base na posição 
+  const renderPositionSVG = () => {
+    switch (playerData.position) {
+      case 'Guarda-Redes':
+        return (
+          <img
+          src={gkimg}
+          alt="Defesa"
+          style={{ width: '120%', height: '120%' }}
+      />
+        );
+      case 'Defesa':
+        return (
+          <img
+          src={dfimg}
+          alt="Defesa"
+          style={{ width: '120%', height: '120%' }}
+      />
+        );
+      case 'Médio':
+        return (
+          <img
+          src={mdimg}
+          alt="Defesa"
+          style={{ width: '120%', height: '120%' }}
+      />
+        );
+      case 'Avançado':
+        return (
+          <img
+          src={avimg}
+          alt="Defesa"
+          style={{ width: '120%', height: '120%' }}
+      />
+        );
+      default:
+        return (
+          <svg width="00" height="00" viewBox="0 0 100 100">
+          {/* SVG padrão */}
+          <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="3" fill="gray" />
+      </svg>
+        );
+    }
+  };
+
   return (
     <div className="create-player-page-body">
       <div className="create-player-page-container">
@@ -105,8 +165,7 @@ const CriarJogador = () => {
         <div className="create-player-main-frame">
           <div className="create-player-left-frame">
             <div className="create-player-photo-upload">
-              <input type="file" name="photo" disabled />
-              <p>Adicione uma foto</p>
+              {renderPositionSVG()} 
             </div>
           </div>
 
@@ -127,8 +186,11 @@ const CriarJogador = () => {
                 required
               >
                 <option value="">*Nacionalidade</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Brasil">Brasil</option>
+                {countries.map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
               </select>
 
               <select
