@@ -2,7 +2,11 @@
     padding: 20px;
     font-family: 'Futura-std', sans-serif;
     background-color: #ffffff;
+    height: 100vh; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
 }
+
 
 .create-team-page {
     max-width: 1200px;

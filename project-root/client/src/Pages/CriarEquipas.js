@@ -13,8 +13,8 @@ export const CriarEquipas = () => {
     const [selectedTeam, setSelectedTeam] = useState('');
     const [selectedPlayerId, setSelectedPlayerId] = useState('');
     const [selectedPosition, setSelectedPosition] = useState('');
-    const [teamType, setTeamType] = useState('Própria'); // Estado para o tipo de equipa
-    const [teamName, setTeamName] = useState(''); // Estado para o nome da equipa
+    const [teamType, setTeamType] = useState('Própria'); 
+    const [teamName, setTeamName] = useState(''); 
     const [addedPlayers, setAddedPlayers] = useState([]);
 
     useEffect(() => {
@@ -77,7 +77,7 @@ export const CriarEquipas = () => {
         }
     
         const newTeam = {
-            teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário (substitua por um ID único no backend)
+            teamId: Math.floor(Math.random() * 1000), // Gera um ID 
             teamName: teamName,
             teamType: teamType === 'Própria' ? 'Own' : 'Shadow', // Salva como "Own" ou "Shadow"
             tasks: [],
@@ -87,14 +87,14 @@ export const CriarEquipas = () => {
         try {
             const response = await axios.post('http://localhost:3000/teams', newTeam);
             if (response.status === 201) {
-                alert('Equipe criada com sucesso!');
+                alert('Equipa criada com sucesso!');
                 setTeamName('');
                 setAddedPlayers([]);
                 setSelectedPlayer(null);
             }
         } catch (error) {
-            console.error('Erro ao criar equipe:', error);
-            alert('Erro ao criar equipe. Tente novamente.');
+            console.error('Erro ao criar equipa:', error);
+            alert('Erro ao criar equipa. Tente novamente.');
         }
     };
 
