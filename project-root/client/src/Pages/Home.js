@@ -23,9 +23,11 @@ export const Home = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
 
     try {
       const response = await fetch('http://localhost:3000/users/login', {
@@ -42,10 +44,10 @@ export const Home = () => {
         const { role } = data.user;
         navigate('/panel', { state: { role, fullName: data.user.fullName } });
       } else {
-        alert(data.error || 'Erro ao fazer login');
+        setErrorMessage(data.error || 'Erro ao fazer login'); // Exibe o erro no HTML
       }
     } catch (error) {
-      alert('Erro ao conectar com o servidor');
+      setErrorMessage('Erro ao conectar com o servidor');
     }
   };
 
@@ -71,6 +73,7 @@ export const Home = () => {
             <label>PASSWORD</label>
             <input type="password" className="auth-input" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
+          {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Exibe erro no HTML */}
           <p className="terms-link" onClick={() => navigate('/termoscondicoes')}>Termos e Condições</p>
           <button type="submit" className="auth-button">LOGIN</button>
         </form>
