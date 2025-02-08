@@ -19,12 +19,15 @@ textarea {
 
 .header {
     background-color: black;
-    color: yellow;
+    color: #ffc107;
     padding: 20px;
     text-align: center;
 }
 
 .form-container {
+    position: absolute;
+    top: 25%;
+    left: 40%;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -60,14 +63,14 @@ textarea {
 }
 
 .save-button {
-    background-color: yellow;
+    background-color: #ffc107;
     border: 1px solid black;
     padding: 10px 20px;
     cursor: pointer;
 }
 
 .cancel-button {
-    background-color: gray;
+    background-color: rgb(146, 146, 146);
     border: 1px solid black;
     padding: 10px 20px;
     cursor: pointer;

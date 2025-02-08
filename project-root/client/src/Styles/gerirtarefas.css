@@ -20,6 +20,24 @@
     overflow-y: auto;
 }
 
+.table-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #373737;
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #ffc107;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -70,6 +88,7 @@ table tr:nth-child(odd) {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-right: 2%;
 }
 
 .primary-button:hover {

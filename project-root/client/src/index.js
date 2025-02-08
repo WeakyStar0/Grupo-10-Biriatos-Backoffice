@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Importações das páginas
 import { Home } from './Pages/Home.js';
-import Test from './Pages/test.js';
 import { ReportPage } from './Pages/ReportPage.js';
 import Sobre from './Pages/Sobre.js';
 import { Panel } from './Pages/Panel.js';
@@ -45,10 +44,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-      },
-      {
-        path: 'test',
-        element: <Test />,
       },
       {
         path: 'about',

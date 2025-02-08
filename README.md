@@ -20,14 +20,13 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 ## Estrutura do Repositório
 
 - **/client**: Contém o código do frontend, desenvolvido com React, para a interface do utilizador.
-- **/server**: Implementação do backend, onde estão as APIs e a lógica de negócio.
-- **/database**: Scripts e documentação relacionada com o setup e estrutura da base de dados.
+- **/bakcend**: Implementação do backend, onde estão as APIs e a lógica de negócio.
 
 ---
 
 ## Tecnologias Utilizadas
 
-- **Frontend**: React, React Router, Bootstrap para estilização
+- **Frontend**: React, React Router, Bootstrap para styling
 - **Backend**: Node.js, Express, Axios para requisições HTTP
 - **Base de Dados**: MongoDB
 - **Ferramentas de Desenvolvimento**: Visual Studio Code, Git, GitHub para gestão de código e colaboração

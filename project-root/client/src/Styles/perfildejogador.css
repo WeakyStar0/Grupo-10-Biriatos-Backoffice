@@ -175,7 +175,7 @@
 
 .player-name {
   font-size: 50px;
-  color: #FFD700;
+  color: #ffc107 !important;
   font-weight: bold;
   transform: translateX(2.5vw);
 
