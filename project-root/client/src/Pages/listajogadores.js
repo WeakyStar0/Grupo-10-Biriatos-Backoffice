@@ -32,6 +32,10 @@ const JogadoresPage = () => {
     navigate(-1);  // Voltar para a página anterior
   };
 
+  const handleJogadorClick = (athleteId) => {
+    navigate(`/perfildejogador/${athleteId}`);
+  };
+
   const categorizedJogadores = jogadores.reduce((acc, jogador) => {
     const position = jogador.position;
     if (!acc[position]) {
@@ -65,6 +69,7 @@ const JogadoresPage = () => {
                   key={index}
                   className="jogadores-card"
                   style={{ backgroundColor: posicao.cor }}
+                  onClick={() => handleJogadorClick(jogador.athleteId)}
                 >
                   {jogador.fullName}
                 </div>
