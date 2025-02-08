@@ -39,6 +39,7 @@
 .options {
     display: flex;
     gap: 10px;
+    z-index: 9999999999999;
 
 }
 
@@ -138,6 +139,7 @@ textarea {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    z-index: 9999999999999999999;
 }
 
 /* Personalize as cores dos botões */

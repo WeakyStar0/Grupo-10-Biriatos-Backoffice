@@ -4,6 +4,15 @@
     min-height: calc(100vh - 150px);
 }
 
+/* Estilo para destacar a nota de adminRating */
+.admin-rating-highlight {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
 /* Container da tabela com rolagem no conteúdo */
 .table-wrapper {
     margin-top: 10px;

@@ -10,6 +10,7 @@ export const ConsultarRelatorio = () => {
     const [users, setUsers] = useState([]);
     const [athletes, setAthletes] = useState([]);
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchReports = async () => {
             try {
@@ -19,6 +20,7 @@ export const ConsultarRelatorio = () => {
                 console.error('Erro ao buscar relatórios:', error);
             }
         };
+
         const fetchUsers = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/users');
@@ -27,6 +29,7 @@ export const ConsultarRelatorio = () => {
                 console.error('Erro ao buscar usuários:', error);
             }
         };
+
         const fetchAthletes = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/athletes');
@@ -35,21 +38,26 @@ export const ConsultarRelatorio = () => {
                 console.error('Erro ao buscar atletas:', error);
             }
         };
+
         fetchReports();
         fetchUsers();
         fetchAthletes();
     }, []);
+
     const openReport = (id) => {
         navigate(`/report-page/${id}`);
     };
+
     const getUserName = (userId) => {
         const user = users.find(user => user.userId === userId);
         return user ? user.fullName : 'Desconhecido';
     };
+
     const getAthleteName = (athleteId) => {
         const athlete = athletes.find(athlete => athlete.athleteId === athleteId);
         return athlete ? athlete.fullName : 'Desconhecido';
     };
+
     return (
         <div className="page-container">
             <div className="top-bar">
@@ -67,6 +75,7 @@ export const ConsultarRelatorio = () => {
                                 <th>Jogador</th>
                                 <th>Submissor</th>
                                 <th>Texto Livre</th>
+                                <th>Avaliação Admin</th> {/* Nova coluna */}
                             </tr>
                         </thead>
                         <tbody>
@@ -79,6 +88,15 @@ export const ConsultarRelatorio = () => {
                                     <td>{getAthleteName(report.athleteId)}</td>
                                     <td>{getUserName(report.userId)}</td>
                                     <td>{report.freeText}</td>
+                                    <td>
+                                        {report.adminRating !== undefined && report.adminRating !== null ? (
+                                            <span className="admin-rating-highlight">
+                                                {report.adminRating}
+                                            </span>
+                                        ) : (
+                                            <span>Não avaliado</span>
+                                        )}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

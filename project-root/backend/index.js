@@ -337,6 +337,28 @@ app.post("/reports", async (req, res) => {
   }
 });
 
+app.put('/reports/:reportId', async (req, res) => {
+  const { reportId } = req.params; // reportId é um número inteiro
+  const { adminRating } = req.body;
+
+  try {
+      // Busca o relatório pelo campo reportId (não pelo _id)
+      const updatedReport = await Report.findOneAndUpdate(
+          { reportId: parseInt(reportId) }, // Converte reportId para número
+          { adminRating },
+          { new: true } // Retorna o documento atualizado
+      );
+
+      if (!updatedReport) {
+          return res.status(404).json({ message: 'Relatório não encontrado.' });
+      }
+
+      res.status(200).json(updatedReport);
+  } catch (error) {
+      console.error('Erro ao atualizar o relatório:', error);
+      res.status(500).json({ message: 'Erro ao atualizar o relatório.' });
+  }
+});
 
 app.get('/reports', async (req, res) => {
   try {
