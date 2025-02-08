@@ -181,23 +181,6 @@
 
 }
 
-.player-manage-button {
-  background-color: black;
-  color: white;
-  border: 5px solid white;
-  border-radius: 10px;
-  padding: 20px 40px;
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: 600;
-  transform: translateX(-5vw);
-}
-
-.player-manage-button:hover {
-  background-color: white;
-  color: black;
-}
-
 .perfil-de-jogador-voltar-button {
   position: absolute;
   top: 75px;
@@ -216,4 +199,48 @@
 .perfil-de-jogador-voltar-button:hover {
   background-color: black;
   color: white;
+}
+
+
+
+
+
+.player-manage-button {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  border: 3px solid white;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+  border-radius: 10px;
+}
+
+.player-manage-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.player-manage-button:hover::before {
+  transform: translateX(0);
+}
+
+.player-manage-button:hover {
+  border: 3px solid #ffffff;
+  color: black;
+  transition: all .3s;
 }
