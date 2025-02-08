@@ -141,8 +141,10 @@ const PerfilDeJogador = () => {
                     e.target.style.display = "none"; 
                   }}
                 />
-                <span>{jogador.nationality}</span>
+                <div className="player-position"><span>{jogador.nationality}</span></div>
+                
               </div>
+              <hr />
               <div className="player-gender">{jogador.gender === "Male" ? "M ♂" : "F ♀"}</div>
               <hr />
               <div className="player-professional">{jogador.escalao || "Equipa Profissional"}</div>
@@ -156,9 +158,6 @@ const PerfilDeJogador = () => {
             </div>
           </div>
         </div>
-        <button className="perfil-de-jogador-voltar-button" onClick={handleVoltarClick}>Voltar</button>
-
-        {/* Footer */}
         <div className="player-footer">
           <span className="player-name">{jogador.fullName}</span>
           <button className="player-manage-button">Gerir Jogador</button>
