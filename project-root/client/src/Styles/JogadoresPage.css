@@ -72,9 +72,10 @@
 
 .jogadores-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 24px;
-    margin-top: 8px;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2%;
+    margin-top: 1%;
+    width: 70%;
 }
 
 .jogadores-card {
@@ -86,11 +87,13 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
-    width: 150px;
-    height: 180px;
+    max-width: 110px;
+    min-width: 110px;
+    max-height: 150px;
+    min-height: 150px;
 }
 
 .jogadores-card:hover {
