@@ -19,6 +19,8 @@ export default function TeamSections() {
     <div className="teamsections-main-wrapper">
       {/* Painel Esquerdo */}
       <div className="teamsections-sidebar-container">
+
+
         <div className="teamsections-header-box">
           <img className="logo-top-image" src={logo} alt="Logo" />
           <div className="teamsections-title-container">
@@ -30,43 +32,50 @@ export default function TeamSections() {
         </div>
         <button className='teamsections-non-accordion-button'>Equipa Profissional</button>
         <button className='teamsections-non-accordion-button'>Sub-23</button>
-        <div className="teamsections-accordion" id="divisoesAccordion">
-          {teamsData.map((divisao, index) => (
-            <div className="teamsections-accordion-item" key={index}>
-              <h2 className="teamsections-accordion-header">
-                <button
-                  className={`teamsections-accordion-button ${index === 0 ? '' : 'collapsed'}`}
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target={`#teamsections-collapse${index}`}
-                  aria-expanded={false} // Faz com que todas as secções comecem fechadas
-                  aria-controls={`teamsections-collapse${index}`}
-                >
-                  {divisao.nome}
-                </button>
-              </h2>
-              <div id={`teamsections-collapse${index}`} className={`teamsections-accordion-collapse collapse`} data-bs-parent="#divisoesAccordion">
-                <div className="teamsections-accordion-body">
-                  <ul className="teamsections-list">
-                    {divisao.equipas.map((equipa, idx) => (
-                      <li key={idx} className="teamsections-list-item">{equipa}</li>
-                    ))}
-                  </ul>
+
+
+        <div className='teamsections-full-container'>
+          <div className="teamsections-accordion" id="divisoesAccordion">
+            {teamsData.map((divisao, index) => (
+              <div className="teamsections-accordion-item" key={index}>
+                <h2 className="teamsections-accordion-header">
+                  <button
+                    className={`teamsections-accordion-button ${index === 0 ? '' : 'collapsed'}`}
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target={`#teamsections-collapse${index}`}
+                    aria-expanded={false} // Faz com que todas as secções comecem fechadas
+                    aria-controls={`teamsections-collapse${index}`}
+                  >
+                    {divisao.nome}
+                  </button>
+                </h2>
+                <div id={`teamsections-collapse${index}`} className={`teamsections-accordion-collapse collapse`} data-bs-parent="#divisoesAccordion">
+                  <div className="teamsections-accordion-body">
+                    <ul className="teamsections-list">
+                      {divisao.equipas.map((equipa, idx) => (
+                        <li key={idx} className="teamsections-list-item">{equipa}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-      </div>
 
-      {/* Painel Direito */}
-      <div className="teamsections-action-panel">
-        <div className="teamsections-button-group">
-          <button className="teamsections-add-button" onClick ={() =>navigate('/novosjogadores')}>Novos jogadores</button>
-          <button className="teamsections-back-button" onClick={() => navigate(-1)}>Voltar</button>
+
+
         </div>
       </div>
+
+      <div className="tira-preta">
+        <button className="teamsections-add-button" onClick={() => navigate('/novosjogadores')}>Novos jogadores</button>
+        <button className="teamsections-back-button" onClick={() => navigate(-1)}>Voltar</button>
+      </div>
+      <div className="tira-branca"></div>
+      <div className="tira-preta2"></div>
+
     </div>
   );
 }
