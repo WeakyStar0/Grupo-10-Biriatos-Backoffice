@@ -41,7 +41,7 @@ export const Home = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-
+  
     try {
       const response = await fetch('http://localhost:3000/users/login', {
         method: 'POST',
@@ -50,13 +50,13 @@ export const Home = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         const { role, fullName } = data.user;
         setUser({ role, fullName }); // Define o utilizador no contexto
-        navigate('/panel');
+        navigate('/panel'); // Redireciona para o painel
       } else {
         setErrorMessage(data.error || 'Erro ao fazer login');
       }

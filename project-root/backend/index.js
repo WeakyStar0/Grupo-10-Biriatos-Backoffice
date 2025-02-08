@@ -106,18 +106,23 @@ app.post('/users/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    // Busca o usuário pelo email
     const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(400).json({ error: 'Utilizador não encontrado' });
     }
 
-    // Aqui você deve verificar a senha (não implementado neste exemplo)
-    // if (user.password !== password) {
-    //   return res.status(400).json({ error: 'Senha incorreta' });
-    // }
+    // Compara a senha fornecida com a senha criptografada no banco de dados
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    res.json({ user });
+    if (!isPasswordValid) {
+      return res.status(400).json({ error: 'Senha incorreta' });
+    }
+
+    // Retorna os dados do usuário (exceto a senha)
+    const { fullName, role } = user;
+    res.json({ user: { fullName, role } });
   } catch (error) {
     res.status(500).json({ error: 'Erro ao fazer login' });
   }
