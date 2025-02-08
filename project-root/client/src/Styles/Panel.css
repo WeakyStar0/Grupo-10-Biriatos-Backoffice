@@ -14,16 +14,13 @@
     justify-content: flex-start;
     overflow-y: visible;
     min-width: 400px;
-    /* Evita que a barra lateral fique pequena demais */
 }
 
 .logo-top {
     display: flex;
     align-items: center;
     gap: 30px;
-    /* Aumenta o espaço entre logo e texto */
     width: 100%;
-    /* Garante que ocupa todo o espaço disponível */
 }
 
 .logo-top-image {
@@ -33,11 +30,9 @@
 
 .logo-top-text {
     flex-grow: 1;
-    /* Permite que o texto ocupe mais espaço */
     text-align: left;
     position: relative;
     z-index: 5;
-    /* Garante que o texto fica à frente */
 }
 
 .logo-top h1 {
@@ -47,7 +42,6 @@
     line-height: 1;
     -webkit-text-stroke: 3px black;
     white-space: nowrap;
-    /* Evita que o texto quebre */
 }
 
 .logo-top h2 {
@@ -92,8 +86,8 @@
     height: 60px;
 }
 
-/* Botões */
 .panel-menu-item {
+    font-weight: 600;
     background-color: #2e2e2e;
     color: white;
     padding: 16px 15px;
@@ -106,10 +100,9 @@
 }
 
 .panel-menu-item:hover {
-    background-color: #777777;
+    background-color: #6c6c6c;
 }
 
-/* Barras verticais */
 .vertical-bars {
     position: absolute;
     right: 50px;
@@ -145,7 +138,6 @@
     right: -50px;
 }
 
-/* Saudação */
 .greeting {
     text-align: right;
     color: #ffffff;
@@ -160,7 +152,6 @@
     line-height: 1.2;
 }
 
-/* Conteúdo principal */
 .main-content {
     flex: 1;
     background-color: #ffffff;
@@ -168,7 +159,6 @@
     overflow-y: auto;
 }
 
-/* Botão de logout */
 .logout {
     position: absolute;
     bottom: 30px;
@@ -183,7 +173,7 @@
     font-size: 16px;
     font-weight: bold;
     border: 2px solid #e0cc13;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
     text-transform: uppercase;

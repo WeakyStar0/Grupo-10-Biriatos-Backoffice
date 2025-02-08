@@ -30,10 +30,10 @@ export default function TeamSections() {
             </div>
           </div>
         </div>
+
+
         <button className='teamsections-non-accordion-button'>Equipa Profissional</button>
         <button className='teamsections-non-accordion-button'>Sub-23</button>
-
-
         <div className='teamsections-full-container'>
           <div className="teamsections-accordion" id="divisoesAccordion">
             {teamsData.map((divisao, index) => (
@@ -62,8 +62,6 @@ export default function TeamSections() {
               </div>
             ))}
           </div>
-
-
 
 
         </div>
