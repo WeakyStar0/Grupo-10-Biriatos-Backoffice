@@ -32,9 +32,11 @@ const Navbar = () => {
                 <a className="nav-link" href="consultar-equipas" onClick={() => navigate('/consultar-equipas')}>Equipas</a>
               </li>
             )}
-            <li className="nav-item">
-              <a className="nav-link" href="consultar-relatorio" onClick={() => navigate('/consultar-relatorio')}>Relatórios</a>
-            </li>
+            {(role === 'Administrador' || role === 'Utilizador') && (
+              <li className="nav-item">
+                <a className="nav-link" href="consultar-relatorio" onClick={() => navigate('/consultar-relatorio')}>Relatórios</a>
+              </li>
+            )}
             {role === 'Administrador' && (
               <li className="nav-item">
                 <a className="nav-link" href="tarefas" onClick={() => navigate('/tarefas')}>Tarefas</a>

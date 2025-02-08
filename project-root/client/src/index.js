@@ -5,10 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+// Importações das páginas
 import { Home } from './Pages/Home.js';
-
 import Test from './Pages/test.js';
-
 import { ReportPage } from './Pages/ReportPage.js';
 import Sobre from './Pages/Sobre.js';
 import { Panel } from './Pages/Panel.js';
@@ -23,12 +23,14 @@ import Divisoes from './Pages/divisoes.js';
 import CriarUtilizador from './Pages/CriarUtilizador.js';
 import Listajogadores from './Pages/listajogadores.js';
 import PerfildeJogador from './Pages/perfildejogador.js';
-import  TermosCondicoes from './Pages/TermosCondicoes.js';
-import  AppSite from './Pages/AppSite.js'
+import TermosCondicoes from './Pages/TermosCondicoes.js';
+import AppSite from './Pages/AppSite.js';
 import { EquipaDetalhes } from './Pages/EquipaDetalhes.js';
 import NovoJogador from './Pages/NovoJogador.js';
-import {NovosJogadores} from './Pages/novosjogadores.js';
+import { NovosJogadores } from './Pages/novosjogadores.js';
 
+// Importar o UserProvider
+import { UserProvider } from './Pages/UserContext.js'; // Ajuste o caminho conforme necessário
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
@@ -54,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'create-report',
-        element: <ReportPage />
+        element: <ReportPage />,
       },
       {
         path: 'panel',
@@ -70,15 +72,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'divisoes',
-        element: <Divisoes />
+        element: <Divisoes />,
       },
       {
-        path: "listajogadores/:teamId",
-        element: <Listajogadores />
+        path: 'listajogadores/:teamId',
+        element: <Listajogadores />,
       },
       {
         path: 'perfildejogador',
-        element: <PerfildeJogador />
+        element: <PerfildeJogador />,
       },
       {
         path: 'CriarEquipas',
@@ -102,34 +104,32 @@ const router = createBrowserRouter([
       },
       {
         path: 'criarutilizador',
-        element: <CriarUtilizador />
+        element: <CriarUtilizador />,
       },
       {
         path: 'report-page/:reportId',
-        element: <ReportPage />
-      },  
+        element: <ReportPage />,
+      },
       {
         path: 'termoscondicoes',
-        element: <TermosCondicoes />
+        element: <TermosCondicoes />,
       },
       {
         path: 'AppSite',
-        element: <AppSite />
+        element: <AppSite />,
       },
       {
-        path:'equipa/:teamId',
-        element: <EquipaDetalhes />
+        path: 'equipa/:teamId',
+        element: <EquipaDetalhes />,
       },
       {
-        path:'NovoJogador',
-        element: <NovoJogador />
+        path: 'NovoJogador',
+        element: <NovoJogador />,
       },
       {
-        path:'NovosJogadores',
-        element:<NovosJogadores />
-      }
-      
-      
+        path: 'NovosJogadores',
+        element: <NovosJogadores />,
+      },
     ],
   },
 ]);
@@ -137,7 +137,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
 

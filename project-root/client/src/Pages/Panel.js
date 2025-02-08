@@ -1,12 +1,14 @@
-import React from 'react';
+// Panel.js
+import React, { useContext } from 'react';
 import '../Styles/Panel.css';
 import logo from '../img/LOGO Academico_Viseu_FC.svg';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
 export const Panel = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { role, fullName } = location.state || { role: 'Outro', fullName: 'Utilizador' }; // Default values
+  const { user } = useContext(UserContext);
+  const { role, fullName } = user || { role: 'Outro', fullName: 'Utilizador' }; // Default values
 
   const getPanelTitle = () => {
     switch (role) {
@@ -18,7 +20,7 @@ export const Panel = () => {
         return 'GUEST PANEL';
     }
   };
- 
+
   return (
     <div className="panel-container">
       <div className="panel-sidebar">
@@ -39,7 +41,7 @@ export const Panel = () => {
               <button className="panel-menu-item" onClick={() => navigate('/divisoes')}> 
                 Consultar jogadores
               </button>
-              {role === 'Administrador' && (
+              {(role === 'Administrador' || role === 'Utilizador') && (
                 <button className="panel-menu-item" onClick={() => navigate('/criarjogador')}>
                   Criar jogador
                 </button>
@@ -61,16 +63,18 @@ export const Panel = () => {
               </div>
             </div>
           )}
-          <div className="panel-menu-section">
-            <div className="menu-icon">
-              <img src="/report.svg" alt="Relatórios" />
+          {(role === 'Administrador' || role === 'Utilizador') && (
+            <div className="panel-menu-section">
+              <div className="menu-icon">
+                <img src="/report.svg" alt="Relatórios" />
+              </div>
+              <div className="menu-buttons">
+                <button className="panel-menu-item" onClick={() => navigate('/consultar-relatorio')}>
+                  Consultar Relatórios
+                </button>
+              </div>
             </div>
-            <div className="menu-buttons">
-              <button className="panel-menu-item" onClick={() => navigate('/consultar-relatorio')}>
-                Consultar Relatórios
-              </button>
-            </div>
-          </div>
+          )}
           {role === 'Administrador' && (
             <div className="panel-menu-section">
               <div className="menu-icon">
@@ -94,7 +98,7 @@ export const Panel = () => {
         <div className="vertical-bar">
           <div className="greeting">
             <h3>Olá,</h3>
-            <h3>{fullName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h3> {/*FIZ ISTO PARA COLOCAR A LETRA DO PRIMEIRO E ULTIMO NOME SEMPRE MAISCULA - Marcelo*/}
+            <h3>{fullName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h3>
           </div>
         </div>
       </div>

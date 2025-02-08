@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+// Home.js
+import React, { useState, useContext } from 'react';
 import '../Styles/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
 const HoverCard = () => {
   return (
@@ -22,19 +24,19 @@ const HoverCard = () => {
 const LoginBtn = () => {
   return (
     <div>
-      <button type="submit" class="login-btn">
+      <button type="submit" className="login-btn">
         Login
       </button>
     </div>
   );
 };
 
-
 export const Home = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { setUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -52,10 +54,11 @@ export const Home = () => {
       const data = await response.json();
 
       if (response.ok) {
-        const { role } = data.user;
-        navigate('/panel', { state: { role, fullName: data.user.fullName } });
+        const { role, fullName } = data.user;
+        setUser({ role, fullName }); // Define o utilizador no contexto
+        navigate('/panel');
       } else {
-        setErrorMessage(data.error || 'Erro ao fazer login'); // Exibe o erro no HTML
+        setErrorMessage(data.error || 'Erro ao fazer login');
       }
     } catch (error) {
       setErrorMessage('Erro ao conectar com o servidor');
@@ -85,7 +88,7 @@ export const Home = () => {
             <label>PASSWORD</label>
             <input type="password" className="auth-input" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Exibe erro no HTML */}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <p className="terms-link" onClick={() => navigate('/termoscondicoes')}>Termos e Condições</p>
           <LoginBtn />
         </form>
