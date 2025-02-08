@@ -27,7 +27,7 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 
 ## Tecnologias Utilizadas
 
-- **Frontend**: React, React Router, Bootstrap para estilização
+- **Frontend**: React, React Router, Bootstrap para styling
 - **Backend**: Node.js, Express, Axios para requisições HTTP
 - **Base de Dados**: MongoDB
 - **Ferramentas de Desenvolvimento**: Visual Studio Code, Git, GitHub para gestão de código e colaboração
