@@ -19,6 +19,17 @@ const HoverCard = () => {
   );
 };
 
+const LoginBtn = () => {
+  return (
+    <div>
+      <button type="submit" class="login-btn">
+        Login
+      </button>
+    </div>
+  );
+};
+
+
 export const Home = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -63,7 +74,8 @@ export const Home = () => {
         <h1 className="brand-title">Viriatos Scouting</h1>
       </div>
       <div className="auth-content">
-        <h2 className="auth-title">LOGIN</h2>
+        <h2 className="auth-title">Bem-vindo,</h2>
+        <h2 className="auth-title-low">inicie sessão para continuar</h2>
         <form className="auth-form" onSubmit={handleLogin}>
           <div className="auth-group">
             <label>EMAIL</label>
@@ -75,7 +87,7 @@ export const Home = () => {
           </div>
           {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Exibe erro no HTML */}
           <p className="terms-link" onClick={() => navigate('/termoscondicoes')}>Termos e Condições</p>
-          <button type="submit" className="auth-button">LOGIN</button>
+          <LoginBtn />
         </form>
       </div>
       <HoverCard />
