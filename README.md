@@ -21,7 +21,7 @@ Este projeto, **Viriatos Scouting**, é o resultado do trabalho colaborativo do 
 
 - **/client**: Contém o código do frontend, desenvolvido com React, para a interface do utilizador.
 - **/bakcend**: Implementação do backend, onde estão as APIs e a lógica de negócio.
-- 
+
 ---
 
 ## Tecnologias Utilizadas
