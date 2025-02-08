@@ -1,3 +1,5 @@
+
+
 .create-player-page-body {
   margin: 0;
   font-family: "Futura STD", Arial, sans-serif;
@@ -192,4 +194,9 @@
 .create-player-create-button:hover {
   background-color: white;
   color: black;
+}
+
+
+.input-field {
+  border-radius: 5px !important;
 }

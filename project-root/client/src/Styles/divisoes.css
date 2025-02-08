@@ -88,7 +88,7 @@
 }
 
 .teamsections-non-accordion-button:hover {
-  background-color: hsla(0, 0%, 22%, 0.185);
+  background-color: #3838382f;
 }
 
 .teamsections-accordion-button {
@@ -107,7 +107,7 @@
 }
 
 .teamsections-accordion-button:hover {
-  background-color: hsla(0, 0%, 22%, 0.185);
+  background-color: #3838382f;
 }
 
 .teamsections-accordion-button:focus {
@@ -197,9 +197,12 @@
 
 .teamsections-add-button,
 .teamsections-back-button {
+  margin: 2%;
+  height: 6%;
+}
+
+.teamsections-back-button {
   width: 80%;
-  padding: 12px;
-  font-size: 18px;
   font-weight: bold;
   border: 2px solid white;
   cursor: pointer;
@@ -210,21 +213,51 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Botão principal */
-.teamsections-add-button {
-  background: white;
-  color: black;
-}
-
-.teamsections-add-button:hover {
-  background: #ddd;
-}
-
 /* Botão secundário */
 .teamsections-back-button {
   background: black;
 }
 
 .teamsections-back-button:hover {
-  background: #222;
+  background: #ffffff20;
+}
+
+
+.teamsections-add-button {
+  border-radius: 10px;
+  width: 80%;
+  display: inline-block;
+  font-weight: 700;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.teamsections-add-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc107;
+  transform: translateX(100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.teamsections-add-button:hover::before {
+  transform: translateX(-100%);
+}
+
+.teamsections-add-button:hover {
+  border: 3px solid #ffc107;
+  color: #ffc107;
+  transition: all .3s;
 }

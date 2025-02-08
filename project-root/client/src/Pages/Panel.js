@@ -94,7 +94,7 @@ export const Panel = () => {
         <div className="vertical-bar">
           <div className="greeting">
             <h3>Olá,</h3>
-            <h3>{fullName}</h3> {/* Exibe o nome do usuário */}
+            <h3>{fullName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h3> {/*FIZ ISTO PARA COLOCAR A LETRA DO PRIMEIRO E ULTIMO NOME SEMPRE MAISCULA - Marcelo*/}
           </div>
         </div>
       </div>

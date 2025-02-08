@@ -108,7 +108,7 @@ app.post('/users/login', async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({ error: 'Usuário não encontrado' });
+      return res.status(400).json({ error: 'Utilizador não encontrado' });
     }
 
     // Aqui você deve verificar a senha (não implementado neste exemplo)
