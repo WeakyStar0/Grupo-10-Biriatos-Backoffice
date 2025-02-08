@@ -76,50 +76,51 @@ export const TaskAssign = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="form-container">
-                <div className="form-group">
-                    <label htmlFor="user-select">User</label>
-                    <select
-                        id="user-select"
-                        value={selectedUserId}
-                        onChange={(e) => setSelectedUserId(e.target.value)}
-                    >
-                        <option value="">Escolher user</option>
-                        {users.map((user) => (
-                            <option key={user.userId} value={user.userId}>
-                                {user.fullName}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="player-select">Jogador a ser avaliado</label>
-                    <select
-                        id="player-select"
-                        value={selectedAthleteId}
-                        onChange={(e) => setSelectedAthleteId(e.target.value)}
-                    >
-                        <option value="">Escolher jogador</option>
-                        {athletes.map((athlete) => (
-                            <option key={athlete.athleteId} value={athlete.athleteId}>
-                                {athlete.fullName}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <textarea
-                    placeholder="Informação da tarefa..."
-                    value={taskDescription}
-                    onChange={(e) => setTaskDescription(e.target.value)}
-                ></textarea>
-                <div className="buttons">
-                    <button className="save-button" onClick={handleSave}>
-                        GUARDAR
-                    </button>
-                    <button className="cancel-button" onClick={handleCancel}>
-                        CANCELAR
-                    </button>
+            <div className='form-form-container'>
+                <div className="form-container">
+                    <div className="form-group">
+                        <label htmlFor="user-select">User</label>
+                        <select
+                            id="user-select"
+                            value={selectedUserId}
+                            onChange={(e) => setSelectedUserId(e.target.value)}
+                        >
+                            <option value="">Escolher user</option>
+                            {users.map((user) => (
+                                <option key={user.userId} value={user.userId}>
+                                    {user.fullName}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="player-select">Jogador a ser avaliado</label>
+                        <select
+                            id="player-select"
+                            value={selectedAthleteId}
+                            onChange={(e) => setSelectedAthleteId(e.target.value)}
+                        >
+                            <option value="">Escolher jogador</option>
+                            {athletes.map((athlete) => (
+                                <option key={athlete.athleteId} value={athlete.athleteId}>
+                                    {athlete.fullName}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <textarea
+                        placeholder="Informação da tarefa..."
+                        value={taskDescription}
+                        onChange={(e) => setTaskDescription(e.target.value)}
+                    ></textarea>
+                    <div className="buttons">
+                        <button className="save-button" onClick={handleSave}>
+                            GUARDAR
+                        </button>
+                        <button className="cancelar-button" onClick={handleCancel}>
+                            CANCELAR
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

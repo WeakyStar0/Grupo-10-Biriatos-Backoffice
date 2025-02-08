@@ -1,4 +1,3 @@
-// Home.js
 import React, { useState, useContext } from 'react';
 import '../Styles/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
