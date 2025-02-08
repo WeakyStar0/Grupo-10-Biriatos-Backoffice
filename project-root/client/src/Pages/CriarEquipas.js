@@ -31,7 +31,7 @@ export const CriarEquipas = () => {
         const fetchTeams = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/teams');
-                const clubTeams = response.data.filter(team => team.teamType === 'Club'); // Filtra apenas equipas do tipo "Club"
+                const clubTeams = response.data.filter(team => team.teamType === 'Club'); 
                 setTeams(clubTeams);
             } catch (error) {
                 console.error('Erro ao buscar equipes:', error);
@@ -42,23 +42,23 @@ export const CriarEquipas = () => {
         fetchTeams();
     }, []);
 
-    // Filtra os jogadores com base no tipo de equipa e na equipa selecionada
+    
     const filteredPlayers = players.filter(player => {
         if (teamType === 'Própria') {
-            return player.teamId === 1; // Apenas jogadores do "Académico de Viseu"
+            return player.teamId === 1; 
         } else if (teamType === 'Sombra') {
-            return player.teamId === parseInt(selectedTeam); // Apenas jogadores da equipa selecionada
+            return player.teamId === parseInt(selectedTeam); 
         }
         return false;
     });
 
-    // Mapeia os jogadores filtrados para o formato esperado pelo Select
+   
     const playerOptions = filteredPlayers.map(player => ({
         value: player.athleteId,
         label: `${player.fullName} | ${player.position} | ${new Date().getFullYear() - new Date(player.dateOfBirth).getFullYear()} anos`
     }));
 
-    // Função para lidar com a mudança de seleção de jogador
+    
     const handlePlayerChange = (selectedOption) => {
         setSelectedPlayerId(selectedOption ? selectedOption.value : '');
     };
@@ -71,7 +71,7 @@ export const CriarEquipas = () => {
 
         const player = players.find(p => p.athleteId === parseInt(selectedPlayerId));
         if (player) {
-            // Verifica se o jogador já foi adicionado
+           
             if (addedPlayers.some(p => p.athleteId === player.athleteId)) {
                 alert('Este jogador já foi adicionado à equipe.');
                 return;
@@ -104,13 +104,13 @@ export const CriarEquipas = () => {
         }
 
         const newTeam = {
-            teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário
+            teamId: Math.floor(Math.random() * 1000), 
             teamName: teamName,
-            teamType: teamType === 'Própria' ? 'Own' : 'Shadow', // Salva como "Own" ou "Shadow"
+            teamType: teamType === 'Própria' ? 'Own' : 'Shadow', 
             tasks: [],
             players: addedPlayers.map(player => ({
                 athleteId: player.athleteId,
-                position: player.position, // Salva a posição do jogador na equipa
+                position: player.position, 
             })),
         };
 
@@ -137,8 +137,8 @@ export const CriarEquipas = () => {
     const handleTeamTypeChange = (type) => {
         setTeamType(type);
         setTeamName('');
-        setAddedPlayers([]); // Limpa os jogadores ao trocar o tipo de equipa
-        setSelectedTeam(''); // Limpa a equipa selecionada ao trocar o tipo de equipa
+        setAddedPlayers([]); 
+        setSelectedTeam('');
     };
 
     const getPositionCategory = (position) => {
@@ -157,10 +157,10 @@ export const CriarEquipas = () => {
     };
 
     const positions = {
-        gk: { top: '85%', leftStart: 37, step: 20 }, // Guarda-redes
-        df: { top: '55%', leftStart: 23, step: 12 }, // Defesa
-        md: { top: '38%', leftStart: 23, step: 12 }, // Médio
-        fw: { top: '20%', leftStart: 23, step: 12 }  // Avançado
+        gk: { top: '85%', leftStart: 37, step: 20 }, 
+        df: { top: '55%', leftStart: 23, step: 12 }, 
+        md: { top: '38%', leftStart: 23, step: 12 }, 
+        fw: { top: '20%', leftStart: 23, step: 12 }  
     };
 
     return (

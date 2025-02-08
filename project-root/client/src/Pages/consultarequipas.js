@@ -13,7 +13,7 @@ export const ConsultarEquipas = () => {
         const fetchTeams = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/teams');
-                // Filtra as equipas para remover as do tipo "Club"
+               
                 const filteredTeams = response.data.filter(team => team.teamType !== 'Club');
                 setTeams(filteredTeams);
             } catch (error) {

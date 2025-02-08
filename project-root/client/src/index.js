@@ -29,8 +29,8 @@ import { EquipaDetalhes } from './Pages/EquipaDetalhes.js';
 import NovoJogador from './Pages/NovoJogador.js';
 import { NovosJogadores } from './Pages/novosjogadores.js';
 
-// Importar o UserProvider
-import { UserProvider } from './Pages/UserContext.js'; // Ajuste o caminho conforme necessário
+
+import { UserProvider } from './Pages/UserContext.js'; 
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',
