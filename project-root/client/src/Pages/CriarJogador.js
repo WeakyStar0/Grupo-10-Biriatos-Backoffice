@@ -20,16 +20,16 @@ const CriarJogador = () => {
     agentContact: "",
   });
 
-  const [teams, setTeams] = useState([]); // Estado para armazenar as equipas do tipo "Club"
-  const [countries, setCountries] = useState([]); // Estado para armazenar a lista de países
-  const [isLoading, setIsLoading] = useState(true); // Estado para controlar o carregamento
+  const [teams, setTeams] = useState([]); 
+  const [countries, setCountries] = useState([]); 
+  const [isLoading, setIsLoading] = useState(true); 
 
-  // Busca as equipas do tipo "Club" e a lista de países ao carregar o componente
+  
   useEffect(() => {
     const fetchTeams = async () => {
       try {
         const response = await axios.get('http://localhost:3000/teams');
-        const clubTeams = response.data.filter(team => team.teamType === 'Club'); // Filtra apenas as equipas do tipo "Club"
+        const clubTeams = response.data.filter(team => team.teamType === 'Club'); 
         setTeams(clubTeams);
       } catch (error) {
         console.error('Erro ao buscar equipas:', error);
@@ -39,7 +39,7 @@ const CriarJogador = () => {
     const fetchCountries = async () => {
       try {
         const response = await axios.get('https://restcountries.com/v3.1/all');
-        const countryNames = response.data.map(country => country.name.common).sort(); // Ordena os países alfabeticamente
+        const countryNames = response.data.map(country => country.name.common).sort(); 
         setCountries(countryNames);
       } catch (error) {
         console.error('Erro ao buscar países:', error);
@@ -60,25 +60,25 @@ const CriarJogador = () => {
   };
 
   const handleSubmit = async () => {
-    // Validação dos campos obrigatórios
+    
     if (Object.values(playerData).some((field) => field === "" || field === null)) {
       alert("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
 
     try {
-      // Cria o agente primeiro
+      
       const agentResponse = await axios.post('http://localhost:3000/agents', {
-        agentId: Math.floor(Math.random() * 1000), // Gera um ID temporário
+        agentId: Math.floor(Math.random() * 1000), 
         agentName: playerData.agentName,
         contactInfo: playerData.agentContact,
       });
 
-      const agentId = agentResponse.data.agentId; // ID do agente criado
+      const agentId = agentResponse.data.agentId; 
 
-      // Cria o jogador
+      
       const athleteResponse = await axios.post('http://localhost:3000/athletes', {
-        athleteId: Math.floor(Math.random() * 1000), // Gera um ID temporário
+        athleteId: Math.floor(Math.random() * 1000), 
         fullName: playerData.fullName,
         dateOfBirth: new Date(playerData.birthDate).toISOString(),
         nationality: playerData.nationality,
@@ -110,7 +110,6 @@ const CriarJogador = () => {
     window.history.back();
   };
 
-  // Função para renderizar o SVG com base na posiçã
   const renderPositionSVG = () => {
     switch (playerData.position) {
       case 'Guarda-Redes':
