@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../Styles/reportStyles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -7,9 +7,11 @@ import axios from 'axios';
 
 export const ReportPage = () => {
     const { reportId } = useParams();
+    const navigate = useNavigate();
     const [report, setReport] = useState(null);
     const [athleteName, setAthleteName] = useState('');
     const [playerRating, setPlayerRating] = useState(null);
+
     useEffect(() => {
         const fetchReport = async () => {
             try {
@@ -25,13 +27,40 @@ export const ReportPage = () => {
         };
         fetchReport();
     }, [reportId]);
+
     const handlePlayerRating = (value) => {
         setPlayerRating(value);
     };
+
     const clearPlayerRating = () => {
         setPlayerRating(null);
     };
-    // Função para traduzir a altura de inglês para português
+
+    const handleAdminRating = async () => {
+        if (playerRating === null) {
+            alert('Por favor, selecione uma nota antes de aceitar.');
+            return;
+        }
+
+        // Verifica se o relatório já possui adminRating
+        if (report.adminRating !== undefined && report.adminRating !== null) {
+            alert('Este relatório já foi avaliado. Não é possível atualizar a nota.');
+            return;
+        }
+
+        try {
+            // Atualiza o relatório com a nova nota do admin
+            const updatedReport = { ...report, adminRating: playerRating };
+            await axios.put(`http://localhost:3000/reports/${reportId}`, updatedReport);
+            setReport(updatedReport);
+            alert(`Nota ${playerRating} enviada com sucesso!`);
+            navigate(-1); // Navega para a página anterior
+        } catch (error) {
+            console.error('Erro ao enviar a nota do admin:', error);
+            alert('Erro ao enviar a nota do admin.');
+        }
+    };
+
     const translateHeight = (height) => {
         switch (height) {
             case 'High':
@@ -44,7 +73,7 @@ export const ReportPage = () => {
                 return height;
         }
     };
-    // Função para traduzir a morfologia de inglês para português
+
     const translateMorphology = (morphology) => {
         switch (morphology) {
             case 'Ectomorph':
@@ -57,9 +86,11 @@ export const ReportPage = () => {
                 return morphology;
         }
     };
+
     if (!report) {
         return <div>Carregando..</div>;
     }
+
     return (
         <div className="report-page-container">
             <div className="header">
@@ -79,7 +110,7 @@ export const ReportPage = () => {
                                 ))}
                             </div>
                             <div className="player-rating-buttons">
-                                <button className="btn btn-success" onClick={() => alert(`Rating Aceito: ${playerRating}`)}>
+                                <button className="btn btn-success" onClick={handleAdminRating}>
                                     Aceitar
                                 </button>
                                 <button className="btn btn-danger" onClick={clearPlayerRating}>
