@@ -197,6 +197,17 @@ app.get('/athletes', async (req, res) => {
   }
 });
 
+app.get('/athletes/team/:teamId', async (req, res) => {
+  const teamId = parseInt(req.params.teamId);
+  try {
+    const athletes = await Athlete.find({ teamId });
+    res.status(200).json(athletes);
+  } catch (error) {
+    console.error('Erro ao buscar atletas por teamId:', error);
+    res.status(500).json({ error: 'Erro ao buscar atletas por teamId.' });
+  }
+});
+
 app.get('/athletes/:athleteId', async (req, res) => {
   const athleteId = parseInt(req.params.athleteId);
   try {

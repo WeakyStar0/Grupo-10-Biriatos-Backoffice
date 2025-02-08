@@ -73,7 +73,7 @@ const router = createBrowserRouter([
         element: <Divisoes />
       },
       {
-        path: "lista-jogadores",
+        path: "listajogadores/:teamId",
         element: <Listajogadores />
       },
       {

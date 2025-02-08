@@ -32,8 +32,8 @@ const ClubesPage = () => {
     window.history.back();
   };
 
-  const goToDivisions = (clubName) => {
-    navigate(`/divisoes/${encodeURIComponent(clubName)}`);
+  const goToPlayers = (teamId) => {
+    navigate(`/listajogadores/${teamId}`);
   };
 
   return (
@@ -52,7 +52,7 @@ const ClubesPage = () => {
             <li
               key={index}
               className="list-group-item club-item"
-              onClick={() => goToDivisions(club.teamName)}
+              onClick={() => goToPlayers(club.teamId)}
               style={{ cursor: 'pointer' }}
             >
               <span className="club-name">{club.teamName}</span>

@@ -11,8 +11,8 @@ export default function TeamSections() {
   // Objeto com as divisões e equipas
   const teamsData = [
     { nome: "Sub-19", equipas: ["Equipa A", "Equipa B"] },
-    { nome: "Formação Masculino", equipas: ["Sub - 16 A", "Sub - 16 B", "Sub - 14", "Sub - 13", "Sub - 12 A", "Sub - 12 B", "Sub - 11", "Sub - 10"] },
-    { nome: "Formação Feminino", equipas: ["Seniores", "Sub - 19", "Sub - 15", "Sub - 13"] }
+    { nome: "Formação Masculino", equipas: ["Sub-16 A", "Sub-16 B", "Sub-14", "Sub-13", "Sub-12 A", "Sub-12 B", "Sub-11", "Sub-10"] },
+    { nome: "Formação Feminino", equipas: ["Seniores", "Sub-19", "Sub-15", "Sub- 13"] }
   ];
 
   const handleDivisionClick = (escalao) => {
