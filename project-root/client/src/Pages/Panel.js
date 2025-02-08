@@ -18,7 +18,7 @@ export const Panel = () => {
         return 'GUEST PANEL';
     }
   };
-
+ 
   return (
     <div className="panel-container">
       <div className="panel-sidebar">
@@ -36,7 +36,7 @@ export const Panel = () => {
               <img src="/person.svg" alt="Jogadores" />
             </div>
             <div className="menu-buttons">
-              <button className="panel-menu-item" onClick={() => navigate('/divisoes')}>
+              <button className="panel-menu-item" onClick={() => navigate('/divisoes')}> 
                 Consultar jogadores
               </button>
               {role === 'Administrador' && (
