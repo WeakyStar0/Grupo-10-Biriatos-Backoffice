@@ -1,5 +1,3 @@
-
-
 .create-player-page-body {
   margin: 0;
   font-family: "Futura STD", Arial, sans-serif;
@@ -187,23 +185,49 @@
   border: 0px solid rgba(255, 255, 255, 0);
 }
 
+.input-field {
+  border-radius: 5px !important;
+}
+
+
+
+
 .create-player-create-button {
-  background-color: black;
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
   color: white;
-  border: 5px solid white;
-  border-radius: 10px;
-  padding: 20px 40px;
+  border: 3px solid white;
   cursor: pointer;
-  font-size: 30px;
-  font-weight: 600;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+  border-radius: 10px;
+}
+
+.create-player-create-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc107;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.create-player-create-button:hover::before {
+  transform: translateX(0);
 }
 
 .create-player-create-button:hover {
-  background-color: white;
+  border: 3px solid #ffc107;
   color: black;
-}
-
-
-.input-field {
-  border-radius: 5px !important;
+  transition: all .3s;
 }
