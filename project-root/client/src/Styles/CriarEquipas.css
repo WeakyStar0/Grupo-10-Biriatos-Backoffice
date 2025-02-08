@@ -1,3 +1,26 @@
+.react-select__menu-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.react-select__menu-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.react-select__menu-list::-webkit-scrollbar-thumb {
+    background: #373737;
+    border-radius: 10px;
+}
+
+.react-select__menu-list::-webkit-scrollbar-thumb:hover {
+    background: #ffc107;
+}
+
+.react-select__menu-list {
+    border: #797979 1px solid;
+    border-radius: 5px;
+}
+
 .home-container {
     padding: 20px;
     font-family: 'Futura-std', sans-serif;
@@ -126,7 +149,8 @@ header h1 {
     /* Exibe as informações ao passar o mouse */
     transform: translateX(0%);
     transform: translateY(50%);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);}
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
 
 .player .player-info {
     display: none;
