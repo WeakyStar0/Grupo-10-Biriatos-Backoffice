@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: <CriarJogador />,
       },
       {
-        path: 'clubes',
+        path: 'clubes/:escalao',
         element: <Clubes />,
       },
       {

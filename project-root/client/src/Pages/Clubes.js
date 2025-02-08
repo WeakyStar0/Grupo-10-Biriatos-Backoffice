@@ -1,36 +1,44 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../Styles/Clubes.css';
 
-const clubsData = [
-  { name: 'Académico de Viseu' },
-  { name: 'Sporting CP' },
-  { name: 'FC Porto' },
-  { name: 'Sporting de Braga' },
-  { name: 'Vitória de Guimarães' },
-  { name: 'Gil Vicente' },
-  { name: 'FC Arouca' },
-  { name: 'Boavista FC' },
-  { name: 'FC Famalicão' },
-];
-
 const ClubesPage = () => {
   const [search, setSearch] = useState('');
+  const [clubs, setClubs] = useState([]);
   const navigate = useNavigate();
-  const filteredClubs = clubsData.filter((club) =>
-    club.name.toLowerCase().includes(search.toLowerCase())
+  const { escalao } = useParams();
+
+  useEffect(() => {
+    const fetchClubs = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/teams/escalao/${escalao}`);
+        const data = await response.json();
+        setClubs(data);
+      } catch (error) {
+        console.error('Erro ao buscar clubes:', error);
+      }
+    };
+
+    fetchClubs();
+  }, [escalao]);
+
+  const filteredClubs = clubs.filter((club) =>
+    club.teamName.toLowerCase().includes(search.toLowerCase())
   );
+
   const handleBack = () => {
     window.history.back();
   };
+
   const goToDivisions = (clubName) => {
     navigate(`/divisoes/${encodeURIComponent(clubName)}`);
   };
+
   return (
     <div className="clubs-container">
-      <h1 className="clubs-title">Clubes</h1>
+      <h1 className="clubs-title">Clubes - {escalao}</h1>
       <input
         type="text"
         placeholder="Pesquisar clubes"
@@ -44,10 +52,10 @@ const ClubesPage = () => {
             <li
               key={index}
               className="list-group-item club-item"
-              onClick={() => goToDivisions(club.name)}
+              onClick={() => goToDivisions(club.teamName)}
               style={{ cursor: 'pointer' }}
             >
-              <span className="club-name">{club.name}</span>
+              <span className="club-name">{club.teamName}</span>
             </li>
           ))
         ) : (

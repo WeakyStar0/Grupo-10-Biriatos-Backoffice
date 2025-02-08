@@ -45,7 +45,7 @@ const athleteSchema = new mongoose.Schema({
 const teamSchema = new mongoose.Schema({
   teamId: { type: Number, required: true, unique: true },
   teamName: { type: String, required: true, unique: true },
-  Escalao: { type: String},
+  escalao: { type: String},
   teamType: { type: String, enum: ['Own', 'Shadow', 'Club'], required: true },
   tasks: { type: [Number], default: [] },
 });
@@ -238,6 +238,17 @@ app.get('/teams/:teamId/athletes', async (req, res) => {
     res.status(200).json(athletes);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao buscar atletas do time' });
+  }
+});
+
+app.get('/teams/escalao/:escalao', async (req, res) => {
+  const escalao = req.params.escalao;
+  try {
+    const teams = await Team.find({ escalao: escalao, teamType: 'Club' });
+    res.status(200).json(teams);
+  } catch (error) {
+    console.error('Erro ao buscar equipes por escalão:', error);
+    res.status(500).json({ error: 'Erro ao buscar equipes por escalão.' });
   }
 });
 

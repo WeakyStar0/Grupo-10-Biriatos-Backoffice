@@ -15,12 +15,14 @@ export default function TeamSections() {
     { nome: "Formação Feminino", equipas: ["Seniores", "Sub - 19", "Sub - 15", "Sub - 13"] }
   ];
 
+  const handleDivisionClick = (escalao) => {
+    navigate(`/clubes/${encodeURIComponent(escalao)}`);
+  };
+
   return (
     <div className="teamsections-main-wrapper">
       {/* Painel Esquerdo */}
       <div className="teamsections-sidebar-container">
-
-
         <div className="teamsections-header-box">
           <img className="logo-top-image" src={logo} alt="Logo" />
           <div className="teamsections-title-container">
@@ -30,9 +32,8 @@ export default function TeamSections() {
             </div>
           </div>
         </div>
-        <button className='teamsections-non-accordion-button'>Equipa Profissional</button>
-        <button className='teamsections-non-accordion-button'>Sub-23</button>
-
+        <button className='teamsections-non-accordion-button' onClick={() => handleDivisionClick('Equipa Profissional')}>Equipa Profissional</button>
+        <button className='teamsections-non-accordion-button' onClick={() => handleDivisionClick('Sub-23')}>Sub-23</button>
 
         <div className='teamsections-full-container'>
           <div className="teamsections-accordion" id="divisoesAccordion">
@@ -54,7 +55,7 @@ export default function TeamSections() {
                   <div className="teamsections-accordion-body">
                     <ul className="teamsections-list">
                       {divisao.equipas.map((equipa, idx) => (
-                        <li key={idx} className="teamsections-list-item">{equipa}</li>
+                        <li key={idx} className="teamsections-list-item" onClick={() => handleDivisionClick(equipa)}>{equipa}</li>
                       ))}
                     </ul>
                   </div>
@@ -62,10 +63,6 @@ export default function TeamSections() {
               </div>
             ))}
           </div>
-
-
-
-
         </div>
       </div>
 
@@ -75,7 +72,6 @@ export default function TeamSections() {
       </div>
       <div className="tira-branca"></div>
       <div className="tira-preta2"></div>
-
     </div>
   );
 }
