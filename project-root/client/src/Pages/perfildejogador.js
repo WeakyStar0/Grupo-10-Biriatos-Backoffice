@@ -14,37 +14,35 @@ const PerfilDeJogador = () => {
   useEffect(() => {
     const fetchJogador = async () => {
       try {
-        // Buscar detalhes do jogador
+        
         const response = await fetch(`http://localhost:3000/athletes/${athleteId}`);
         const data = await response.json();
         setJogador(data);
 
-        // Buscar nome da equipe e escalão
+        
         const teamResponse = await fetch(`http://localhost:3000/teams?teamId=${data.teamId}`);
         const teamData = await teamResponse.json();
-        
-        // Verificar se a equipe foi encontrada
+       
         if (teamData.length > 0) {
-          const team = teamData.find(team => team.teamId === data.teamId); // Filtra pelo teamId correto
+          const team = teamData.find(team => team.teamId === data.teamId); 
           if (team) {
             setJogador(prevState => ({
               ...prevState,
-              teamName: team.teamName, // Adiciona o nome da equipe ao estado do jogador
-              escalao: team.escalao // Adiciona o escalão da equipe ao estado do jogador
+              teamName: team.teamName, 
+              escalao: team.escalao 
             }));
           }
         }
 
-        // Buscar informações do agente
+       
         const agentResponse = await fetch(`http://localhost:3000/agents?agentId=${data.agentId}`);
         const agentData = await agentResponse.json();
-        
-        // Verificar se o agente foi encontrado
+       
         if (agentData.length > 0) {
           setJogador(prevState => ({
             ...prevState,
-            agentName: agentData[0].agentName, // Adiciona o nome do agente ao estado do jogador
-            agentContact: agentData[0].contactInfo // Adiciona o contato do agente ao estado do jogador
+            agentName: agentData[0].agentName, 
+            agentContact: agentData[0].contactInfo 
           }));
         }
       } catch (error) {
@@ -56,7 +54,7 @@ const PerfilDeJogador = () => {
   }, [athleteId]);
 
   const handleVoltarClick = () => {
-    navigate(-1);  // Voltar para a página anterior
+    navigate(-1);  
   };
 
   if (!jogador) {
@@ -107,9 +105,9 @@ const PerfilDeJogador = () => {
     }
   };
 
-  // Verifica se a nacionalidade é válida para a API de bandeiras
+  
   const getFlagUrl = (nationality) => {
-    if (!nationality) return ""; // Retorna vazio se não houver nacionalidade
+    if (!nationality) return ""; 
     const countryCode = nationality.toLowerCase();
     return `https://flagcdn.com/${countryCode}.svg`;
   };
@@ -140,7 +138,7 @@ const PerfilDeJogador = () => {
                   src={getFlagUrl(jogador.nationality)}
                   alt={`Bandeira de ${jogador.nationality}`}
                   onError={(e) => {
-                    e.target.style.display = "none"; // Oculta a imagem se não carregar
+                    e.target.style.display = "none"; 
                   }}
                 />
                 <span>{jogador.nationality}</span>
