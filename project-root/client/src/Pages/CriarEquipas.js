@@ -102,7 +102,7 @@ export const CriarEquipas = () => {
             alert('Por favor, preencha o nome da equipa e adicione pelo menos um jogador.');
             return;
         }
-    
+
         const newTeam = {
             teamId: Math.floor(Math.random() * 1000), // Gera um ID temporário
             teamName: teamName,
@@ -113,7 +113,7 @@ export const CriarEquipas = () => {
                 position: player.position, // Salva a posição do jogador na equipa
             })),
         };
-    
+
         try {
             const response = await axios.post('http://localhost:3000/teams', newTeam);
             if (response.status === 201) {
@@ -289,7 +289,19 @@ export const CriarEquipas = () => {
                                             <p><strong>Nome:</strong> {player.fullName}</p>
                                             <p><strong>Posição:</strong> {player.position}</p>
                                             <p><strong>Nacionalidade:</strong> {player.nationality}</p>
-                                            <p><strong>Data de Nascimento:</strong> {new Date(player.dateOfBirth).toLocaleDateString()}</p>
+                                            <p><strong>Idade:</strong> {
+                                                (() => {
+                                                    const birthDate = new Date(player.dateOfBirth);
+                                                    const today = new Date();
+                                                    let age = today.getFullYear() - birthDate.getFullYear();
+                                                    const hasBirthdayPassed = today.getMonth() > birthDate.getMonth() ||
+                                                        (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+                                                    if (!hasBirthdayPassed) age--;
+
+                                                    return `${age} (${birthDate.toLocaleDateString()})`;
+                                                })()
+                                            }</p>
+
                                         </div>
                                         {player.fullName}
                                     </div>
